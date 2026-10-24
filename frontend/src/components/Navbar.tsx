@@ -11,8 +11,9 @@ interface NavbarProps {
   user: UserProfile | null;
   onOpenAuth: (mode: "login" | "register") => void;
   onLogout: () => void;
-  onNavigate: (view: "landing" | "assessment" | "dashboard" | "courses") => void;
+  onNavigate: (view: "landing" | "assessment" | "dashboard" | "journey" | "daily_actions" | "courses") => void;
   currentView: string;
+  activeNavTab?: string;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -20,7 +21,8 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenAuth,
   onLogout,
   onNavigate,
-  currentView
+  currentView,
+  activeNavTab = "overview"
 }) => {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-md">
@@ -28,7 +30,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         
         {/* Brand / Logo */}
         <div 
-          onClick={() => onNavigate("landing")}
+          onClick={() => onNavigate(user ? "dashboard" : "landing")}
           className="flex items-center gap-2.5 cursor-pointer group"
         >
           <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-cyan-400 p-0.5 shadow-lg shadow-indigo-500/25 group-hover:scale-105 transition-transform duration-300">
@@ -49,52 +51,55 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
         </div>
 
-        {/* Navigation Links */}
-        <nav className="hidden md:flex items-center gap-1">
-          <button
-            onClick={() => onNavigate("landing")}
-            className={`px-3.5 py-2 text-sm font-medium rounded-lg transition-all ${
-              currentView === "landing"
-                ? "text-white bg-slate-800/80 shadow-sm"
-                : "text-slate-400 hover:text-slate-200 hover:bg-slate-900/60"
-            }`}
-          >
-            Overview
-          </button>
-          <button
-            onClick={() => onNavigate("dashboard")}
-            className={`px-3.5 py-2 text-sm font-medium rounded-lg transition-all flex items-center gap-1.5 ${
-              currentView === "dashboard"
-                ? "text-white bg-slate-800/80 shadow-sm"
-                : "text-slate-400 hover:text-slate-200 hover:bg-slate-900/60"
-            }`}
-          >
-            <Layers className="w-4 h-4 text-indigo-400" />
-            My Roadmaps
-          </button>
-          <button
-            onClick={() => onNavigate("assessment")}
-            className={`px-3.5 py-2 text-sm font-medium rounded-lg transition-all flex items-center gap-1.5 ${
-              currentView === "assessment"
-                ? "text-indigo-400 bg-indigo-950/40 border border-indigo-500/30"
-                : "text-indigo-300/90 hover:text-white hover:bg-indigo-950/30"
-            }`}
-          >
-            <Sparkles className="w-4 h-4 text-cyan-400 animate-pulse" />
-            15-Q Diagnostic
-          </button>
-          <button
-            onClick={() => onNavigate("courses")}
-            className={`px-3.5 py-2 text-sm font-medium rounded-lg transition-all flex items-center gap-1.5 ${
-              currentView === "courses"
-                ? "text-white bg-slate-800/80 shadow-sm"
-                : "text-slate-400 hover:text-slate-200 hover:bg-slate-900/60"
-            }`}
-          >
-            <BookOpen className="w-4 h-4 text-emerald-400" />
-            All Courses
-          </button>
-        </nav>
+        {/* Navigation Links - ONLY VISIBLE WHEN USER IS LOGGED IN */}
+        {user && (
+          <nav className="hidden md:flex items-center gap-1">
+            <button
+              onClick={() => onNavigate("dashboard")}
+              className={`px-3.5 py-2 text-sm font-medium rounded-lg transition-all flex items-center gap-1.5 ${
+                currentView === "dashboard" && activeNavTab === "overview"
+                  ? "text-white bg-slate-800/80 shadow-sm"
+                  : "text-slate-400 hover:text-slate-200 hover:bg-slate-900/60"
+              }`}
+            >
+              <Compass className="w-4 h-4 text-indigo-400" />
+              Overview
+            </button>
+            <button
+              onClick={() => onNavigate("journey")}
+              className={`px-3.5 py-2 text-sm font-medium rounded-lg transition-all flex items-center gap-1.5 ${
+                activeNavTab === "journey"
+                  ? "text-white bg-slate-800/80 shadow-sm"
+                  : "text-slate-400 hover:text-slate-200 hover:bg-slate-900/60"
+              }`}
+            >
+              <Layers className="w-4 h-4 text-indigo-400" />
+              My Journey
+            </button>
+            <button
+              onClick={() => onNavigate("daily_actions")}
+              className={`px-3.5 py-2 text-sm font-medium rounded-lg transition-all flex items-center gap-1.5 ${
+                activeNavTab === "daily_actions"
+                  ? "text-amber-300 bg-amber-500/10 border border-amber-500/30"
+                  : "text-slate-400 hover:text-slate-200 hover:bg-slate-900/60"
+              }`}
+            >
+              <Flame className="w-4 h-4 text-amber-400" />
+              Daily Actions
+            </button>
+            <button
+              onClick={() => onNavigate("courses")}
+              className={`px-3.5 py-2 text-sm font-medium rounded-lg transition-all flex items-center gap-1.5 ${
+                activeNavTab === "courses"
+                  ? "text-white bg-slate-800/80 shadow-sm"
+                  : "text-slate-400 hover:text-slate-200 hover:bg-slate-900/60"
+              }`}
+            >
+              <BookOpen className="w-4 h-4 text-emerald-400" />
+              All Courses
+            </button>
+          </nav>
+        )}
 
         {/* Right Action / Gamification Bar */}
         <div className="flex items-center gap-3">

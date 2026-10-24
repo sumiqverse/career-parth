@@ -33,10 +33,11 @@
 
 ### Phase 3: Database & Document Persistence Layer
 - [x] Implement MongoDB connector using `motor` with configurable `MONGODB_URI`.
-- [x] Build resilient document engine (fallback persistence if local mongod is unavailable, with 100% MongoDB query compatibility).
+- [x] Connected to live **MongoDB Atlas Cluster** (`cluster0.kyci7hd.mongodb.net`) with automatic `.env` loading and collections seeding (`roadmaps`, `topic_details`, `users`, `assessments`, `user_progress`).
+- [x] Build resilient document engine (fallback persistence if mongod is unavailable, with 100% MongoDB query compatibility).
 - [x] Define collections & indexes: `users`, `assessments`, `roadmaps`, `topic_details`, `user_progress`.
 - [x] Implement DB seed runner to populate all curated courses and roadmaps on app start.
-- [x] **Phase 3 Verification & Test**: Passed CRUD, upsert, query, and persistence tests in `test_backend.py`.
+- [x] **Phase 3 Verification & Test**: Live MongoDB Atlas ping verified (`ok: 1`), collections seeded, passed all tests in `test_backend.py`.
 
 ### Phase 4: Psychological Diagnostic & Adaptive Recommendation Engine
 - [x] Author 15 deeply relatable, non-technical psychological questions designed for freshers & beginners.

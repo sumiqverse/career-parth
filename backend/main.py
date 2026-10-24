@@ -33,18 +33,24 @@ async def lifespan(app: FastAPI):
     roadmaps_col = db.get_collection("roadmaps")
     count = await roadmaps_col.count_documents({})
     if count == 0:
-        print("[Startup] Seeding curated roadmaps...")
+        print("[Startup] Seeding curated roadmaps to MongoDB Atlas...")
         for rm in SEED_ROADMAPS:
-            await roadmaps_col.insert_one(rm)
+            doc = dict(rm)
+            if "_id" not in doc:
+                doc["_id"] = doc.get("id", f"rm_{len(doc)}")
+            await roadmaps_col.insert_one(doc)
         print(f"[Startup] Seeded {len(SEED_ROADMAPS)} roadmaps successfully.")
 
     # Seed topic details if empty
     topics_col = db.get_collection("topic_details")
     topic_count = await topics_col.count_documents({})
     if topic_count == 0:
-        print("[Startup] Seeding topic learning modules...")
+        print("[Startup] Seeding topic learning modules to MongoDB Atlas...")
         for topic_id, details in TOPIC_DETAILS.items():
-            await topics_col.insert_one(details)
+            doc = dict(details)
+            if "_id" not in doc:
+                doc["_id"] = topic_id
+            await topics_col.insert_one(doc)
         print(f"[Startup] Seeded {len(TOPIC_DETAILS)} topic modules successfully.")
 
     yield

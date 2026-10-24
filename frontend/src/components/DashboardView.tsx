@@ -117,8 +117,125 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
         )}
       </div>
 
-      {/* SECTION 1: TOP 4 RECOMMENDED ROADMAPS */}
-      <div className="mb-14">
+      {/* SECTION: DAILY ACTIONS & MASTERY QUESTS */}
+      <div id="daily-actions" className="mb-14 p-6 sm:p-7 rounded-3xl bg-slate-900/70 border border-amber-500/20 shadow-xl relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
+        
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+          <div className="flex items-center gap-3">
+            <div className="p-2.5 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-400">
+              <Flame className="w-6 h-6 animate-pulse" />
+            </div>
+            <div>
+              <div className="flex items-center gap-2">
+                <h2 className="text-xl sm:text-2xl font-extrabold text-white">Daily Actions & Quests</h2>
+                <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                  {user?.streak || 1} Day Streak
+                </span>
+              </div>
+              <p className="text-xs sm:text-sm text-slate-400">
+                Complete daily micro-habits to lock in concepts and gain maximum XP
+              </p>
+            </div>
+          </div>
+          
+          <div className="flex items-center gap-2 text-xs font-semibold text-slate-300 bg-slate-950 px-3.5 py-2 rounded-xl border border-slate-800">
+            <Trophy className="w-4 h-4 text-amber-400" />
+            <span>Today&apos;s Target: 100 XP</span>
+          </div>
+        </div>
+
+        {/* 3 Action Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {/* Action 1: Active Topic / Practice */}
+          <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 hover:border-indigo-500/50 transition-all flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">
+                  Action 01 • Topic Lab
+                </span>
+                <span className="text-xs font-bold text-indigo-300">+50 XP</span>
+              </div>
+              <h4 className="font-bold text-white text-sm mb-1">
+                {selectedRoadmap ? `${selectedRoadmap.title} Practice` : "Core Fundamentals Lab"}
+              </h4>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                Watch curated lecture segment and solve interactive hands-on code challenges.
+              </p>
+            </div>
+            <button
+              onClick={() => {
+                if (selectedRoadmap && selectedRoadmap.stages[0]?.topics[0]) {
+                  onSelectTopic(selectedRoadmap.slug, selectedRoadmap.stages[0].topics[0].id);
+                } else {
+                  onSelectTopic("full-stack-developer", "fs_topic_html_css");
+                }
+              }}
+              className="mt-4 w-full py-2 px-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold flex items-center justify-center gap-1.5 shadow-md shadow-indigo-600/20 transition-all"
+            >
+              <span>Launch Lab Session</span>
+              <Play className="w-3.5 h-3.5 fill-current" />
+            </button>
+          </div>
+
+          {/* Action 2: Diagnostic / Adaptive Reflection */}
+          <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 hover:border-cyan-500/50 transition-all flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded">
+                  Action 02 • Calibration
+                </span>
+                <span className="text-xs font-bold text-cyan-300">+35 XP</span>
+              </div>
+              <h4 className="font-bold text-white text-sm mb-1">
+                {user?.primary_domain ? "Adaptive Career Compass" : "15-Q Diagnostic Evaluation"}
+              </h4>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                {user?.primary_domain 
+                  ? "5-second micro reflections dynamically tailor your future topics to what you enjoy."
+                  : "Discover your engineering personality and uncover your top 4 career paths."}
+              </p>
+            </div>
+            <button
+              onClick={onStartAssessment}
+              className="mt-4 w-full py-2 px-3 rounded-xl bg-cyan-600/20 hover:bg-cyan-600/30 text-cyan-300 border border-cyan-500/30 text-xs font-bold flex items-center justify-center gap-1.5 transition-all"
+            >
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>{user?.primary_domain ? "Calibrate Compass" : "Take Diagnostic"}</span>
+            </button>
+          </div>
+
+          {/* Action 3: Daily Streak Shield */}
+          <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 hover:border-amber-500/50 transition-all flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded">
+                  Action 03 • Habit Loop
+                </span>
+                <span className="text-xs font-bold text-amber-300">+25 XP</span>
+              </div>
+              <h4 className="font-bold text-white text-sm mb-1">
+                Maintain Your Learning Streak
+              </h4>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                Keep the momentum going. Finish 1 exercise before midnight to safeguard your streak.
+              </p>
+            </div>
+            <div className="mt-4 flex items-center justify-between px-3 py-2 rounded-xl bg-slate-900 border border-slate-800">
+              <span className="text-xs text-slate-300 font-medium flex items-center gap-1.5">
+                <Flame className="w-4 h-4 text-amber-400 fill-amber-400" />
+                Streak Status:
+              </span>
+              <span className="text-xs font-bold text-emerald-400 flex items-center gap-1">
+                <CheckCircle2 className="w-3.5 h-3.5" /> Active ({user?.streak || 1}d)
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* SECTION 1: MY JOURNEY & TOP 4 RECOMMENDED ROADMAPS */}
+      <div id="my-journey" className="mb-14 pt-2">
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-2.5">
             <div className="p-2 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400">
@@ -126,7 +243,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
             </div>
             <div>
               <h2 className="text-xl sm:text-2xl font-bold text-white">
-                Top 4 Recommended Roadmaps
+                My Journey & Top 4 Roadmaps
               </h2>
               <p className="text-xs sm:text-sm text-slate-400">
                 Ranked by your cognitive preferences and verified industry standards

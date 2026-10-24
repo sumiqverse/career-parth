@@ -5,6 +5,10 @@ from typing import Dict, Any, List, Optional
 from datetime import datetime
 import motor.motor_asyncio
 import pymongo
+from dotenv import load_dotenv
+
+# Automatically load environment variables from backend/.env if present
+load_dotenv(os.path.join(os.path.dirname(__file__), ".env"))
 
 MONGODB_URI = os.getenv("MONGODB_URI", "mongodb://localhost:27017")
 DB_NAME = os.getenv("DB_NAME", "horizon_db")
@@ -160,13 +164,14 @@ class DatabaseManager:
         try:
             self.client = motor.motor_asyncio.AsyncIOMotorClient(
                 MONGODB_URI,
-                serverSelectionTimeoutMS=1500
+                serverSelectionTimeoutMS=6000
             )
             # Ping to test connectivity
             await self.client.admin.command('ping')
             self.db = self.client[DB_NAME]
             self.is_mongo_connected = True
-            print(f"[Database] Successfully connected to live MongoDB at {MONGODB_URI}")
+            masked_host = MONGODB_URI.split("@")[-1].split("?")[0] if "@" in MONGODB_URI else MONGODB_URI
+            print(f"[Database] Successfully connected to live MongoDB Atlas cluster ({masked_host}) / DB: {DB_NAME}")
         except Exception as e:
             self.is_mongo_connected = False
             print(f"[Database] MongoDB live server not detected ({e}). Using resilient document engine in {DATA_STORE_DIR}")

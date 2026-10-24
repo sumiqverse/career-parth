@@ -54,5 +54,33 @@
     "total_xp_earned": 35,
     "updated_at": "2026-10-24T07:30:59.597886",
     "_id": "prog_b23afe3ec1"
+  },
+  {
+    "id": "prog_13fb682110",
+    "user_id": "user_8e9d4632a66c",
+    "roadmap_slug": "full-stack-developer",
+    "completed_topics": [],
+    "completed_items": {
+      "fs_topic_html_css": [
+        "quiz"
+      ]
+    },
+    "total_xp_earned": 35,
+    "updated_at": "2026-10-24T07:41:50.533340",
+    "_id": "prog_13fb682110"
+  },
+  {
+    "id": "prog_cfa6faff96",
+    "user_id": "user_8751c424148f",
+    "roadmap_slug": "full-stack-developer",
+    "completed_topics": [],
+    "completed_items": {
+      "fs_topic_html_css": [
+        "quiz"
+      ]
+    },
+    "total_xp_earned": 35,
+    "updated_at": "2026-10-24T07:49:04.978505",
+    "_id": "prog_cfa6faff96"
   }
 ]

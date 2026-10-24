@@ -11,6 +11,7 @@ import { api, authStorage, UserProfile } from "@/lib/api";
 
 export default function Home() {
   const [currentView, setCurrentView] = useState<"landing" | "assessment" | "dashboard" | "workspace" | "courses">("landing");
+  const [activeNavTab, setActiveNavTab] = useState<string>("overview");
   const [user, setUser] = useState<UserProfile | null>(null);
   
   // Auth Modal State
@@ -73,17 +74,46 @@ export default function Home() {
       <Navbar
         user={user}
         currentView={currentView}
+        activeNavTab={activeNavTab}
         onOpenAuth={handleOpenAuth}
         onLogout={handleLogout}
         onNavigate={(view) => {
-          if (view === "courses") {
+          if (view === "journey") {
             setCurrentView("dashboard");
+            setActiveNavTab("journey");
+            setTimeout(() => {
+              const el = document.getElementById("my-journey");
+              if (el) el.scrollIntoView({ behavior: "smooth" });
+            }, 80);
+          } else if (view === "daily_actions") {
+            setCurrentView("dashboard");
+            setActiveNavTab("daily_actions");
+            setTimeout(() => {
+              const el = document.getElementById("daily-actions");
+              if (el) el.scrollIntoView({ behavior: "smooth" });
+            }, 80);
+          } else if (view === "courses") {
+            setCurrentView("dashboard");
+            setActiveNavTab("courses");
             setTimeout(() => {
               const el = document.getElementById("all-courses");
               if (el) el.scrollIntoView({ behavior: "smooth" });
-            }, 100);
+            }, 80);
+          } else if (view === "dashboard") {
+            setCurrentView("dashboard");
+            setActiveNavTab("overview");
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          } else if (view === "landing") {
+            if (user) {
+              setCurrentView("dashboard");
+              setActiveNavTab("overview");
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            } else {
+              setCurrentView("landing");
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }
           } else {
-            setCurrentView(view);
+            setCurrentView(view as any);
           }
         }}
       />
