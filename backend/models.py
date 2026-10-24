@@ -103,6 +103,13 @@ class Lecture(BaseModel):
     duration: str
     summary: str
     key_takeaways: List[str]
+    style: Optional[str] = "comprehensive_masterclass" # fastpaced_visual, architectural_deepdive, hinglish_regional
+    creator_type: Optional[str] = "global_goat" # global_goat, hinglish_goat
+    rating: Optional[float] = 4.95
+    view_count: Optional[str] = "1M+ views"
+    level: Optional[str] = "beginner"
+    is_recommended: Optional[bool] = False
+    match_reason: Optional[str] = None
 
 class QuizQuestion(BaseModel):
     id: str
@@ -160,3 +167,31 @@ class GamificationStatus(BaseModel):
     progress_percentage: float
     badges: List[Dict[str, Any]]
     completed_topics_count: int
+
+# --- Personalization & Learner Model Request/Response Models ---
+class OnboardingRequest(BaseModel):
+    career_certainty: Optional[str] = "exploring_options" # specific_goal, exploring_options, unsure
+    activity_interests: Optional[List[str]] = []
+    experience_level: Optional[str] = "beginner" # beginner, intermediate, advanced
+    weekly_hours: Optional[int] = 10
+    planning_horizon: Optional[str] = "6_months" # 1_month, 3_months, 6_months, 1_year, 4_years
+    learning_style: Optional[str] = "visual" # visual, comprehensive
+    language_preference: Optional[str] = "both" # english, hinglish, both
+    target_career: Optional[str] = None
+
+class ExplorationFeedbackRequest(BaseModel):
+    activity_id: str
+    domain: str
+    interest_rating: int # 1 to 5
+    difficulty_rating: int # 1 to 5
+    would_explore_further: bool
+    completed_independently: bool
+    confusing_part: Optional[str] = None
+
+class PlanningUpdateRequest(BaseModel):
+    planning_horizon: str # 1_month, 3_months, 6_months, 1_year, 4_years
+    weekly_hours: int
+
+class SelectVideoRequest(BaseModel):
+    video_id: str
+

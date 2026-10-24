@@ -198,5 +198,117 @@
       "cybersecurity": 0
     },
     "_id": "asmt_d232aa8202"
+  },
+  {
+    "id": "asmt_f63a30def4",
+    "user_id": "user_1b5a09005702",
+    "submitted_at": "2026-10-24T08:26:56.675973",
+    "answers": {
+      "1": "q1_d",
+      "3": "q3_c",
+      "5": "q5_c",
+      "6": "q6_c",
+      "7": "q7_c",
+      "8": "q8_c",
+      "13": "q13_c",
+      "15": "q15_c"
+    },
+    "recommended_domain": "ai_ml",
+    "archetype": "The Intelligent Pattern Hunter",
+    "idk_count": 0,
+    "is_exploring_mode": false,
+    "domain_scores": {
+      "fullstack": 0,
+      "backend": 0,
+      "ai_ml": 34,
+      "frontend": 0,
+      "devops": 0,
+      "cybersecurity": 0
+    },
+    "_id": "asmt_f63a30def4"
+  },
+  {
+    "id": "asmt_26d2938711",
+    "user_id": "user_9c2ae6721a30",
+    "submitted_at": "2026-10-24T08:27:44.272932",
+    "answers": {
+      "1": "q1_d",
+      "3": "q3_c",
+      "5": "q5_c",
+      "6": "q6_c",
+      "7": "q7_c",
+      "8": "q8_c",
+      "13": "q13_c",
+      "15": "q15_c"
+    },
+    "recommended_domain": "ai_ml",
+    "archetype": "The Intelligent Pattern Hunter",
+    "idk_count": 0,
+    "is_exploring_mode": false,
+    "domain_scores": {
+      "fullstack": 0,
+      "backend": 0,
+      "ai_ml": 34,
+      "frontend": 4,
+      "devops": 0,
+      "cybersecurity": 0
+    },
+    "_id": "asmt_26d2938711"
+  },
+  {
+    "id": "asmt_010b48d382",
+    "user_id": "user_6b9a88ff1be8",
+    "submitted_at": "2026-10-24T08:33:52.382937",
+    "answers": {
+      "1": "q1_d",
+      "3": "q3_c",
+      "5": "q5_c",
+      "6": "q6_c",
+      "7": "q7_c",
+      "8": "q8_c",
+      "13": "q13_c",
+      "15": "q15_c"
+    },
+    "recommended_domain": "ai_ml",
+    "archetype": "The Intelligent Pattern Hunter",
+    "idk_count": 0,
+    "is_exploring_mode": false,
+    "domain_scores": {
+      "fullstack": 0,
+      "backend": 0,
+      "ai_ml": 34,
+      "frontend": 4,
+      "devops": 0,
+      "cybersecurity": 0
+    },
+    "_id": "asmt_010b48d382"
+  },
+  {
+    "id": "asmt_1a73aac9db",
+    "user_id": "user_55014309dd85",
+    "submitted_at": "2026-10-24T12:02:43.989556",
+    "answers": {
+      "1": "q1_d",
+      "3": "q3_c",
+      "5": "q5_c",
+      "6": "q6_c",
+      "7": "q7_c",
+      "8": "q8_c",
+      "13": "q13_c",
+      "15": "q15_c"
+    },
+    "recommended_domain": "ai_ml",
+    "archetype": "The Intelligent Pattern Hunter",
+    "idk_count": 0,
+    "is_exploring_mode": false,
+    "domain_scores": {
+      "fullstack": 0,
+      "backend": 0,
+      "ai_ml": 34,
+      "frontend": 4,
+      "devops": 0,
+      "cybersecurity": 0
+    },
+    "_id": "asmt_1a73aac9db"
   }
 ]

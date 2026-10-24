@@ -71,7 +71,19 @@ export const AssessmentWizard: React.FC<AssessmentWizardProps> = ({
     try {
       const res = await api.submitAssessment(answers);
       setResult(res);
+      // Automatically sync with persistent learner profile
+      try {
+        await api.submitPersonalizedOnboarding({
+          target_career: res.recommended_domain,
+          experience_level: "beginner",
+          planning_horizon: "6_months",
+          weekly_hours: 10
+        });
+      } catch (err) {
+        console.warn("Could not sync personalization profile:", err);
+      }
       confetti({
+
         particleCount: 80,
         spread: 70,
         origin: { y: 0.6 }

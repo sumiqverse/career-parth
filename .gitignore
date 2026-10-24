@@ -1,24 +1,125 @@
-# Environment variables
+# ==============================================================================
+# Environment Variables & Secrets
+# ==============================================================================
 .env
-.env.local
+.env.*
 *.env
+*.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+backend/.env
+frontend/.env.local
+frontend/.env*.local
+!*.env.example
 
-# Python
+# ==============================================================================
+# Python & Virtual Environments
+# ==============================================================================
+backend/venv/
 venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+*/venv/
+*/.venv/
+
+# Python Bytecode, Caches & Intermediates
 __pycache__/
+**/__pycache__/
 *.py[cod]
 *$py.class
-backend/venv/
-backend/__pycache__/
+*.so
+.Python
 
-# Node
+# Distribution / Packaging / Eggs
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Unit tests / Coverage / Linters
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.nox/
+
+# ==============================================================================
+# Node.js / Next.js / Frontend
+# ==============================================================================
 node_modules/
 frontend/node_modules/
-frontend/.next/
-frontend/out/
+**/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# OS / IDE
+# Next.js Build Outputs
+.next/
+frontend/.next/
+**/.next/
+out/
+frontend/out/
+**/out/
+frontend/build/
+.vercel/
+frontend/.vercel/
+
+# TypeScript Build Info
+*.tsbuildinfo
+next-env.d.ts
+
+# ==============================================================================
+# Operating System & Editor Artifacts
+# ==============================================================================
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
+[Dd]esktop.ini
+
+# IDE & Editor caches
 .vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 .idea/
+*.swp
+*.swo
+*~
+*.sublime-workspace
+*.sublime-project
+
+# ==============================================================================
+# Temporary Files, Logs & Scraper Dumps
+# ==============================================================================
+*.log
+valid_roadmaps.json
+parsed_roadmaps.json
+scratch/
+tmp/
+temp/

@@ -82,5 +82,47 @@
     "total_xp_earned": 35,
     "updated_at": "2026-10-24T07:49:04.978505",
     "_id": "prog_cfa6faff96"
+  },
+  {
+    "id": "prog_26c760bdbc",
+    "user_id": "user_9c2ae6721a30",
+    "roadmap_slug": "frontend",
+    "completed_topics": [],
+    "completed_items": {
+      "frontend_VlNNwIEDWqQXtqkHWJYzC": [
+        "quiz"
+      ]
+    },
+    "total_xp_earned": 35,
+    "updated_at": "2026-10-24T08:27:44.345025",
+    "_id": "prog_26c760bdbc"
+  },
+  {
+    "id": "prog_36b402ab61",
+    "user_id": "user_6b9a88ff1be8",
+    "roadmap_slug": "frontend",
+    "completed_topics": [],
+    "completed_items": {
+      "frontend_VlNNwIEDWqQXtqkHWJYzC": [
+        "quiz"
+      ]
+    },
+    "total_xp_earned": 35,
+    "updated_at": "2026-10-24T08:33:52.452686",
+    "_id": "prog_36b402ab61"
+  },
+  {
+    "id": "prog_164e34b3c3",
+    "user_id": "user_55014309dd85",
+    "roadmap_slug": "frontend",
+    "completed_topics": [],
+    "completed_items": {
+      "frontend_VlNNwIEDWqQXtqkHWJYzC": [
+        "quiz"
+      ]
+    },
+    "total_xp_earned": 35,
+    "updated_at": "2026-10-24T12:02:44.439347",
+    "_id": "prog_164e34b3c3"
   }
 ]

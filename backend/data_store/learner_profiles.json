@@ -1,0 +1,2702 @@
+[
+  {
+    "id": "lp_user_f0deb2311cfc",
+    "user_id": "user_f0deb2311cfc",
+    "email": "test_6723@horizon.dev",
+    "full_name": "Antigravity Tester",
+    "created_at": "2026-10-24T07:21:09.127015",
+    "updated_at": "2026-10-24T07:21:09.128015",
+    "onboarding": {
+      "career_certainty": "exploring_options",
+      "activity_interests": [
+        "building_websites",
+        "problem_solving"
+      ],
+      "experience_level": "beginner",
+      "weekly_hours": 10,
+      "planning_horizon": "6_months",
+      "learning_style": "visual",
+      "language_preference": "both",
+      "notes": "Initialized default profile"
+    },
+    "career_goal": {
+      "primary_domain": "fullstack",
+      "alternative_domains": [
+        "backend",
+        "frontend"
+      ],
+      "confidence": "moderate",
+      "match_reasons": [
+        "Balanced interest in both visual client UI and server architectures"
+      ]
+    },
+    "skill_states": {
+      "skill_html_css": {
+        "skill_id": "skill_html_css",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:21:09.127015"
+      },
+      "skill_javascript_core": {
+        "skill_id": "skill_javascript_core",
+        "state": "developing",
+        "confidence": 0.25,
+        "attempts": 1,
+        "last_evidence": {
+          "type": "quiz",
+          "success": true,
+          "score_pct": 100.0,
+          "timestamp": "2026-10-24T07:21:09.128015",
+          "reason": "Successfully passed conceptual validation quiz"
+        },
+        "updated_at": "2026-10-24T07:21:09.128015"
+      },
+      "skill_async_js": {
+        "skill_id": "skill_async_js",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:21:09.127015"
+      },
+      "skill_react_architecture": {
+        "skill_id": "skill_react_architecture",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:21:09.127015"
+      },
+      "skill_nextjs_fullstack": {
+        "skill_id": "skill_nextjs_fullstack",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:21:09.127015"
+      },
+      "skill_tailwind_design": {
+        "skill_id": "skill_tailwind_design",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:21:09.127015"
+      },
+      "skill_tanstack_query": {
+        "skill_id": "skill_tanstack_query",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:21:09.127015"
+      },
+      "skill_http_networking": {
+        "skill_id": "skill_http_networking",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:21:09.127015"
+      },
+      "skill_python_core": {
+        "skill_id": "skill_python_core",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:21:09.127015"
+      },
+      "skill_fastapi_rest": {
+        "skill_id": "skill_fastapi_rest",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:21:09.127015"
+      },
+      "skill_auth_security": {
+        "skill_id": "skill_auth_security",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:21:09.127015"
+      },
+      "skill_sql_databases": {
+        "skill_id": "skill_sql_databases",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:21:09.127015"
+      },
+      "skill_nosql_mongodb": {
+        "skill_id": "skill_nosql_mongodb",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:21:09.127015"
+      },
+      "skill_redis_caching": {
+        "skill_id": "skill_redis_caching",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:21:09.127015"
+      },
+      "skill_message_queues": {
+        "skill_id": "skill_message_queues",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:21:09.127015"
+      },
+      "skill_docker_containers": {
+        "skill_id": "skill_docker_containers",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:21:09.127015"
+      },
+      "skill_kubernetes_orchestration": {
+        "skill_id": "skill_kubernetes_orchestration",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:21:09.127015"
+      },
+      "skill_numpy_pandas": {
+        "skill_id": "skill_numpy_pandas",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:21:09.127015"
+      },
+      "skill_classical_ml": {
+        "skill_id": "skill_classical_ml",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:21:09.127015"
+      },
+      "skill_pytorch_deep_learning": {
+        "skill_id": "skill_pytorch_deep_learning",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:21:09.127015"
+      },
+      "skill_rag_vector_db": {
+        "skill_id": "skill_rag_vector_db",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:21:09.127015"
+      },
+      "skill_owasp_security": {
+        "skill_id": "skill_owasp_security",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:21:09.127015"
+      }
+    },
+    "exploration_history": [],
+    "missions": [],
+    "active_mission": null,
+    "milestone_history": [
+      {
+        "title": "Onboarding & Career Calibration",
+        "status": "completed",
+        "timestamp": "2026-10-24T07:21:09.127015",
+        "reason": "Profile initiated"
+      }
+    ],
+    "_id": "lp_user_f0deb2311cfc"
+  },
+  {
+    "id": "lp_user_397c7fea034b",
+    "user_id": "user_397c7fea034b",
+    "email": "personalization_tester@horizon.dev",
+    "full_name": "Personalization Tester",
+    "created_at": "2026-10-24T07:21:41.737747",
+    "updated_at": "2026-10-24T07:21:41.815384",
+    "onboarding": {
+      "career_certainty": "exploring_options",
+      "activity_interests": [
+        "building_websites",
+        "analyzing_data"
+      ],
+      "experience_level": "beginner",
+      "weekly_hours": 15,
+      "planning_horizon": "3_months",
+      "learning_style": "visual",
+      "language_preference": "both",
+      "target_career": "fullstack"
+    },
+    "career_goal": {
+      "primary_domain": "fullstack",
+      "alternative_domains": [
+        "backend",
+        "frontend"
+      ],
+      "confidence": "moderate",
+      "match_reasons": [
+        "Balanced interest in both visual client UI and server architectures"
+      ]
+    },
+    "skill_states": {
+      "skill_html_css": {
+        "skill_id": "skill_html_css",
+        "state": "provisionally_mastered",
+        "confidence": 0.35,
+        "attempts": 1,
+        "last_evidence": {
+          "type": "lab",
+          "success": true,
+          "score_pct": 100.0,
+          "timestamp": "2026-10-24T07:21:41.751747",
+          "reason": "Demonstrated independent execution in practical coding lab"
+        },
+        "updated_at": "2026-10-24T07:21:41.751747"
+      },
+      "skill_javascript_core": {
+        "skill_id": "skill_javascript_core",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:21:41.737747"
+      },
+      "skill_async_js": {
+        "skill_id": "skill_async_js",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:21:41.737747"
+      },
+      "skill_react_architecture": {
+        "skill_id": "skill_react_architecture",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:21:41.737747"
+      },
+      "skill_nextjs_fullstack": {
+        "skill_id": "skill_nextjs_fullstack",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:21:41.737747"
+      },
+      "skill_tailwind_design": {
+        "skill_id": "skill_tailwind_design",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:21:41.737747"
+      },
+      "skill_tanstack_query": {
+        "skill_id": "skill_tanstack_query",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:21:41.737747"
+      },
+      "skill_http_networking": {
+        "skill_id": "skill_http_networking",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:21:41.737747"
+      },
+      "skill_python_core": {
+        "skill_id": "skill_python_core",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:21:41.737747"
+      },
+      "skill_fastapi_rest": {
+        "skill_id": "skill_fastapi_rest",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:21:41.737747"
+      },
+      "skill_auth_security": {
+        "skill_id": "skill_auth_security",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:21:41.737747"
+      },
+      "skill_sql_databases": {
+        "skill_id": "skill_sql_databases",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:21:41.737747"
+      },
+      "skill_nosql_mongodb": {
+        "skill_id": "skill_nosql_mongodb",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:21:41.737747"
+      },
+      "skill_redis_caching": {
+        "skill_id": "skill_redis_caching",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:21:41.737747"
+      },
+      "skill_message_queues": {
+        "skill_id": "skill_message_queues",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:21:41.737747"
+      },
+      "skill_docker_containers": {
+        "skill_id": "skill_docker_containers",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:21:41.737747"
+      },
+      "skill_kubernetes_orchestration": {
+        "skill_id": "skill_kubernetes_orchestration",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:21:41.737747"
+      },
+      "skill_numpy_pandas": {
+        "skill_id": "skill_numpy_pandas",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:21:41.737747"
+      },
+      "skill_classical_ml": {
+        "skill_id": "skill_classical_ml",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:21:41.737747"
+      },
+      "skill_pytorch_deep_learning": {
+        "skill_id": "skill_pytorch_deep_learning",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:21:41.737747"
+      },
+      "skill_rag_vector_db": {
+        "skill_id": "skill_rag_vector_db",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:21:41.737747"
+      },
+      "skill_owasp_security": {
+        "skill_id": "skill_owasp_security",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:21:41.737747"
+      }
+    },
+    "exploration_history": [
+      {
+        "activity_id": "exp_frontend_interactive",
+        "domain": "frontend",
+        "interest_rating": 5,
+        "difficulty_rating": 2,
+        "would_explore_further": true,
+        "completed_independently": true,
+        "confusing_part": "None, counter glow was super rewarding!"
+      }
+    ],
+    "missions": [],
+    "active_mission": null,
+    "milestone_history": [
+      {
+        "title": "Onboarding & Career Calibration",
+        "status": "completed",
+        "timestamp": "2026-10-24T07:21:41.737747",
+        "reason": "Profile initiated"
+      }
+    ],
+    "_id": "lp_user_397c7fea034b",
+    "career_goal.primary_domain": "frontend",
+    "career_goal.confidence": "moderate",
+    "milestones": [
+      {
+        "id": "ms_foundations",
+        "title": "Phase 1: Architecture & Core Languages",
+        "target_hours": 30,
+        "focus_skills": [
+          "skill_html_css",
+          "skill_javascript_core",
+          "skill_python_core"
+        ],
+        "target_outcome": "Master fundamental syntax, control flow, and computational execution models."
+      },
+      {
+        "id": "ms_systems",
+        "title": "Phase 2: Asynchronous Systems & Frameworks",
+        "target_hours": 45,
+        "focus_skills": [
+          "skill_async_js",
+          "skill_react_architecture",
+          "skill_fastapi_rest"
+        ],
+        "target_outcome": "Build non-blocking reactive user interfaces connected to validated RESTful APIs."
+      },
+      {
+        "id": "ms_scale",
+        "title": "Phase 3: Persistence, Infrastructure & Security",
+        "target_hours": 50,
+        "focus_skills": [
+          "skill_sql_databases",
+          "skill_docker_containers",
+          "skill_auth_security"
+        ],
+        "target_outcome": "Deploy containerized systems with reliable database transactions and secure authentication."
+      },
+      {
+        "id": "ms_advanced",
+        "title": "Phase 4: Distributed Systems, AI Agents & Microservices",
+        "target_hours": 312,
+        "focus_skills": [
+          "skill_message_queues",
+          "skill_rag_vector_db",
+          "skill_kubernetes_orchestration"
+        ],
+        "target_outcome": "Architect high-concurrency event-driven platforms and intelligent retrieval systems."
+      }
+    ],
+    "completed_missions": [
+      {
+        "mission_id": "msn_19f4f44b",
+        "skill_id": "skill_html_css",
+        "timestamp": "2026-10-24T07:21:41.751747"
+      }
+    ],
+    "preferred_videos": {
+      "fs_topic_html_css": "vid_chai_html_css"
+    },
+    "onboarding.planning_horizon": "1_year",
+    "onboarding.weekly_hours": 20
+  },
+  {
+    "id": "lp_user_bc7564655f6f",
+    "user_id": "user_bc7564655f6f",
+    "email": "test_7160@horizon.dev",
+    "full_name": "Antigravity Tester",
+    "created_at": "2026-10-24T07:28:26.567312",
+    "updated_at": "2026-10-24T07:28:26.569314",
+    "onboarding": {
+      "career_certainty": "exploring_options",
+      "activity_interests": [
+        "building_websites",
+        "problem_solving"
+      ],
+      "experience_level": "beginner",
+      "weekly_hours": 10,
+      "planning_horizon": "6_months",
+      "learning_style": "visual",
+      "language_preference": "both",
+      "notes": "Initialized default profile"
+    },
+    "career_goal": {
+      "primary_domain": "fullstack",
+      "alternative_domains": [
+        "backend",
+        "frontend"
+      ],
+      "confidence": "moderate",
+      "match_reasons": [
+        "Balanced interest in both visual client UI and server architectures"
+      ]
+    },
+    "skill_states": {
+      "skill_html_css": {
+        "skill_id": "skill_html_css",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:28:26.567312"
+      },
+      "skill_javascript_core": {
+        "skill_id": "skill_javascript_core",
+        "state": "developing",
+        "confidence": 0.25,
+        "attempts": 1,
+        "last_evidence": {
+          "type": "quiz",
+          "success": true,
+          "score_pct": 100.0,
+          "timestamp": "2026-10-24T07:28:26.569314",
+          "reason": "Successfully passed conceptual validation quiz"
+        },
+        "updated_at": "2026-10-24T07:28:26.569314"
+      },
+      "skill_async_js": {
+        "skill_id": "skill_async_js",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:28:26.567312"
+      },
+      "skill_react_architecture": {
+        "skill_id": "skill_react_architecture",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:28:26.567312"
+      },
+      "skill_nextjs_fullstack": {
+        "skill_id": "skill_nextjs_fullstack",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:28:26.567312"
+      },
+      "skill_tailwind_design": {
+        "skill_id": "skill_tailwind_design",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:28:26.567312"
+      },
+      "skill_tanstack_query": {
+        "skill_id": "skill_tanstack_query",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:28:26.567312"
+      },
+      "skill_http_networking": {
+        "skill_id": "skill_http_networking",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:28:26.567312"
+      },
+      "skill_python_core": {
+        "skill_id": "skill_python_core",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:28:26.567312"
+      },
+      "skill_fastapi_rest": {
+        "skill_id": "skill_fastapi_rest",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:28:26.567312"
+      },
+      "skill_auth_security": {
+        "skill_id": "skill_auth_security",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:28:26.567312"
+      },
+      "skill_sql_databases": {
+        "skill_id": "skill_sql_databases",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:28:26.567312"
+      },
+      "skill_nosql_mongodb": {
+        "skill_id": "skill_nosql_mongodb",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:28:26.567312"
+      },
+      "skill_redis_caching": {
+        "skill_id": "skill_redis_caching",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:28:26.567312"
+      },
+      "skill_message_queues": {
+        "skill_id": "skill_message_queues",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:28:26.567312"
+      },
+      "skill_docker_containers": {
+        "skill_id": "skill_docker_containers",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:28:26.567312"
+      },
+      "skill_kubernetes_orchestration": {
+        "skill_id": "skill_kubernetes_orchestration",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:28:26.567312"
+      },
+      "skill_numpy_pandas": {
+        "skill_id": "skill_numpy_pandas",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:28:26.567312"
+      },
+      "skill_classical_ml": {
+        "skill_id": "skill_classical_ml",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:28:26.567312"
+      },
+      "skill_pytorch_deep_learning": {
+        "skill_id": "skill_pytorch_deep_learning",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:28:26.567312"
+      },
+      "skill_rag_vector_db": {
+        "skill_id": "skill_rag_vector_db",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:28:26.567312"
+      },
+      "skill_owasp_security": {
+        "skill_id": "skill_owasp_security",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:28:26.567312"
+      }
+    },
+    "exploration_history": [],
+    "missions": [],
+    "active_mission": null,
+    "milestone_history": [
+      {
+        "title": "Onboarding & Career Calibration",
+        "status": "completed",
+        "timestamp": "2026-10-24T07:28:26.567312",
+        "reason": "Profile initiated"
+      }
+    ],
+    "_id": "lp_user_bc7564655f6f"
+  },
+  {
+    "id": "lp_user_b2798bf4cc80",
+    "user_id": "user_b2798bf4cc80",
+    "email": "pers_test_7190@horizon.dev",
+    "full_name": "Personalization Tester",
+    "created_at": "2026-10-24T07:28:56.179110",
+    "updated_at": "2026-10-24T07:28:56.260316",
+    "onboarding": {
+      "career_certainty": "exploring_options",
+      "activity_interests": [
+        "building_websites",
+        "analyzing_data"
+      ],
+      "experience_level": "beginner",
+      "weekly_hours": 15,
+      "planning_horizon": "3_months",
+      "learning_style": "visual",
+      "language_preference": "both",
+      "target_career": "fullstack"
+    },
+    "career_goal": {
+      "primary_domain": "fullstack",
+      "alternative_domains": [
+        "backend",
+        "frontend"
+      ],
+      "confidence": "moderate",
+      "match_reasons": [
+        "Balanced interest in both visual client UI and server architectures"
+      ]
+    },
+    "skill_states": {
+      "skill_html_css": {
+        "skill_id": "skill_html_css",
+        "state": "provisionally_mastered",
+        "confidence": 0.35,
+        "attempts": 1,
+        "last_evidence": {
+          "type": "lab",
+          "success": true,
+          "score_pct": 100.0,
+          "timestamp": "2026-10-24T07:28:56.197120",
+          "reason": "Demonstrated independent execution in practical coding lab"
+        },
+        "updated_at": "2026-10-24T07:28:56.197120"
+      },
+      "skill_javascript_core": {
+        "skill_id": "skill_javascript_core",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:28:56.179110"
+      },
+      "skill_async_js": {
+        "skill_id": "skill_async_js",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:28:56.179110"
+      },
+      "skill_react_architecture": {
+        "skill_id": "skill_react_architecture",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:28:56.179110"
+      },
+      "skill_nextjs_fullstack": {
+        "skill_id": "skill_nextjs_fullstack",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:28:56.179110"
+      },
+      "skill_tailwind_design": {
+        "skill_id": "skill_tailwind_design",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:28:56.179110"
+      },
+      "skill_tanstack_query": {
+        "skill_id": "skill_tanstack_query",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:28:56.179110"
+      },
+      "skill_http_networking": {
+        "skill_id": "skill_http_networking",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:28:56.179110"
+      },
+      "skill_python_core": {
+        "skill_id": "skill_python_core",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:28:56.179110"
+      },
+      "skill_fastapi_rest": {
+        "skill_id": "skill_fastapi_rest",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:28:56.179110"
+      },
+      "skill_auth_security": {
+        "skill_id": "skill_auth_security",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:28:56.179110"
+      },
+      "skill_sql_databases": {
+        "skill_id": "skill_sql_databases",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:28:56.179110"
+      },
+      "skill_nosql_mongodb": {
+        "skill_id": "skill_nosql_mongodb",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:28:56.179110"
+      },
+      "skill_redis_caching": {
+        "skill_id": "skill_redis_caching",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:28:56.179110"
+      },
+      "skill_message_queues": {
+        "skill_id": "skill_message_queues",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:28:56.179110"
+      },
+      "skill_docker_containers": {
+        "skill_id": "skill_docker_containers",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:28:56.179110"
+      },
+      "skill_kubernetes_orchestration": {
+        "skill_id": "skill_kubernetes_orchestration",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:28:56.179110"
+      },
+      "skill_numpy_pandas": {
+        "skill_id": "skill_numpy_pandas",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:28:56.179110"
+      },
+      "skill_classical_ml": {
+        "skill_id": "skill_classical_ml",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:28:56.179110"
+      },
+      "skill_pytorch_deep_learning": {
+        "skill_id": "skill_pytorch_deep_learning",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:28:56.179110"
+      },
+      "skill_rag_vector_db": {
+        "skill_id": "skill_rag_vector_db",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:28:56.179110"
+      },
+      "skill_owasp_security": {
+        "skill_id": "skill_owasp_security",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:28:56.179110"
+      }
+    },
+    "exploration_history": [
+      {
+        "activity_id": "exp_frontend_interactive",
+        "domain": "frontend",
+        "interest_rating": 5,
+        "difficulty_rating": 2,
+        "would_explore_further": true,
+        "completed_independently": true,
+        "confusing_part": "None, counter glow was super rewarding!"
+      }
+    ],
+    "missions": [],
+    "active_mission": null,
+    "milestone_history": [
+      {
+        "title": "Onboarding & Career Calibration",
+        "status": "completed",
+        "timestamp": "2026-10-24T07:28:56.179110",
+        "reason": "Profile initiated"
+      }
+    ],
+    "_id": "lp_user_b2798bf4cc80",
+    "career_goal.primary_domain": "frontend",
+    "career_goal.confidence": "moderate",
+    "milestones": [
+      {
+        "id": "ms_foundations",
+        "title": "Phase 1: Architecture & Core Languages",
+        "target_hours": 30,
+        "focus_skills": [
+          "skill_html_css",
+          "skill_javascript_core",
+          "skill_python_core"
+        ],
+        "target_outcome": "Master fundamental syntax, control flow, and computational execution models."
+      },
+      {
+        "id": "ms_systems",
+        "title": "Phase 2: Asynchronous Systems & Frameworks",
+        "target_hours": 45,
+        "focus_skills": [
+          "skill_async_js",
+          "skill_react_architecture",
+          "skill_fastapi_rest"
+        ],
+        "target_outcome": "Build non-blocking reactive user interfaces connected to validated RESTful APIs."
+      },
+      {
+        "id": "ms_scale",
+        "title": "Phase 3: Persistence, Infrastructure & Security",
+        "target_hours": 50,
+        "focus_skills": [
+          "skill_sql_databases",
+          "skill_docker_containers",
+          "skill_auth_security"
+        ],
+        "target_outcome": "Deploy containerized systems with reliable database transactions and secure authentication."
+      },
+      {
+        "id": "ms_advanced",
+        "title": "Phase 4: Distributed Systems, AI Agents & Microservices",
+        "target_hours": 312,
+        "focus_skills": [
+          "skill_message_queues",
+          "skill_rag_vector_db",
+          "skill_kubernetes_orchestration"
+        ],
+        "target_outcome": "Architect high-concurrency event-driven platforms and intelligent retrieval systems."
+      }
+    ],
+    "completed_missions": [
+      {
+        "mission_id": "msn_6125d23d",
+        "skill_id": "skill_html_css",
+        "timestamp": "2026-10-24T07:28:56.197120"
+      }
+    ],
+    "preferred_videos": {
+      "fs_topic_html_css": "vid_chai_html_css"
+    },
+    "onboarding.planning_horizon": "1_year",
+    "onboarding.weekly_hours": 20
+  },
+  {
+    "id": "lp_user_6da6fa229531",
+    "user_id": "user_6da6fa229531",
+    "email": "pers_test_7235@horizon.dev",
+    "full_name": "Personalization Tester",
+    "created_at": "2026-10-24T07:29:41.172135",
+    "updated_at": "2026-10-24T07:29:41.268466",
+    "onboarding": {
+      "career_certainty": "exploring_options",
+      "activity_interests": [
+        "building_websites",
+        "analyzing_data"
+      ],
+      "experience_level": "beginner",
+      "weekly_hours": 15,
+      "planning_horizon": "3_months",
+      "learning_style": "visual",
+      "language_preference": "both",
+      "target_career": "fullstack"
+    },
+    "career_goal": {
+      "primary_domain": "fullstack",
+      "alternative_domains": [
+        "backend",
+        "frontend"
+      ],
+      "confidence": "moderate",
+      "match_reasons": [
+        "Balanced interest in both visual client UI and server architectures"
+      ]
+    },
+    "skill_states": {
+      "skill_html_css": {
+        "skill_id": "skill_html_css",
+        "state": "provisionally_mastered",
+        "confidence": 0.35,
+        "attempts": 1,
+        "last_evidence": {
+          "type": "lab",
+          "success": true,
+          "score_pct": 100.0,
+          "timestamp": "2026-10-24T07:29:41.198208",
+          "reason": "Demonstrated independent execution in practical coding lab"
+        },
+        "updated_at": "2026-10-24T07:29:41.198208"
+      },
+      "skill_javascript_core": {
+        "skill_id": "skill_javascript_core",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:29:41.172135"
+      },
+      "skill_async_js": {
+        "skill_id": "skill_async_js",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:29:41.172135"
+      },
+      "skill_react_architecture": {
+        "skill_id": "skill_react_architecture",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:29:41.172135"
+      },
+      "skill_nextjs_fullstack": {
+        "skill_id": "skill_nextjs_fullstack",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:29:41.172135"
+      },
+      "skill_tailwind_design": {
+        "skill_id": "skill_tailwind_design",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:29:41.172135"
+      },
+      "skill_tanstack_query": {
+        "skill_id": "skill_tanstack_query",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:29:41.172135"
+      },
+      "skill_http_networking": {
+        "skill_id": "skill_http_networking",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:29:41.172135"
+      },
+      "skill_python_core": {
+        "skill_id": "skill_python_core",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:29:41.172135"
+      },
+      "skill_fastapi_rest": {
+        "skill_id": "skill_fastapi_rest",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:29:41.172135"
+      },
+      "skill_auth_security": {
+        "skill_id": "skill_auth_security",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:29:41.172135"
+      },
+      "skill_sql_databases": {
+        "skill_id": "skill_sql_databases",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:29:41.172135"
+      },
+      "skill_nosql_mongodb": {
+        "skill_id": "skill_nosql_mongodb",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:29:41.172135"
+      },
+      "skill_redis_caching": {
+        "skill_id": "skill_redis_caching",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:29:41.172135"
+      },
+      "skill_message_queues": {
+        "skill_id": "skill_message_queues",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:29:41.172135"
+      },
+      "skill_docker_containers": {
+        "skill_id": "skill_docker_containers",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:29:41.172135"
+      },
+      "skill_kubernetes_orchestration": {
+        "skill_id": "skill_kubernetes_orchestration",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:29:41.172135"
+      },
+      "skill_numpy_pandas": {
+        "skill_id": "skill_numpy_pandas",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:29:41.172135"
+      },
+      "skill_classical_ml": {
+        "skill_id": "skill_classical_ml",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:29:41.172135"
+      },
+      "skill_pytorch_deep_learning": {
+        "skill_id": "skill_pytorch_deep_learning",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:29:41.172135"
+      },
+      "skill_rag_vector_db": {
+        "skill_id": "skill_rag_vector_db",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:29:41.172135"
+      },
+      "skill_owasp_security": {
+        "skill_id": "skill_owasp_security",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:29:41.172135"
+      }
+    },
+    "exploration_history": [
+      {
+        "activity_id": "exp_frontend_interactive",
+        "domain": "frontend",
+        "interest_rating": 5,
+        "difficulty_rating": 2,
+        "would_explore_further": true,
+        "completed_independently": true,
+        "confusing_part": "None, counter glow was super rewarding!"
+      }
+    ],
+    "missions": [],
+    "active_mission": null,
+    "milestone_history": [
+      {
+        "title": "Onboarding & Career Calibration",
+        "status": "completed",
+        "timestamp": "2026-10-24T07:29:41.172135",
+        "reason": "Profile initiated"
+      }
+    ],
+    "_id": "lp_user_6da6fa229531",
+    "career_goal.primary_domain": "frontend",
+    "career_goal.confidence": "moderate",
+    "milestones": [
+      {
+        "id": "ms_foundations",
+        "title": "Phase 1: Architecture & Core Languages",
+        "target_hours": 30,
+        "focus_skills": [
+          "skill_html_css",
+          "skill_javascript_core",
+          "skill_python_core"
+        ],
+        "target_outcome": "Master fundamental syntax, control flow, and computational execution models."
+      },
+      {
+        "id": "ms_systems",
+        "title": "Phase 2: Asynchronous Systems & Frameworks",
+        "target_hours": 45,
+        "focus_skills": [
+          "skill_async_js",
+          "skill_react_architecture",
+          "skill_fastapi_rest"
+        ],
+        "target_outcome": "Build non-blocking reactive user interfaces connected to validated RESTful APIs."
+      },
+      {
+        "id": "ms_scale",
+        "title": "Phase 3: Persistence, Infrastructure & Security",
+        "target_hours": 50,
+        "focus_skills": [
+          "skill_sql_databases",
+          "skill_docker_containers",
+          "skill_auth_security"
+        ],
+        "target_outcome": "Deploy containerized systems with reliable database transactions and secure authentication."
+      },
+      {
+        "id": "ms_advanced",
+        "title": "Phase 4: Distributed Systems, AI Agents & Microservices",
+        "target_hours": 312,
+        "focus_skills": [
+          "skill_message_queues",
+          "skill_rag_vector_db",
+          "skill_kubernetes_orchestration"
+        ],
+        "target_outcome": "Architect high-concurrency event-driven platforms and intelligent retrieval systems."
+      }
+    ],
+    "completed_missions": [
+      {
+        "mission_id": "msn_b8b107fb",
+        "skill_id": "skill_html_css",
+        "timestamp": "2026-10-24T07:29:41.198208"
+      }
+    ],
+    "preferred_videos": {
+      "fs_topic_html_css": "vid_chai_html_css"
+    },
+    "onboarding.planning_horizon": "1_year",
+    "onboarding.weekly_hours": 20
+  },
+  {
+    "id": "lp_user_b6bc6f978b4a",
+    "user_id": "user_b6bc6f978b4a",
+    "email": "test_7246@horizon.dev",
+    "full_name": "Antigravity Tester",
+    "created_at": "2026-10-24T07:29:51.928483",
+    "updated_at": "2026-10-24T07:29:51.931482",
+    "onboarding": {
+      "career_certainty": "exploring_options",
+      "activity_interests": [
+        "building_websites",
+        "problem_solving"
+      ],
+      "experience_level": "beginner",
+      "weekly_hours": 10,
+      "planning_horizon": "6_months",
+      "learning_style": "visual",
+      "language_preference": "both",
+      "notes": "Initialized default profile"
+    },
+    "career_goal": {
+      "primary_domain": "fullstack",
+      "alternative_domains": [
+        "backend",
+        "frontend"
+      ],
+      "confidence": "moderate",
+      "match_reasons": [
+        "Balanced interest in both visual client UI and server architectures"
+      ]
+    },
+    "skill_states": {
+      "skill_html_css": {
+        "skill_id": "skill_html_css",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:29:51.928483"
+      },
+      "skill_javascript_core": {
+        "skill_id": "skill_javascript_core",
+        "state": "developing",
+        "confidence": 0.25,
+        "attempts": 1,
+        "last_evidence": {
+          "type": "quiz",
+          "success": true,
+          "score_pct": 100.0,
+          "timestamp": "2026-10-24T07:29:51.931482",
+          "reason": "Successfully passed conceptual validation quiz"
+        },
+        "updated_at": "2026-10-24T07:29:51.931482"
+      },
+      "skill_async_js": {
+        "skill_id": "skill_async_js",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:29:51.928483"
+      },
+      "skill_react_architecture": {
+        "skill_id": "skill_react_architecture",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:29:51.928483"
+      },
+      "skill_nextjs_fullstack": {
+        "skill_id": "skill_nextjs_fullstack",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:29:51.928483"
+      },
+      "skill_tailwind_design": {
+        "skill_id": "skill_tailwind_design",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:29:51.928483"
+      },
+      "skill_tanstack_query": {
+        "skill_id": "skill_tanstack_query",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:29:51.928483"
+      },
+      "skill_http_networking": {
+        "skill_id": "skill_http_networking",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:29:51.928483"
+      },
+      "skill_python_core": {
+        "skill_id": "skill_python_core",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:29:51.928483"
+      },
+      "skill_fastapi_rest": {
+        "skill_id": "skill_fastapi_rest",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:29:51.928483"
+      },
+      "skill_auth_security": {
+        "skill_id": "skill_auth_security",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:29:51.928483"
+      },
+      "skill_sql_databases": {
+        "skill_id": "skill_sql_databases",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:29:51.928483"
+      },
+      "skill_nosql_mongodb": {
+        "skill_id": "skill_nosql_mongodb",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:29:51.928483"
+      },
+      "skill_redis_caching": {
+        "skill_id": "skill_redis_caching",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:29:51.928483"
+      },
+      "skill_message_queues": {
+        "skill_id": "skill_message_queues",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:29:51.928483"
+      },
+      "skill_docker_containers": {
+        "skill_id": "skill_docker_containers",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:29:51.928483"
+      },
+      "skill_kubernetes_orchestration": {
+        "skill_id": "skill_kubernetes_orchestration",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:29:51.928483"
+      },
+      "skill_numpy_pandas": {
+        "skill_id": "skill_numpy_pandas",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:29:51.928483"
+      },
+      "skill_classical_ml": {
+        "skill_id": "skill_classical_ml",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:29:51.928483"
+      },
+      "skill_pytorch_deep_learning": {
+        "skill_id": "skill_pytorch_deep_learning",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:29:51.928483"
+      },
+      "skill_rag_vector_db": {
+        "skill_id": "skill_rag_vector_db",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:29:51.928483"
+      },
+      "skill_owasp_security": {
+        "skill_id": "skill_owasp_security",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T07:29:51.928483"
+      }
+    },
+    "exploration_history": [],
+    "missions": [],
+    "active_mission": null,
+    "milestone_history": [
+      {
+        "title": "Onboarding & Career Calibration",
+        "status": "completed",
+        "timestamp": "2026-10-24T07:29:51.928483",
+        "reason": "Profile initiated"
+      }
+    ],
+    "_id": "lp_user_b6bc6f978b4a"
+  },
+  {
+    "id": "lp_user_ffb8f94a75f4",
+    "user_id": "user_ffb8f94a75f4",
+    "email": "pers_test_9729@horizon.dev",
+    "full_name": "Personalization Tester",
+    "created_at": "2026-10-24T08:11:15.233596",
+    "updated_at": "2026-10-24T08:11:15.363488",
+    "onboarding": {
+      "career_certainty": "exploring_options",
+      "activity_interests": [
+        "building_websites",
+        "analyzing_data"
+      ],
+      "experience_level": "beginner",
+      "weekly_hours": 15,
+      "planning_horizon": "3_months",
+      "learning_style": "visual",
+      "language_preference": "both",
+      "target_career": "fullstack"
+    },
+    "career_goal": {
+      "primary_domain": "fullstack",
+      "alternative_domains": [
+        "backend",
+        "frontend"
+      ],
+      "confidence": "moderate",
+      "match_reasons": [
+        "Balanced interest in both visual client UI and server architectures"
+      ]
+    },
+    "skill_states": {
+      "skill_html_css": {
+        "skill_id": "skill_html_css",
+        "state": "provisionally_mastered",
+        "confidence": 0.35,
+        "attempts": 1,
+        "last_evidence": {
+          "type": "lab",
+          "success": true,
+          "score_pct": 100.0,
+          "timestamp": "2026-10-24T08:11:15.257439",
+          "reason": "Demonstrated independent execution in practical coding lab"
+        },
+        "updated_at": "2026-10-24T08:11:15.257439"
+      },
+      "skill_javascript_core": {
+        "skill_id": "skill_javascript_core",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:11:15.233596"
+      },
+      "skill_async_js": {
+        "skill_id": "skill_async_js",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:11:15.233596"
+      },
+      "skill_react_architecture": {
+        "skill_id": "skill_react_architecture",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:11:15.233596"
+      },
+      "skill_nextjs_fullstack": {
+        "skill_id": "skill_nextjs_fullstack",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:11:15.233596"
+      },
+      "skill_tailwind_design": {
+        "skill_id": "skill_tailwind_design",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:11:15.233596"
+      },
+      "skill_tanstack_query": {
+        "skill_id": "skill_tanstack_query",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:11:15.233596"
+      },
+      "skill_http_networking": {
+        "skill_id": "skill_http_networking",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:11:15.233596"
+      },
+      "skill_python_core": {
+        "skill_id": "skill_python_core",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:11:15.233596"
+      },
+      "skill_fastapi_rest": {
+        "skill_id": "skill_fastapi_rest",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:11:15.233596"
+      },
+      "skill_auth_security": {
+        "skill_id": "skill_auth_security",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:11:15.233596"
+      },
+      "skill_sql_databases": {
+        "skill_id": "skill_sql_databases",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:11:15.233596"
+      },
+      "skill_nosql_mongodb": {
+        "skill_id": "skill_nosql_mongodb",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:11:15.233596"
+      },
+      "skill_redis_caching": {
+        "skill_id": "skill_redis_caching",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:11:15.233596"
+      },
+      "skill_message_queues": {
+        "skill_id": "skill_message_queues",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:11:15.233596"
+      },
+      "skill_docker_containers": {
+        "skill_id": "skill_docker_containers",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:11:15.233596"
+      },
+      "skill_kubernetes_orchestration": {
+        "skill_id": "skill_kubernetes_orchestration",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:11:15.233596"
+      },
+      "skill_numpy_pandas": {
+        "skill_id": "skill_numpy_pandas",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:11:15.233596"
+      },
+      "skill_classical_ml": {
+        "skill_id": "skill_classical_ml",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:11:15.233596"
+      },
+      "skill_pytorch_deep_learning": {
+        "skill_id": "skill_pytorch_deep_learning",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:11:15.233596"
+      },
+      "skill_rag_vector_db": {
+        "skill_id": "skill_rag_vector_db",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:11:15.233596"
+      },
+      "skill_owasp_security": {
+        "skill_id": "skill_owasp_security",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:11:15.233596"
+      }
+    },
+    "exploration_history": [
+      {
+        "activity_id": "exp_frontend_interactive",
+        "domain": "frontend",
+        "interest_rating": 5,
+        "difficulty_rating": 2,
+        "would_explore_further": true,
+        "completed_independently": true,
+        "confusing_part": "None, counter glow was super rewarding!"
+      }
+    ],
+    "missions": [],
+    "active_mission": null,
+    "milestone_history": [
+      {
+        "title": "Onboarding & Career Calibration",
+        "status": "completed",
+        "timestamp": "2026-10-24T08:11:15.233596",
+        "reason": "Profile initiated"
+      }
+    ],
+    "_id": "lp_user_ffb8f94a75f4",
+    "career_goal.primary_domain": "frontend",
+    "career_goal.confidence": "moderate",
+    "milestones": [
+      {
+        "id": "ms_foundations",
+        "title": "Phase 1: Architecture & Core Languages",
+        "target_hours": 30,
+        "focus_skills": [
+          "skill_html_css",
+          "skill_javascript_core",
+          "skill_python_core"
+        ],
+        "target_outcome": "Master fundamental syntax, control flow, and computational execution models."
+      },
+      {
+        "id": "ms_systems",
+        "title": "Phase 2: Asynchronous Systems & Frameworks",
+        "target_hours": 45,
+        "focus_skills": [
+          "skill_async_js",
+          "skill_react_architecture",
+          "skill_fastapi_rest"
+        ],
+        "target_outcome": "Build non-blocking reactive user interfaces connected to validated RESTful APIs."
+      },
+      {
+        "id": "ms_scale",
+        "title": "Phase 3: Persistence, Infrastructure & Security",
+        "target_hours": 50,
+        "focus_skills": [
+          "skill_sql_databases",
+          "skill_docker_containers",
+          "skill_auth_security"
+        ],
+        "target_outcome": "Deploy containerized systems with reliable database transactions and secure authentication."
+      },
+      {
+        "id": "ms_advanced",
+        "title": "Phase 4: Distributed Systems, AI Agents & Microservices",
+        "target_hours": 312,
+        "focus_skills": [
+          "skill_message_queues",
+          "skill_rag_vector_db",
+          "skill_kubernetes_orchestration"
+        ],
+        "target_outcome": "Architect high-concurrency event-driven platforms and intelligent retrieval systems."
+      }
+    ],
+    "completed_missions": [
+      {
+        "mission_id": "msn_30a207ee",
+        "skill_id": "skill_html_css",
+        "timestamp": "2026-10-24T08:11:15.257439"
+      }
+    ],
+    "preferred_videos": {
+      "fs_topic_html_css": "vid_chai_html_css"
+    },
+    "onboarding.planning_horizon": "1_year",
+    "onboarding.weekly_hours": 20
+  },
+  {
+    "id": "lp_user_1dc7807600dd",
+    "user_id": "user_1dc7807600dd",
+    "email": "test_9743@horizon.dev",
+    "full_name": "Antigravity Tester",
+    "created_at": "2026-10-24T08:11:28.960000",
+    "updated_at": "2026-10-24T08:11:28.967663",
+    "onboarding": {
+      "career_certainty": "exploring_options",
+      "activity_interests": [
+        "building_websites",
+        "problem_solving"
+      ],
+      "experience_level": "beginner",
+      "weekly_hours": 10,
+      "planning_horizon": "6_months",
+      "learning_style": "visual",
+      "language_preference": "both",
+      "notes": "Initialized default profile"
+    },
+    "career_goal": {
+      "primary_domain": "fullstack",
+      "alternative_domains": [
+        "backend",
+        "frontend"
+      ],
+      "confidence": "moderate",
+      "match_reasons": [
+        "Balanced interest in both visual client UI and server architectures"
+      ]
+    },
+    "skill_states": {
+      "skill_html_css": {
+        "skill_id": "skill_html_css",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:11:28.960000"
+      },
+      "skill_javascript_core": {
+        "skill_id": "skill_javascript_core",
+        "state": "developing",
+        "confidence": 0.25,
+        "attempts": 1,
+        "last_evidence": {
+          "type": "quiz",
+          "success": true,
+          "score_pct": 100.0,
+          "timestamp": "2026-10-24T08:11:28.967663",
+          "reason": "Successfully passed conceptual validation quiz"
+        },
+        "updated_at": "2026-10-24T08:11:28.967663"
+      },
+      "skill_async_js": {
+        "skill_id": "skill_async_js",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:11:28.960000"
+      },
+      "skill_react_architecture": {
+        "skill_id": "skill_react_architecture",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:11:28.960000"
+      },
+      "skill_nextjs_fullstack": {
+        "skill_id": "skill_nextjs_fullstack",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:11:28.960000"
+      },
+      "skill_tailwind_design": {
+        "skill_id": "skill_tailwind_design",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:11:28.960000"
+      },
+      "skill_tanstack_query": {
+        "skill_id": "skill_tanstack_query",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:11:28.960000"
+      },
+      "skill_http_networking": {
+        "skill_id": "skill_http_networking",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:11:28.960000"
+      },
+      "skill_python_core": {
+        "skill_id": "skill_python_core",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:11:28.960000"
+      },
+      "skill_fastapi_rest": {
+        "skill_id": "skill_fastapi_rest",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:11:28.960000"
+      },
+      "skill_auth_security": {
+        "skill_id": "skill_auth_security",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:11:28.960000"
+      },
+      "skill_sql_databases": {
+        "skill_id": "skill_sql_databases",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:11:28.960000"
+      },
+      "skill_nosql_mongodb": {
+        "skill_id": "skill_nosql_mongodb",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:11:28.960000"
+      },
+      "skill_redis_caching": {
+        "skill_id": "skill_redis_caching",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:11:28.960000"
+      },
+      "skill_message_queues": {
+        "skill_id": "skill_message_queues",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:11:28.960000"
+      },
+      "skill_docker_containers": {
+        "skill_id": "skill_docker_containers",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:11:28.960000"
+      },
+      "skill_kubernetes_orchestration": {
+        "skill_id": "skill_kubernetes_orchestration",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:11:28.960000"
+      },
+      "skill_numpy_pandas": {
+        "skill_id": "skill_numpy_pandas",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:11:28.960000"
+      },
+      "skill_classical_ml": {
+        "skill_id": "skill_classical_ml",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:11:28.960000"
+      },
+      "skill_pytorch_deep_learning": {
+        "skill_id": "skill_pytorch_deep_learning",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:11:28.960000"
+      },
+      "skill_rag_vector_db": {
+        "skill_id": "skill_rag_vector_db",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:11:28.960000"
+      },
+      "skill_owasp_security": {
+        "skill_id": "skill_owasp_security",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:11:28.960000"
+      }
+    },
+    "exploration_history": [],
+    "missions": [],
+    "active_mission": null,
+    "milestone_history": [
+      {
+        "title": "Onboarding & Career Calibration",
+        "status": "completed",
+        "timestamp": "2026-10-24T08:11:28.960000",
+        "reason": "Profile initiated"
+      }
+    ],
+    "_id": "lp_user_1dc7807600dd"
+  },
+  {
+    "id": "lp_user_d0f933e7a242",
+    "user_id": "user_d0f933e7a242",
+    "email": "pers_test_10663@horizon.dev",
+    "full_name": "Personalization Tester",
+    "created_at": "2026-10-24T08:26:48.559187",
+    "updated_at": "2026-10-24T08:26:48.680731",
+    "onboarding": {
+      "career_certainty": "exploring_options",
+      "activity_interests": [
+        "building_websites",
+        "analyzing_data"
+      ],
+      "experience_level": "beginner",
+      "weekly_hours": 15,
+      "planning_horizon": "3_months",
+      "learning_style": "visual",
+      "language_preference": "both",
+      "target_career": "fullstack"
+    },
+    "career_goal": {
+      "primary_domain": "fullstack",
+      "alternative_domains": [
+        "backend",
+        "frontend"
+      ],
+      "confidence": "moderate",
+      "match_reasons": [
+        "Balanced interest in both visual client UI and server architectures"
+      ]
+    },
+    "skill_states": {
+      "skill_html_css": {
+        "skill_id": "skill_html_css",
+        "state": "provisionally_mastered",
+        "confidence": 0.35,
+        "attempts": 1,
+        "last_evidence": {
+          "type": "lab",
+          "success": true,
+          "score_pct": 100.0,
+          "timestamp": "2026-10-24T08:26:48.584455",
+          "reason": "Demonstrated independent execution in practical coding lab"
+        },
+        "updated_at": "2026-10-24T08:26:48.584455"
+      },
+      "skill_javascript_core": {
+        "skill_id": "skill_javascript_core",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:26:48.559187"
+      },
+      "skill_async_js": {
+        "skill_id": "skill_async_js",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:26:48.559187"
+      },
+      "skill_react_architecture": {
+        "skill_id": "skill_react_architecture",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:26:48.559187"
+      },
+      "skill_nextjs_fullstack": {
+        "skill_id": "skill_nextjs_fullstack",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:26:48.559187"
+      },
+      "skill_tailwind_design": {
+        "skill_id": "skill_tailwind_design",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:26:48.559187"
+      },
+      "skill_tanstack_query": {
+        "skill_id": "skill_tanstack_query",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:26:48.559187"
+      },
+      "skill_http_networking": {
+        "skill_id": "skill_http_networking",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:26:48.559187"
+      },
+      "skill_python_core": {
+        "skill_id": "skill_python_core",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:26:48.559187"
+      },
+      "skill_fastapi_rest": {
+        "skill_id": "skill_fastapi_rest",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:26:48.559187"
+      },
+      "skill_auth_security": {
+        "skill_id": "skill_auth_security",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:26:48.559187"
+      },
+      "skill_sql_databases": {
+        "skill_id": "skill_sql_databases",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:26:48.559187"
+      },
+      "skill_nosql_mongodb": {
+        "skill_id": "skill_nosql_mongodb",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:26:48.559187"
+      },
+      "skill_redis_caching": {
+        "skill_id": "skill_redis_caching",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:26:48.559187"
+      },
+      "skill_message_queues": {
+        "skill_id": "skill_message_queues",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:26:48.559187"
+      },
+      "skill_docker_containers": {
+        "skill_id": "skill_docker_containers",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:26:48.559187"
+      },
+      "skill_kubernetes_orchestration": {
+        "skill_id": "skill_kubernetes_orchestration",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:26:48.559187"
+      },
+      "skill_numpy_pandas": {
+        "skill_id": "skill_numpy_pandas",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:26:48.559187"
+      },
+      "skill_classical_ml": {
+        "skill_id": "skill_classical_ml",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:26:48.559187"
+      },
+      "skill_pytorch_deep_learning": {
+        "skill_id": "skill_pytorch_deep_learning",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:26:48.559187"
+      },
+      "skill_rag_vector_db": {
+        "skill_id": "skill_rag_vector_db",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:26:48.559187"
+      },
+      "skill_owasp_security": {
+        "skill_id": "skill_owasp_security",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:26:48.559187"
+      }
+    },
+    "exploration_history": [
+      {
+        "activity_id": "exp_frontend_interactive",
+        "domain": "frontend",
+        "interest_rating": 5,
+        "difficulty_rating": 2,
+        "would_explore_further": true,
+        "completed_independently": true,
+        "confusing_part": "None, counter glow was super rewarding!"
+      }
+    ],
+    "missions": [],
+    "active_mission": null,
+    "milestone_history": [
+      {
+        "title": "Onboarding & Career Calibration",
+        "status": "completed",
+        "timestamp": "2026-10-24T08:26:48.559187",
+        "reason": "Profile initiated"
+      }
+    ],
+    "_id": "lp_user_d0f933e7a242",
+    "career_goal.primary_domain": "frontend",
+    "career_goal.confidence": "moderate",
+    "milestones": [
+      {
+        "id": "ms_foundations",
+        "title": "Phase 1: Architecture & Core Languages",
+        "target_hours": 30,
+        "focus_skills": [
+          "skill_html_css",
+          "skill_javascript_core",
+          "skill_python_core"
+        ],
+        "target_outcome": "Master fundamental syntax, control flow, and computational execution models."
+      },
+      {
+        "id": "ms_systems",
+        "title": "Phase 2: Asynchronous Systems & Frameworks",
+        "target_hours": 45,
+        "focus_skills": [
+          "skill_async_js",
+          "skill_react_architecture",
+          "skill_fastapi_rest"
+        ],
+        "target_outcome": "Build non-blocking reactive user interfaces connected to validated RESTful APIs."
+      },
+      {
+        "id": "ms_scale",
+        "title": "Phase 3: Persistence, Infrastructure & Security",
+        "target_hours": 50,
+        "focus_skills": [
+          "skill_sql_databases",
+          "skill_docker_containers",
+          "skill_auth_security"
+        ],
+        "target_outcome": "Deploy containerized systems with reliable database transactions and secure authentication."
+      },
+      {
+        "id": "ms_advanced",
+        "title": "Phase 4: Distributed Systems, AI Agents & Microservices",
+        "target_hours": 312,
+        "focus_skills": [
+          "skill_message_queues",
+          "skill_rag_vector_db",
+          "skill_kubernetes_orchestration"
+        ],
+        "target_outcome": "Architect high-concurrency event-driven platforms and intelligent retrieval systems."
+      }
+    ],
+    "completed_missions": [
+      {
+        "mission_id": "msn_ca28c650",
+        "skill_id": "skill_html_css",
+        "timestamp": "2026-10-24T08:26:48.584455"
+      }
+    ],
+    "preferred_videos": {
+      "fs_topic_html_css": "vid_chai_html_css"
+    },
+    "onboarding.planning_horizon": "1_year",
+    "onboarding.weekly_hours": 20
+  },
+  {
+    "id": "lp_user_34a6bf57cef6",
+    "user_id": "user_34a6bf57cef6",
+    "email": "pers_test_11088@horizon.dev",
+    "full_name": "Personalization Tester",
+    "created_at": "2026-10-24T08:33:53.808340",
+    "updated_at": "2026-10-24T08:33:53.898949",
+    "onboarding": {
+      "career_certainty": "exploring_options",
+      "activity_interests": [
+        "building_websites",
+        "analyzing_data"
+      ],
+      "experience_level": "beginner",
+      "weekly_hours": 15,
+      "planning_horizon": "3_months",
+      "learning_style": "visual",
+      "language_preference": "both",
+      "target_career": "fullstack"
+    },
+    "career_goal": {
+      "primary_domain": "fullstack",
+      "alternative_domains": [
+        "backend",
+        "frontend"
+      ],
+      "confidence": "moderate",
+      "match_reasons": [
+        "Balanced interest in both visual client UI and server architectures"
+      ]
+    },
+    "skill_states": {
+      "skill_html_css": {
+        "skill_id": "skill_html_css",
+        "state": "provisionally_mastered",
+        "confidence": 0.35,
+        "attempts": 1,
+        "last_evidence": {
+          "type": "lab",
+          "success": true,
+          "score_pct": 100.0,
+          "timestamp": "2026-10-24T08:33:53.831854",
+          "reason": "Demonstrated independent execution in practical coding lab"
+        },
+        "updated_at": "2026-10-24T08:33:53.831854"
+      },
+      "skill_javascript_core": {
+        "skill_id": "skill_javascript_core",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:33:53.808340"
+      },
+      "skill_async_js": {
+        "skill_id": "skill_async_js",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:33:53.808340"
+      },
+      "skill_react_architecture": {
+        "skill_id": "skill_react_architecture",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:33:53.808340"
+      },
+      "skill_nextjs_fullstack": {
+        "skill_id": "skill_nextjs_fullstack",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:33:53.808340"
+      },
+      "skill_tailwind_design": {
+        "skill_id": "skill_tailwind_design",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:33:53.808340"
+      },
+      "skill_tanstack_query": {
+        "skill_id": "skill_tanstack_query",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:33:53.808340"
+      },
+      "skill_http_networking": {
+        "skill_id": "skill_http_networking",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:33:53.808340"
+      },
+      "skill_python_core": {
+        "skill_id": "skill_python_core",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:33:53.808340"
+      },
+      "skill_fastapi_rest": {
+        "skill_id": "skill_fastapi_rest",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:33:53.808340"
+      },
+      "skill_auth_security": {
+        "skill_id": "skill_auth_security",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:33:53.808340"
+      },
+      "skill_sql_databases": {
+        "skill_id": "skill_sql_databases",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:33:53.808340"
+      },
+      "skill_nosql_mongodb": {
+        "skill_id": "skill_nosql_mongodb",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:33:53.808340"
+      },
+      "skill_redis_caching": {
+        "skill_id": "skill_redis_caching",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:33:53.808340"
+      },
+      "skill_message_queues": {
+        "skill_id": "skill_message_queues",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:33:53.808340"
+      },
+      "skill_docker_containers": {
+        "skill_id": "skill_docker_containers",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:33:53.808340"
+      },
+      "skill_kubernetes_orchestration": {
+        "skill_id": "skill_kubernetes_orchestration",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:33:53.808340"
+      },
+      "skill_numpy_pandas": {
+        "skill_id": "skill_numpy_pandas",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:33:53.808340"
+      },
+      "skill_classical_ml": {
+        "skill_id": "skill_classical_ml",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:33:53.808340"
+      },
+      "skill_pytorch_deep_learning": {
+        "skill_id": "skill_pytorch_deep_learning",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:33:53.808340"
+      },
+      "skill_rag_vector_db": {
+        "skill_id": "skill_rag_vector_db",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:33:53.808340"
+      },
+      "skill_owasp_security": {
+        "skill_id": "skill_owasp_security",
+        "state": "unassessed",
+        "confidence": 0.0,
+        "attempts": 0,
+        "last_evidence": null,
+        "updated_at": "2026-10-24T08:33:53.808340"
+      }
+    },
+    "exploration_history": [
+      {
+        "activity_id": "exp_frontend_interactive",
+        "domain": "frontend",
+        "interest_rating": 5,
+        "difficulty_rating": 2,
+        "would_explore_further": true,
+        "completed_independently": true,
+        "confusing_part": "None, counter glow was super rewarding!"
+      }
+    ],
+    "missions": [],
+    "active_mission": null,
+    "milestone_history": [
+      {
+        "title": "Onboarding & Career Calibration",
+        "status": "completed",
+        "timestamp": "2026-10-24T08:33:53.808340",
+        "reason": "Profile initiated"
+      }
+    ],
+    "_id": "lp_user_34a6bf57cef6",
+    "career_goal.primary_domain": "frontend",
+    "career_goal.confidence": "moderate",
+    "milestones": [
+      {
+        "id": "ms_foundations",
+        "title": "Phase 1: Architecture & Core Languages",
+        "target_hours": 30,
+        "focus_skills": [
+          "skill_html_css",
+          "skill_javascript_core",
+          "skill_python_core"
+        ],
+        "target_outcome": "Master fundamental syntax, control flow, and computational execution models."
+      },
+      {
+        "id": "ms_systems",
+        "title": "Phase 2: Asynchronous Systems & Frameworks",
+        "target_hours": 45,
+        "focus_skills": [
+          "skill_async_js",
+          "skill_react_architecture",
+          "skill_fastapi_rest"
+        ],
+        "target_outcome": "Build non-blocking reactive user interfaces connected to validated RESTful APIs."
+      },
+      {
+        "id": "ms_scale",
+        "title": "Phase 3: Persistence, Infrastructure & Security",
+        "target_hours": 50,
+        "focus_skills": [
+          "skill_sql_databases",
+          "skill_docker_containers",
+          "skill_auth_security"
+        ],
+        "target_outcome": "Deploy containerized systems with reliable database transactions and secure authentication."
+      },
+      {
+        "id": "ms_advanced",
+        "title": "Phase 4: Distributed Systems, AI Agents & Microservices",
+        "target_hours": 312,
+        "focus_skills": [
+          "skill_message_queues",
+          "skill_rag_vector_db",
+          "skill_kubernetes_orchestration"
+        ],
+        "target_outcome": "Architect high-concurrency event-driven platforms and intelligent retrieval systems."
+      }
+    ],
+    "completed_missions": [
+      {
+        "mission_id": "msn_7c7af18d",
+        "skill_id": "skill_html_css",
+        "timestamp": "2026-10-24T08:33:53.831854"
+      }
+    ],
+    "preferred_videos": {
+      "fs_topic_html_css": "vid_chai_html_css"
+    },
+    "onboarding.planning_horizon": "1_year",
+    "onboarding.weekly_hours": 20
+  }
+]

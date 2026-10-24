@@ -39,8 +39,13 @@ export const TopicWorkspace: React.FC<TopicWorkspaceProps> = ({
   const [labRunning, setLabRunning] = useState(false);
   const [labResults, setLabResults] = useState<any | null>(null);
 
+  // Video switcher state
+  const [selectedLectureId, setSelectedLectureId] = useState<string | null>(null);
+  const [switchingVideo, setSwitchingVideo] = useState(false);
+
   // Workshop checklist state
   const [checkedSteps, setCheckedSteps] = useState<Record<number, boolean>>({});
+
 
   // Adaptive In-Learning Checkpoint State
   const [checkpoint, setCheckpoint] = useState<any | null>(null);
@@ -93,6 +98,17 @@ export const TopicWorkspace: React.FC<TopicWorkspaceProps> = ({
     }
   };
 
+  const handleSwitchVideo = async (lectureId: string) => {
+    setSelectedLectureId(lectureId);
+    setSwitchingVideo(true);
+    setTimeout(() => setSwitchingVideo(false), 250);
+    try {
+      await api.selectTopicVideo(topicId, lectureId);
+    } catch (e) {
+      console.warn("Could not persist video preference:", e);
+    }
+  };
+
   const markActionCompleted = async (actionType: string) => {
     if (completedItems.includes(actionType)) return;
 
@@ -139,7 +155,9 @@ export const TopicWorkspace: React.FC<TopicWorkspaceProps> = ({
     );
   }
 
-  const lecture = topicData.lectures[0] || null;
+  const lecture = (topicData.lectures && topicData.lectures.length > 0)
+    ? (topicData.lectures.find((l) => l.id === selectedLectureId) || topicData.recommended_lecture || topicData.lectures[0])
+    : null;
   const question = topicData.questions[0] || null;
   const isLectureDone = completedItems.includes("lecture");
   const isNotesDone = completedItems.includes("note");
@@ -286,11 +304,98 @@ export const TopicWorkspace: React.FC<TopicWorkspaceProps> = ({
 
       </div>
 
-      {/* TAB 1: LECTURES VIEW */}
+      {/* TAB 1: LECTURES VIEW (PERSONALIZED GOAT EXPERIENCE) */}
       {activeTab === "lectures" && lecture && (
         <div className="space-y-6">
-          {/* Video Container */}
-          <div className="relative aspect-video w-full rounded-3xl overflow-hidden bg-slate-950 border border-slate-800 shadow-2xl">
+          {/* Personalized Match Banner */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 rounded-2xl bg-indigo-950/40 border border-indigo-500/30 shadow-lg shadow-indigo-500/5">
+            <div className="flex items-center gap-3">
+              <div className="p-2.5 rounded-xl bg-indigo-600/20 border border-indigo-500/40 text-indigo-400 flex-shrink-0">
+                <Sparkles className="w-5 h-5 text-indigo-300" />
+              </div>
+              <div>
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="text-xs font-bold text-indigo-300 uppercase tracking-wider">
+                    🎯 AI Personalized GOAT Recommendation
+                  </span>
+                  {lecture.rating && (
+                    <span className="text-[11px] font-bold text-amber-300 bg-amber-500/10 px-2 py-0.5 rounded-md border border-amber-500/20">
+                      ★ {lecture.rating}
+                    </span>
+                  )}
+                  {lecture.view_count && (
+                    <span className="text-[11px] text-slate-400 hidden md:inline">
+                      {lecture.view_count}
+                    </span>
+                  )}
+                </div>
+                <p className="text-xs text-slate-300 mt-0.5">
+                  {lecture.match_reason || topicData.match_reason || "Curated greatest-of-all-time video masterclass for this topic."}
+                </p>
+              </div>
+            </div>
+
+            {/* Quick language/creator indicator */}
+            <div className="flex items-center gap-2 flex-shrink-0">
+              <span className="text-[11px] font-medium px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-slate-300">
+                {lecture.creator_type === "hinglish_goat" ? "🇮🇳 Hinglish Masterclass" : "🌐 Global GOAT Creator"}
+              </span>
+            </div>
+          </div>
+
+          {/* Interactive Multi-Option Video Switcher Toolbar */}
+          {topicData.lectures && topicData.lectures.length > 1 && (
+            <div>
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                  Switch Reference Video (Personalized Options):
+                </span>
+                <span className="text-[11px] text-indigo-400">
+                  Selection auto-saves to your profile
+                </span>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                {topicData.lectures.map((l) => {
+                  const isSelected = l.id === lecture.id;
+                  return (
+                    <button
+                      key={l.id}
+                      onClick={() => handleSwitchVideo(l.id)}
+                      className={`p-3 rounded-2xl border text-left transition-all flex flex-col justify-between ${
+                        isSelected
+                          ? "bg-slate-900 border-indigo-500 shadow-md shadow-indigo-500/20 ring-1 ring-indigo-500/50"
+                          : "bg-slate-950/60 border-slate-800 hover:border-slate-700 hover:bg-slate-900/50 text-slate-400"
+                      }`}
+                    >
+                      <div className="flex items-center justify-between gap-2 mb-1.5">
+                        <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md ${
+                          isSelected ? "bg-indigo-600 text-white" : "bg-slate-800 text-slate-400"
+                        }`}>
+                          {l.creator_type === "hinglish_goat" ? "🇮🇳 Hinglish" : l.style === "fastpaced_visual" ? "⚡ Fast-Paced" : "📚 Masterclass"}
+                        </span>
+                        {l.rating && (
+                          <span className="text-[11px] text-amber-300 font-semibold">
+                            ★ {l.rating}
+                          </span>
+                        )}
+                      </div>
+                      <div className="font-bold text-white text-xs line-clamp-1 mb-1">
+                        {l.provider}
+                      </div>
+                      <div className="text-[11px] text-slate-400 line-clamp-1">
+                        {l.title}
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {/* Video Container with smooth fade */}
+          <div className={`relative aspect-video w-full rounded-3xl overflow-hidden bg-slate-950 border border-slate-800 shadow-2xl transition-opacity duration-300 ${
+            switchingVideo ? "opacity-30" : "opacity-100"
+          }`}>
             <iframe
               src={lecture.video_url}
               title={lecture.title}
@@ -304,9 +409,14 @@ export const TopicWorkspace: React.FC<TopicWorkspaceProps> = ({
           <div className="p-6 sm:p-8 rounded-3xl bg-slate-900/80 border border-slate-800">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4 pb-4 border-b border-slate-800">
               <div>
-                <span className="text-xs font-semibold text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/20">
-                  Curated Video Masterclass
-                </span>
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="text-xs font-semibold text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/20">
+                    Creator: {lecture.provider}
+                  </span>
+                  <span className="text-xs text-slate-400">
+                    ⏱️ {lecture.duration}
+                  </span>
+                </div>
                 <h3 className="text-xl font-bold text-white mt-1">
                   {lecture.title}
                 </h3>
@@ -329,7 +439,7 @@ export const TopicWorkspace: React.FC<TopicWorkspaceProps> = ({
               {lecture.summary}
             </p>
 
-            <h4 className="font-bold text-white text-sm mb-3">Key Takeaways:</h4>
+            <h4 className="font-bold text-white text-sm mb-3">Key Architectural Takeaways:</h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
               {lecture.key_takeaways.map((point, idx) => (
                 <div key={idx} className="flex items-start gap-2.5 p-3 rounded-xl bg-slate-950/70 border border-slate-800/80 text-xs text-slate-300">

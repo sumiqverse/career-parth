@@ -12,7 +12,8 @@ from models import (
     UserRegister, UserLogin, UserProfile, TokenResponse,
     AssessmentQuestion, AssessmentSubmitRequest, AssessmentResultResponse,
     Roadmap, TopicDetail, ProgressUpdateRequest, GamificationStatus,
-    AdaptiveReflectionSubmit
+    AdaptiveReflectionSubmit,
+    OnboardingRequest, ExplorationFeedbackRequest, PlanningUpdateRequest, SelectVideoRequest
 )
 from auth import (
     verify_password, get_password_hash, create_access_token,
@@ -21,6 +22,14 @@ from auth import (
 from data.assessment_questions import ASSESSMENT_QUESTIONS, DOMAIN_DETAILS, ADAPTIVE_CHECKPOINTS
 from data.seed_roadmaps import SEED_ROADMAPS, TOPIC_DETAILS
 from scoring import compute_assessment_result
+from services.curated_videos import resolve_topic_videos
+from services.personalization_engine import PersonalizationEngine
+from services.exploration_catalog import EXPLORATION_ACTIVITIES, get_exploration_activities, calculate_career_ranking_with_evidence
+
+from services.ai_assistant import generate_learner_explanation
+
+
+
 
 
 @asynccontextmanager
@@ -391,7 +400,12 @@ async def get_roadmap_by_slug(slug: str, current_user: Optional[Dict[str, Any]] 
 # --- Deep Learning Topic Content Routes ---
 @app.get("/api/topics/{topic_id}")
 async def get_topic_details(topic_id: str, current_user: Optional[Dict[str, Any]] = Depends(get_current_user)):
-    """Returns topic content: Lectures, Notes, Questions, Lab, and Workshop."""
+    """
+    Returns rich topic learning workspace:
+    - Personalized GOAT YouTube video recommendation based on learner profile
+    - Multi-option video catalog (Masterclass, Fast-paced/Visual, Hinglish Masterclass)
+    - Notes, Questions, Lab, and Workshop
+    """
     db = get_db()
     topics_col = db.get_collection("topic_details")
     details = await topics_col.find_one({"id": topic_id})
@@ -400,69 +414,79 @@ async def get_topic_details(topic_id: str, current_user: Optional[Dict[str, Any]
             details = TOPIC_DETAILS[topic_id]
 
     if not details:
-        # Generate on-demand fallback content with rich modules and labs
+        clean_title = topic_id.replace("frontend_", "").replace("backend_", "").replace("fs_topic_", "").replace("ai_topic_", "").replace("do_topic_", "").replace("sec_topic_", "").replace("_", " ").title()
         details = {
             "id": topic_id,
             "roadmap_slug": "full-stack-developer",
             "stage_id": "generic_stage",
-            "title": topic_id.replace("_", " ").title(),
-            "description": "Comprehensive interactive masterclass covering concepts, lectures, notes, interactive questions, hands-on lab and project workshop.",
-            "lectures": [
-                {
-                    "id": f"lec_{topic_id}",
-                    "title": f"Mastering {topic_id.replace('_', ' ').title()}",
-                    "provider": "Horizon Masterclass",
-                    "video_url": "https://www.youtube.com/embed/mU6anWqZJcc",
-                    "duration": "20 mins",
-                    "summary": f"In-depth architectural overview and production patterns for {topic_id.replace('_', ' ').title()}.",
-                    "key_takeaways": [
-                        "Foundational principles and architecture",
-                        "Best practices in modern web development",
-                        "Performance pitfalls and how to avoid them",
-                        "Production checklist and testing"
-                    ]
-                }
-            ],
-            "notes": f"# {topic_id.replace('_', ' ').title()}\n\nWelcome to this masterclass module. Study the lecture, review these architectural notes, and test your comprehension in the interactive quiz and lab.\n\n### Core Concepts\n- Understand syntax and semantics\n- Write modular, testable code\n- Connect frontend and backend components gracefully",
+            "title": clean_title,
+            "description": f"Mastery curriculum for {clean_title} covering core principles, production architecture, interactive lab challenges, and capstone project workshop.",
+            "lectures": [],
+            "notes": f"# {clean_title}\n\nWelcome to this comprehensive mastery module. Study the recommended GOAT lecture, review architectural notes, and test your practical comprehension in the interactive quiz and lab.\n\n### Core Engineering Principles\n- Understand runtime mechanics and mental models\n- Structure clean, modular, testable code\n- Follow production reliability and security best practices",
             "questions": [
                 {
                     "id": f"q_{topic_id}_1",
-                    "question": f"What is the recommended best practice when implementing {topic_id.replace('_', ' ').title()}?",
+                    "question": f"What is the recommended best practice when architecting {clean_title}?",
                     "options": [
-                        "Follow modular component architecture and write tests",
-                        "Hardcode all configuration in production code",
+                        "Follow modular component architecture and write automated tests",
+                        "Hardcode all environment variables directly in client code",
                         "Disable logging to save network bandwidth",
-                        "Avoid using async functions"
+                        "Avoid using asynchronous functions in production"
                     ],
                     "correct_option": 0,
-                    "explanation": "Modular design and automated testing ensure reliability and easy maintainability.",
+                    "explanation": "Modular design, automated testing, and clear separation of concerns guarantee maintainability and zero regressions in production.",
                     "xp": 25
                 }
             ],
             "lab": {
                 "id": f"lab_{topic_id}",
-                "title": f"Hands-on Lab: {topic_id.replace('_', ' ').title()}",
-                "instructions": "Implement the core function and verify all test cases pass.",
+                "title": f"Hands-on Lab: {clean_title}",
+                "instructions": f"Implement the core solution for {clean_title} and verify all test cases pass.",
                 "language": "javascript",
                 "starter_code": "// Complete the function\nfunction solution() {\n  return true;\n}",
                 "test_cases": [{"input": "()", "expected": "true", "description": "Returns true"}],
-                "hint": "Check function return value.",
+                "hint": "Ensure the function returns the expected value.",
                 "xp": 50
             },
             "workshop": {
                 "id": f"ws_{topic_id}",
-                "title": f"Capstone Workshop: {topic_id.replace('_', ' ').title()}",
+                "title": f"Capstone Workshop: {clean_title}",
                 "tagline": "Build a real-world project applying these concepts",
-                "overview": "Synthesize this topic into a portfolio-ready implementation.",
+                "overview": f"Synthesize this topic into a portfolio-ready implementation of {clean_title}.",
                 "steps": [
                     "Step 1: Set up repository and dependencies.",
                     "Step 2: Implement core business logic.",
-                    "Step 3: Test and deploy."
+                    "Step 3: Test and deploy to production."
                 ],
                 "acceptance_criteria": ["Working code", "Passing tests"],
                 "xp": 100
             }
         }
+
+    # Fetch learner profile to check preferred video or personalization traits
+    preferred_video_id = None
+    user_lp = None
+    if current_user:
+        lp_col = db.get_collection("learner_profiles")
+        user_lp = await lp_col.find_one({"user_id": current_user["id"]})
+        if user_lp and "preferred_videos" in user_lp:
+            preferred_video_id = user_lp["preferred_videos"].get(topic_id)
+
+    # Resolve genuine GOAT YouTube educational videos with personalization
+    resolved_video_data = resolve_topic_videos(
+        topic_id=topic_id,
+        title=details.get("title", topic_id),
+        domain=details.get("roadmap_slug", ""),
+        user_profile=user_lp.get("onboarding") if user_lp else None,
+        preferred_video_id=preferred_video_id
+    )
+
+    details = dict(details)
+    if "_id" in details:
+        details["_id"] = str(details["_id"])
+    details["lectures"] = resolved_video_data["all_lectures"]
+    details["recommended_lecture"] = resolved_video_data["recommended_lecture"]
+    details["match_reason"] = resolved_video_data["match_reason"]
 
     # Overlay user progress for this topic if authenticated
     user_progress_data = {}
@@ -482,6 +506,36 @@ async def get_topic_details(topic_id: str, current_user: Optional[Dict[str, Any]
         "topic": details,
         "user_progress": user_progress_data
     }
+
+
+@app.post("/api/topics/{topic_id}/select-video")
+async def select_topic_video(
+    topic_id: str,
+    payload: SelectVideoRequest,
+    current_user: Dict[str, Any] = Depends(require_current_user)
+):
+    """
+    Saves the user's selected video preference (e.g. switching to Hinglish or Fast-Paced)
+    into their persistent learner profile in MongoDB.
+    """
+    db = get_db()
+    lp_col = db.get_collection("learner_profiles")
+    lp = await lp_col.find_one({"user_id": current_user["id"]})
+    if not lp:
+        lp = PersonalizationEngine.initialize_learner_profile(
+            current_user["id"], current_user["email"], current_user["full_name"]
+        )
+        await lp_col.insert_one(lp)
+
+    preferred_videos = lp.get("preferred_videos", {})
+    preferred_videos[topic_id] = payload.video_id
+
+    await lp_col.update_one(
+        {"user_id": current_user["id"]},
+        {"$set": {"preferred_videos": preferred_videos, "updated_at": datetime.utcnow().isoformat()}}
+    )
+    return {"status": "success", "topic_id": topic_id, "selected_video_id": payload.video_id}
+
 
 
 # --- Progress & Gamification Tracking Routes ---
@@ -654,3 +708,291 @@ async def run_lab_code(payload: Dict[str, Any]):
         "xp_awarded": 50 if all_passed else 0,
         "feedback": "Outstanding work! All tests passed." if all_passed else "Review the hints and try again."
     }
+
+
+# =========================================================================
+# --- ADAPTIVE PERSONALIZATION & 9-STEP PIPELINE ENGINE ROUTES ---
+# =========================================================================
+
+@app.get("/api/personalization/profile")
+async def get_learner_profile(current_user: Dict[str, Any] = Depends(require_current_user)):
+    """Retrieves or initializes the persistent learner model for the user."""
+    db = get_db()
+    lp_col = db.get_collection("learner_profiles")
+    profile = await lp_col.find_one({"user_id": current_user["id"]})
+    if not profile:
+        profile = PersonalizationEngine.initialize_learner_profile(
+            current_user["id"], current_user["email"], current_user["full_name"]
+        )
+        if current_user.get("primary_domain"):
+            profile["career_goal"]["primary_domain"] = current_user["primary_domain"]
+        await lp_col.insert_one(profile)
+    return profile
+
+
+@app.post("/api/personalization/onboarding")
+async def submit_personalization_onboarding(
+    payload: OnboardingRequest,
+    current_user: Dict[str, Any] = Depends(require_current_user)
+):
+    """
+    Saves multi-dimensional onboarding answers:
+    Career certainty, activity interests, experience level, weekly hours, planning horizon,
+    learning style, and language preference.
+    """
+    db = get_db()
+    lp_col = db.get_collection("learner_profiles")
+    users_col = db.get_collection("users")
+    
+    profile = await lp_col.find_one({"user_id": current_user["id"]})
+    if not profile:
+        profile = PersonalizationEngine.initialize_learner_profile(
+            current_user["id"], current_user["email"], current_user["full_name"]
+        )
+        await lp_col.insert_one(profile)
+
+    onboarding_data = payload.model_dump()
+    target_domain = payload.target_career or current_user.get("primary_domain") or "fullstack"
+
+    # Update user record
+    await users_col.update_one(
+        {"id": current_user["id"]},
+        {"$set": {"primary_domain": target_domain}}
+    )
+
+    # Recalculate milestones based on horizon
+    milestones = PersonalizationEngine.calculate_horizon_milestones(
+        target_domain, payload.planning_horizon or "6_months", payload.weekly_hours or 10
+    )
+
+    # Update learner profile
+    await lp_col.update_one(
+        {"user_id": current_user["id"]},
+        {
+            "$set": {
+                "onboarding": onboarding_data,
+                "career_goal.primary_domain": target_domain,
+                "career_goal.confidence": "high" if payload.career_certainty == "specific_goal" else "moderate",
+                "milestones": milestones,
+                "updated_at": datetime.utcnow().isoformat()
+            }
+        }
+    )
+
+    return {
+        "status": "success",
+        "domain": target_domain,
+        "onboarding": onboarding_data,
+        "milestones": milestones
+    }
+
+
+@app.get("/api/personalization/exploration")
+async def get_exploration_tasks(domain: Optional[str] = None):
+    """Returns practical, beginner-friendly exploration activities across domains."""
+    return {"activities": get_exploration_activities(domain)}
+
+
+@app.post("/api/personalization/exploration/feedback")
+async def submit_exploration_feedback(
+    payload: ExplorationFeedbackRequest,
+    current_user: Dict[str, Any] = Depends(require_current_user)
+):
+    """
+    Processes practical exploration feedback (interest, difficulty, completion independence)
+    and updates career recommendation ranking with empirical evidence.
+    """
+    db = get_db()
+    lp_col = db.get_collection("learner_profiles")
+    profile = await lp_col.find_one({"user_id": current_user["id"]})
+    if not profile:
+        profile = PersonalizationEngine.initialize_learner_profile(
+            current_user["id"], current_user["email"], current_user["full_name"]
+        )
+        await lp_col.insert_one(profile)
+
+    history = profile.get("exploration_history", [])
+    history.append(payload.model_dump())
+
+    base_scores = {
+        "frontend": 70.0, "backend": 70.0, "ai_ml": 70.0,
+        "devops": 70.0, "cybersecurity": 70.0, "fullstack": 75.0
+    }
+    ranking = calculate_career_ranking_with_evidence(base_scores, history)
+
+    await lp_col.update_one(
+        {"user_id": current_user["id"]},
+        {
+            "$set": {
+                "exploration_history": history,
+                "career_goal.primary_domain": ranking["top_domain"],
+                "career_goal.confidence": "high" if len(history) >= 2 else "moderate",
+                "updated_at": datetime.utcnow().isoformat()
+            }
+        }
+    )
+
+    return {
+        "status": "success",
+        "ranking": ranking,
+        "total_experiments_completed": len(history)
+    }
+
+
+@app.get("/api/personalization/missions/next")
+async def get_next_recommended_mission(current_user: Optional[Dict[str, Any]] = Depends(get_current_user)):
+    """
+    Prerequisite-aware recommendation engine:
+    Selects the immediate next 30-minute micro-mission (Learn + Practice + Prove)
+    tailored to the learner's skill state, weak prerequisites, and career goal.
+    """
+    profile = None
+    if current_user:
+        db = get_db()
+        lp_col = db.get_collection("learner_profiles")
+        profile = await lp_col.find_one({"user_id": current_user["id"]})
+
+    if not profile:
+        profile = PersonalizationEngine.initialize_learner_profile("guest", "guest@horizon.dev", "Guest Learner")
+
+    mission = PersonalizationEngine.select_next_recommended_mission(profile)
+    return {"mission": mission}
+
+
+@app.post("/api/personalization/missions/{mission_id}/complete")
+async def complete_recommended_mission(
+    mission_id: str,
+    payload: Dict[str, Any],
+    current_user: Dict[str, Any] = Depends(require_current_user)
+):
+    """
+    Marks a recommended mission complete, updates skill mastery state,
+    persists evidence to MongoDB, and triggers adaptive replanning.
+    """
+    skill_id = payload.get("skill_id", "skill_javascript_core")
+    success = payload.get("success", True)
+    
+    db = get_db()
+    lp_col = db.get_collection("learner_profiles")
+    users_col = db.get_collection("users")
+    
+    profile = await lp_col.find_one({"user_id": current_user["id"]})
+    if not profile:
+        profile = PersonalizationEngine.initialize_learner_profile(
+            current_user["id"], current_user["email"], current_user["full_name"]
+        )
+        await lp_col.insert_one(profile)
+
+    update_res = PersonalizationEngine.update_skill_evidence(
+        profile, skill_id, "lab" if success else "quiz", success=success
+    )
+
+    completed_msns = profile.get("completed_missions", [])
+    completed_msns.append({
+        "mission_id": mission_id,
+        "skill_id": skill_id,
+        "timestamp": datetime.utcnow().isoformat()
+    })
+    
+    await lp_col.update_one(
+        {"user_id": current_user["id"]},
+        {
+            "$set": {
+                "skill_states": profile["skill_states"],
+                "completed_missions": completed_msns,
+                "updated_at": datetime.utcnow().isoformat()
+            }
+        }
+    )
+
+    await users_col.update_one({"id": current_user["id"]}, {"$inc": {"xp": 50}})
+    return {
+        "status": "success",
+        "skill_update": update_res,
+        "awarded_xp": 50
+    }
+
+
+@app.post("/api/personalization/planning")
+async def update_planning_horizon(
+    payload: PlanningUpdateRequest,
+    current_user: Dict[str, Any] = Depends(require_current_user)
+):
+    """
+    Updates the learner's planning horizon (1m, 3m, 6m, 1y, 4y) and weekly hours,
+    and dynamically recalibrates milestones and task pacing.
+    """
+    db = get_db()
+    lp_col = db.get_collection("learner_profiles")
+    profile = await lp_col.find_one({"user_id": current_user["id"]})
+    if not profile:
+        profile = PersonalizationEngine.initialize_learner_profile(
+            current_user["id"], current_user["email"], current_user["full_name"]
+        )
+        await lp_col.insert_one(profile)
+
+    domain = profile.get("career_goal", {}).get("primary_domain", "fullstack")
+    milestones = PersonalizationEngine.calculate_horizon_milestones(
+        domain, payload.planning_horizon, payload.weekly_hours
+    )
+
+    await lp_col.update_one(
+        {"user_id": current_user["id"]},
+        {
+            "$set": {
+                "onboarding.planning_horizon": payload.planning_horizon,
+                "onboarding.weekly_hours": payload.weekly_hours,
+                "milestones": milestones,
+                "updated_at": datetime.utcnow().isoformat()
+            }
+        }
+    )
+
+    return {
+        "status": "success",
+        "planning_horizon": payload.planning_horizon,
+        "weekly_hours": payload.weekly_hours,
+        "milestones": milestones
+    }
+
+
+@app.get("/api/personalization/journey")
+async def get_learner_journey(current_user: Optional[Dict[str, Any]] = Depends(get_current_user)):
+    """
+    Returns the learner's personalized high-level roadmap, stages, milestones,
+    prerequisite relationships, and mastery states.
+    """
+    profile = None
+    if current_user:
+        db = get_db()
+        lp_col = db.get_collection("learner_profiles")
+        profile = await lp_col.find_one({"user_id": current_user["id"]})
+
+    if not profile:
+        profile = PersonalizationEngine.initialize_learner_profile("guest", "guest@horizon.dev", "Guest Learner")
+
+    domain = profile.get("career_goal", {}).get("primary_domain", "fullstack")
+    horizon = profile.get("onboarding", {}).get("planning_horizon", "6_months")
+    weekly_hours = profile.get("onboarding", {}).get("weekly_hours", 10)
+    milestones = PersonalizationEngine.calculate_horizon_milestones(domain, horizon, weekly_hours)
+
+    return {
+        "career_goal": profile.get("career_goal"),
+        "planning_horizon": horizon,
+        "weekly_hours": weekly_hours,
+        "milestones": milestones,
+        "skill_states": profile.get("skill_states", {})
+    }
+
+
+@app.post("/api/personalization/explain-skill")
+async def explain_skill_relevance(payload: Dict[str, Any]):
+    """Provides context-aware explanation for why a skill is vital for a career goal."""
+    career_goal = payload.get("career_goal", "fullstack")
+    skill_name = payload.get("skill_name", "JavaScript")
+    user_style = payload.get("user_style", "visual")
+    user_level = payload.get("user_level", "beginner")
+    
+    explanation = await generate_learner_explanation(career_goal, skill_name, user_style, user_level)
+    return explanation
+

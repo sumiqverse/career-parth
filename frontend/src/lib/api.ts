@@ -56,21 +56,32 @@ export interface AssessmentQuestion {
   }>;
 }
 
+export interface LecturePayload {
+  id: string;
+  title: string;
+  provider: string;
+  video_url: string;
+  duration: string;
+  summary: string;
+  key_takeaways: string[];
+  style?: "comprehensive_masterclass" | "fastpaced_visual" | "architectural_deepdive" | "hinglish_regional";
+  creator_type?: "global_goat" | "hinglish_goat";
+  rating?: number;
+  view_count?: string;
+  level?: "beginner" | "intermediate" | "advanced";
+  is_recommended?: boolean;
+  match_reason?: string;
+}
+
 export interface TopicDetailPayload {
   id: string;
   roadmap_slug: string;
   stage_id: string;
   title: string;
   description: string;
-  lectures: Array<{
-    id: string;
-    title: string;
-    provider: string;
-    video_url: string;
-    duration: string;
-    summary: string;
-    key_takeaways: string[];
-  }>;
+  lectures: LecturePayload[];
+  recommended_lecture?: LecturePayload;
+  match_reason?: string;
   notes: string;
   questions: Array<{
     id: string;
@@ -104,6 +115,77 @@ export interface TopicDetailPayload {
     xp: number;
   };
 }
+
+export interface MissionPayload {
+  id: string;
+  skill_id: string;
+  mission_type: "progression" | "targeted_revision";
+  title: string;
+  rationale: string;
+  estimated_minutes: number;
+  learn_module: {
+    topic_query: string;
+    duration: string;
+    objective: string;
+  };
+  practice_module: {
+    instructions: string;
+    duration: string;
+  };
+  prove_module: {
+    quiz_question: string;
+    duration: string;
+    xp_reward: number;
+  };
+  status: "ready" | "in_progress" | "completed";
+}
+
+export interface MilestonePayload {
+  id: string;
+  title: string;
+  target_hours: number;
+  focus_skills: string[];
+  target_outcome: string;
+  month_number?: number;
+  goal?: string;
+  topics_included?: string[];
+  capstone_project?: {
+    title: string;
+    description: string;
+  };
+}
+
+
+export interface JourneyPayload {
+  career_goal?: {
+    primary_domain: string;
+    confidence: string;
+  };
+  planning_horizon: string;
+  weekly_hours: number;
+  milestones: MilestonePayload[];
+  skill_states: Record<string, {
+    status: string;
+    mastery_score: number;
+    last_tested?: string;
+  }>;
+}
+
+export interface ExplorationActivity {
+  id: string;
+  domain: string;
+  title: string;
+  tagline: string;
+  duration_mins: number;
+  difficulty: string;
+  skills_tested: string[];
+  instructions: string;
+  starter_code: string;
+  expected_concept: string;
+  test_criterion: string;
+  reflection_prompts: string[];
+}
+
 
 export const authStorage = {
   getToken: (): string | null => {
@@ -328,5 +410,131 @@ export const api = {
     });
     if (!res.ok) throw new Error("Failed to submit adaptive reflection");
     return await res.json();
+  },
+
+  // --- GOAT Video Selection ---
+  selectTopicVideo: async (topicId: string, videoId: string) => {
+    const res = await fetch(`${API_BASE}/api/topics/${topicId}/select-video`, {
+      method: "POST",
+      headers: getHeaders(),
+      body: JSON.stringify({ video_id: videoId })
+    });
+    if (!res.ok) throw new Error("Failed to save preferred video");
+    return await res.json();
+  },
+
+  // --- Adaptive Personalization & Missions ---
+  getLearnerProfile: async () => {
+    try {
+      const res = await fetch(`${API_BASE}/api/personalization/profile`, {
+        headers: getHeaders()
+      });
+      if (res.ok) return await res.json();
+    } catch (e) {
+      console.warn("Learner profile fetch error:", e);
+    }
+    return null;
+  },
+
+  submitPersonalizedOnboarding: async (data: {
+    career_certainty?: string;
+    activity_interests?: string[];
+    experience_level?: string;
+    weekly_hours?: number;
+    planning_horizon?: string;
+    learning_style?: string;
+    language_preference?: string;
+    target_career?: string;
+  }) => {
+    const res = await fetch(`${API_BASE}/api/personalization/onboarding`, {
+      method: "POST",
+      headers: getHeaders(),
+      body: JSON.stringify(data)
+    });
+    if (!res.ok) throw new Error("Failed to submit personalized onboarding");
+    return await res.json();
+  },
+
+  getExplorationActivities: async (domain?: string): Promise<ExplorationActivity[]> => {
+    try {
+      const url = domain ? `${API_BASE}/api/personalization/exploration?domain=${domain}` : `${API_BASE}/api/personalization/exploration`;
+      const res = await fetch(url);
+      if (res.ok) {
+        const data = await res.json();
+        return data.activities;
+      }
+    } catch (e) {
+      console.warn("Exploration tasks fetch error:", e);
+    }
+    return [];
+  },
+
+  submitExplorationFeedback: async (feedback: {
+    activity_id: string;
+    domain: string;
+    interest_rating: number;
+    difficulty_rating: number;
+    would_explore_further: boolean;
+    completed_independently: boolean;
+    confusing_part?: string;
+  }) => {
+    const res = await fetch(`${API_BASE}/api/personalization/exploration/feedback`, {
+      method: "POST",
+      headers: getHeaders(),
+      body: JSON.stringify(feedback)
+    });
+    if (!res.ok) throw new Error("Failed to record exploration feedback");
+    return await res.json();
+  },
+
+  getNextMission: async (): Promise<MissionPayload | null> => {
+    try {
+      const res = await fetch(`${API_BASE}/api/personalization/missions/next`, {
+        headers: getHeaders()
+      });
+      if (res.ok) {
+        const data = await res.json();
+        return data.mission;
+      }
+    } catch (e) {
+      console.warn("Next mission fetch error:", e);
+    }
+    return null;
+  },
+
+  completeMission: async (missionId: string, skillId: string, success: boolean = true) => {
+    const res = await fetch(`${API_BASE}/api/personalization/missions/${missionId}/complete`, {
+      method: "POST",
+      headers: getHeaders(),
+      body: JSON.stringify({ skill_id: skillId, success })
+    });
+    if (!res.ok) throw new Error("Failed to complete mission");
+    return await res.json();
+  },
+
+  updatePlanningHorizon: async (planningHorizon: string, weeklyHours: number) => {
+    const res = await fetch(`${API_BASE}/api/personalization/planning`, {
+      method: "POST",
+      headers: getHeaders(),
+      body: JSON.stringify({
+        planning_horizon: planningHorizon,
+        weekly_hours: weeklyHours
+      })
+    });
+    if (!res.ok) throw new Error("Failed to update planning horizon");
+    return await res.json();
+  },
+
+  getJourney: async (): Promise<JourneyPayload | null> => {
+    try {
+      const res = await fetch(`${API_BASE}/api/personalization/journey`, {
+        headers: getHeaders()
+      });
+      if (res.ok) return await res.json();
+    } catch (e) {
+      console.warn("Journey fetch error:", e);
+    }
+    return null;
   }
 };
+

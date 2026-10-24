@@ -107,26 +107,31 @@ async def run_tests():
         print(f"[PASS] POST /api/assessment/submit passed: Recommended domain = {asmt_res['recommended_domain']}")
 
         # Topic Detail
-        res = await client.get("/api/topics/fs_topic_html_css", headers=headers)
+        sample_topic = SEED_ROADMAPS[0]["stages"][0]["topics"][0]
+        sample_topic_id = sample_topic["id"]
+        sample_roadmap_slug = SEED_ROADMAPS[0]["slug"]
+
+        res = await client.get(f"/api/topics/{sample_topic_id}", headers=headers)
         assert res.status_code == 200
         topic_payload = res.json()
-        assert topic_payload["topic"]["title"] == "Semantic HTML & Modern Flexbox/Grid"
+        assert topic_payload["topic"]["title"] == sample_topic["title"]
         assert len(topic_payload["topic"]["lectures"]) >= 1
         assert len(topic_payload["topic"]["questions"]) >= 1
         assert topic_payload["topic"]["lab"] is not None
         assert topic_payload["topic"]["workshop"] is not None
-        print("[PASS] GET /api/topics/fs_topic_html_css (Lectures, Notes, Questions, Lab, Workshop) passed.")
+        print(f"[PASS] GET /api/topics/{sample_topic_id} ({sample_topic['title']}) passed.")
 
         # Progress Completion
         res = await client.post("/api/progress/complete", json={
-            "roadmap_slug": "full-stack-developer",
-            "topic_id": "fs_topic_html_css",
+            "roadmap_slug": sample_roadmap_slug,
+            "topic_id": sample_topic_id,
             "action_type": "quiz"
         }, headers=headers)
         assert res.status_code == 200
         prog_res = res.json()
         assert "quiz" in prog_res["completed_items"]
         print(f"[PASS] POST /api/progress/complete passed: Awarded {prog_res['earned_xp']} XP.")
+
 
         # Gamification Status
         res = await client.get("/api/gamification/status", headers=headers)
