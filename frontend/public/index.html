@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CarrierPath – Learn what fits you</title>
+<style>
+:root{--bg:#fff4d6;--fg:#111;--card:#fff;--bd:#111;--ink:#111;--y:#ffd93d;--p:#ff6b9d;--b:#4d9fff;--g:#5fd38d;--o:#ff9f43;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 "Trebuchet MS","Segoe UI",system-ui,sans-serif}
+h1,h2,h3{margin:0 0 10px;font-weight:900;line-height:1.1}
+h1{font-size:clamp(38px,8vw,76px)}h2{font-size:clamp(24px,4vw,34px)}
+.wrap{max-width:1050px;margin:0 auto;padding:22px 16px 60px}
+.nav{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:4px solid var(--bd);background:var(--y);color:var(--ink)}
+.brand{font-weight:900;font-size:26px;letter-spacing:1px;background:var(--card);color:var(--fg);border:3px solid var(--bd);padding:2px 10px;box-shadow:4px 4px 0 var(--bd)}
+.box{background:var(--card);border:3px solid var(--bd);box-shadow:6px 6px 0 var(--bd);padding:18px}
+.btn{display:inline-block;font:inherit;font-weight:800;color:var(--ink);background:var(--y);border:3px solid var(--bd);box-shadow:4px 4px 0 var(--bd);padding:9px 16px;cursor:pointer;text-decoration:none;margin:4px 6px 4px 0}
+.btn:active{transform:translate(4px,4px);box-shadow:none}
+.btn:focus-visible,input:focus-visible,.opt:focus-visible{outline:4px solid var(--b);outline-offset:2px}
+.btn.p{background:var(--p)}.btn.b{background:var(--b)}.btn.g{background:var(--g)}.btn.w{background:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:22px;margin:16px 0 30px}
+.split{display:grid;grid-template-columns:260px 1fr;gap:22px}
+@media(max-width:720px){.split{grid-template-columns:1fr}}
+input{font:inherit;width:100%;border:3px solid var(--bd);padding:10px;background:var(--card);color:var(--fg);margin:4px 0 12px}
+.bar{height:16px;border:3px solid var(--bd);background:var(--card);margin:8px 0}.bar i{display:block;height:100%;background:var(--g)}
+.tag{display:inline-block;border:2px solid var(--bd);padding:1px 8px;font-weight:800;font-size:13px;color:var(--ink);background:var(--o)}
+.opt{display:block;width:100%;text-align:left;font:inherit;font-weight:700;color:var(--fg);background:var(--card);border:3px solid var(--bd);box-shadow:4px 4px 0 var(--bd);padding:12px;margin:12px 0;cursor:pointer}
+.opt:hover{background:var(--y);color:var(--ink)}
+.tab{font:inherit;font-weight:800;color:var(--ink);background:#fff;border:3px solid var(--bd);padding:6px 12px;cursor:pointer;margin:0 6px 8px 0}
+.tab.on{background:var(--p)}
+.top{display:block;width:100%;text-align:left;font:inherit;font-weight:700;color:var(--fg);background:var(--card);border:3px solid var(--bd);padding:10px;margin-bottom:10px;cursor:pointer}
+.top.on{background:var(--b);color:var(--ink)}
+.err{color:#d00;font-weight:800;min-height:24px}
+.hero{background:var(--p);color:var(--ink);border:4px solid var(--bd);box-shadow:10px 10px 0 var(--bd);padding:30px 22px;margin-bottom:34px}
+.hero p{font-size:19px;max-width:620px}
+.ok{background:var(--g);color:var(--ink);border:3px solid var(--bd);padding:8px;font-weight:800}
+.no{background:var(--o);color:var(--ink);border:3px solid var(--bd);padding:8px;font-weight:800}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+const mem={};
+function ls(k,d){if(k in mem)return mem[k];try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
+function sv(k,v){mem[k]=v;try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const D=['frontend','backend','devops','ai'];
+const QS=`What sounds most fun to build?|A beautiful screen|Logic behind an app|An automated deploy pipeline|A model that predicts things
+Favourite school subject?|Art and design|Maths puzzles|Physics and systems|Statistics
+Ideal weekend project?|Animated portfolio|Chat server|Home server lab|Image classifier
+What frustrates you most?|Ugly interfaces|Slow database queries|Repeating manual work|Guessing without data
+Pick a tool|Browser DevTools|Postman|Terminal|Jupyter Notebook
+Which result feels best?|Pixel-perfect page|Fast, correct response|Zero-downtime release|Accurate prediction
+You prefer working with|Visuals and interaction|Data and rules|Infrastructure|Numbers and patterns
+In a team you would be|The UI buddy|The database guardian|The release engineer|The analyst
+Pick a language|JavaScript|Python or Go|Bash and YAML|Python
+What excites you most?|Animations|Scalability|Cloud and containers|LLMs
+How do you debug?|Inspect elements|Read logs and traces|Check pipelines and metrics|Plot the data
+Favourite part of an app?|Look and feel|Auth and payments|Uptime|Recommendations
+Your learning style|Build visible things|Build systems|Break and fix servers|Experiment with datasets
+Dream product to work on|A Figma-like editor|A Stripe-like API|An AWS-like cloud|An OpenAI-like model
+Your big win would be|Users say wow|Handles 1M requests|99.99% uptime|95% accuracy`.split('\n').map(l=>l.split('|'));
+const mk=a=>a.map(s=>{const p=s.split('|');return{n:p[0],note:p[1],q:p[2],o:p[3].split(';'),a:+p[4],lab:p[5],ws:p[6]}});
+const R=[
+{id:'frontend',n:'Frontend',e:'🎨',d:'Build the part of the web people see and touch.',s:'frontend',t:mk([
+'HTML & CSS|HTML defines structure and CSS defines style. Flexbox and Grid handle layout.|Which declaration makes a flex container?|display:flex;position:flex;float:flex|0|Build a responsive profile card with Flexbox.|Responsive Web Design',
+'JavaScript|JavaScript adds behaviour: variables, functions, the DOM and events.|Which keyword declares a block-scoped variable?|var;let;define|1|Create a counter button using DOM events.|JavaScript Algorithms and Data Structures',
+'React|React builds UIs from reusable components driven by props and state.|Which hook stores state in a component?|useState;useFetch;useStyle|0|Build a todo list with useState.|Front End Development Libraries',
+'Next.js|Next.js adds file-based routing, server rendering and API routes to React.|Which feature renders pages on the server?|SSR;SQL;FTP|0|Create a two-page Next.js app with a shared layout.|Build a small Next.js project'])},
+{id:'backend',n:'Backend',e:'⚙️',d:'Design APIs, databases and the logic behind apps.',s:'backend',t:mk([
+'Python & Node Basics|Pick one language and learn syntax, modules, async code and error handling.|Which keyword defines a function in Python?|def;func;function|0|Write a CLI that counts words in a file.|Scientific Computing with Python',
+'REST APIs|REST uses HTTP verbs and URLs to expose resources, usually as JSON.|Which HTTP verb creates a resource?|GET;POST;DELETE|1|Build a FastAPI CRUD endpoint for notes.|Back End Development and APIs',
+'Databases|SQL uses tables and joins while MongoDB stores flexible JSON documents.|MongoDB stores data as?|Documents;Only tables;Images|0|Model users and progress collections in MongoDB.|Relational Database',
+'Auth & JWT|JWTs are signed tokens that prove identity. Always hash passwords.|What should you store instead of plain passwords?|Hashes;Emails;Nothing|0|Add signup and login with JWT to your API.|Information Security'])},
+{id:'devops',n:'DevOps',e:'🚀',d:'Ship code safely and keep systems running.',s:'devops',t:mk([
+'Linux & Shell|Learn the file system, permissions, processes and bash scripting.|Which command lists files?|ls;cd;rm|0|Write a bash script that backs up a folder.|Learn Bash for Beginners',
+'Git & CI/CD|Git tracks changes while CI/CD pipelines test and ship code automatically.|Which command creates a branch?|git branch;git push;git init|0|Set up a GitHub Actions workflow that runs tests.|Git and GitHub for Beginners',
+'Docker|Containers package apps with their dependencies so they run anywhere.|What does a Dockerfile do?|Builds an image;Edits a database;Styles a page|0|Containerize a FastAPI app.|Docker Fundamentals',
+'Cloud Basics|Cloud providers rent compute, storage and networking on demand.|Which is a compute service?|Virtual machine;CSS;Markdown|0|Deploy a container to a free cloud tier.|Cloud Fundamentals'])},
+{id:'ai',n:'AI & Data',e:'🧠',d:'Turn data into predictions with Python and ML.',s:'ai-data-scientist',t:mk([
+'Python for Data|NumPy and Pandas make loading and cleaning data fast.|Which library offers DataFrames?|Pandas;Flask;React|0|Clean a CSV file with Pandas.|Data Analysis with Python',
+'Statistics|Mean, variance and probability are the base of every model.|What measures the spread of data?|Variance;Title;Router|0|Compute mean and variance of a dataset.|Statistics basics',
+'Machine Learning|Models learn patterns from data: regression, classification, clustering.|Predicting a number is called?|Regression;Clustering;Routing|0|Train a house-price model with scikit-learn.|Machine Learning with Python',
+'Neural Networks|Layers of neurons learn features and are trained with backpropagation.|Which algorithm updates the weights?|Backpropagation;Hashing;Caching|0|Train a digit classifier.|Deep learning basics'])},
+{id:'sql',n:'SQL',e:'🗄️',d:'Query data from relational databases.',s:'sql',t:mk([
+'SELECT & Filters|SELECT reads columns and WHERE filters rows.|Which clause filters rows?|WHERE;ORDER;LIMIT|0|Query a sample users table.|Relational Database workshop',
+'Joins|JOIN combines rows from related tables.|Which join keeps only matching rows?|INNER JOIN;DROP;CROSS|0|Join users with orders.|Relational Database workshop'])},
+{id:'git',n:'Git & GitHub',e:'🌿',d:'Track changes and collaborate on code.',s:'git-github',t:mk([
+'Commits & Branches|Commits save snapshots and branches isolate work.|Which command saves staged changes?|git commit;git clone;git fetch|0|Create a repo and make 3 commits.|Git workshop',
+'Pull Requests|Pull requests propose changes for review before merging.|PRs are reviewed before what?|Merging;Typing;Printing|0|Open a PR on a practice repo.|GitHub workshop'])},
+{id:'sys',n:'System Design',e:'🏗️',d:'Plan systems that scale.',s:'system-design',t:mk([
+'Scalability|Scaling out means adding more servers behind a load balancer.|Adding more servers is called?|Horizontal scaling;Refactoring;Linting|0|Sketch a URL shortener design.|Design exercise',
+'Caching|Caches keep hot data in memory to cut latency.|Which is a popular cache?|Redis;Figma;Git|0|Add Redis caching to an API.|Caching workshop'])},
+{id:'cyber',n:'Cyber Security',e:'🛡️',d:'Find and fix security holes.',s:'cyber-security',t:mk([
+'Web Security|Learn XSS, SQL injection and CSRF and how to prevent them.|Which attack injects scripts into pages?|XSS;DDoS;DNS|0|Fix an XSS hole in a demo page.|Security workshop',
+'Cryptography Basics|Hashing, encryption and TLS protect data.|Which is a one-way function?|Hash;Cipher key;Backup|0|Hash a password with bcrypt.|Security workshop'])}
+];
+const SRC=[{n:'Roadmap lecture',u:'https://roadmap.sh/'},{n:'Practice lecture',u:'https://www.freecodecamp.org/learn'},{n:'Coding lecture',u:'https://www.boot.dev/'}];
+const TABS=['lecture','notes','quiz','lab','workshop'];
+const S={u:null,view:'land',auth:'signup',qi:0,ans:[],cid:null,ti:0,tab:'lecture',fb:''};
+const rc=id=>R.find(r=>r.id===id);
+function save(){const a=ls('dp_users',{});a[S.u.email]=S.u;sv('dp_users',a)}
+function go(v){S.view=v;render();window.scrollTo(0,0)}
+function pk(r,i){return r.id+':'+i}
+function done(r,i,k){const p=S.u.prog[pk(r,i)];return !!(p&&p[k])}
+function pct(r){let c=0;r.t.forEach((t,i)=>TABS.forEach(k=>{if(done(r,i,k))c++}));return Math.round(c/(r.t.length*5)*100)}
+function nav(){return `<div class="nav"><span class="brand">CARRIERPATH</span><div>${S.u?`<span class="tag" style="background:#fff">Hi, ${esc(S.u.name)}</span> <button class="btn w" onclick="go('dash')">Dashboard</button><button class="btn p" onclick="logout()">Logout</button>`:`<button class="btn w" onclick="openAuth('login')">Login</button><button class="btn p" onclick="openAuth('signup')">Sign up</button>`}</div></div>`}
+function land(){return `<main class="wrap"><div class="hero"><h1>Learn what fits you.</h1><p>Answer 15 quick questions. We pick your domain, then guide you through roadmaps, lectures, notes, quizzes, labs and workshops. Your progress stays saved.</p><button class="btn b" onclick="openAuth('signup')">Start free</button><button class="btn w" onclick="openAuth('login')">I have an account</button></div>
+<div class="grid"><div class="box"><h3>1. Find your domain</h3><p>15 questions score you across Frontend, Backend, DevOps and AI.</p></div><div class="box"><h3>2. Pick a roadmap</h3><p>Four top roadmaps first, then every course in one list.</p></div><div class="box"><h3>3. Learn and track</h3><p>Five steps per topic. Every tick is saved to your account.</p></div></div>
+<div class="box" style="background:var(--g);color:var(--ink)"><b>Everything in one place:</b> lectures, notes, quizzes, labs and workshops</div></main>`}
+function auth(){const s=S.auth==='signup';return `<main class="wrap" style="max-width:480px"><div class="box"><h2>${s?'Create account':'Welcome back'}</h2>${s?'<label for="nm">Name</label><input id="nm" autocomplete="name">':''}<label for="em">Email</label><input id="em" type="email" autocomplete="email"><label for="pw">Password (6+ characters)</label><input id="pw" type="password" autocomplete="${s?'new-password':'current-password'}" onkeydown="if(event.key==='Enter')doAuth()"><div class="err" id="err"></div><button class="btn g" onclick="doAuth()">${s?'Sign up':'Login'}</button><button class="btn w" onclick="openAuth('${s?'login':'signup'}')">${s?'Have an account? Login':'New here? Sign up'}</button></div></main>`}
+function openAuth(m){S.auth=m;go('auth')}
+function doAuth(){const em=$('#em').value.trim().toLowerCase(),pw=$('#pw').value,su=S.auth==='signup',nm=su?$('#nm').value.trim():'',all=ls('dp_users',{}),E=$('#err');
+if(su&&!nm){E.textContent='Enter your name.';return}
+if(!/^\S+@\S+\.\S+$/.test(em)){E.textContent='Enter a valid email.';return}
+if(pw.length<6){E.textContent='Password needs 6 or more characters.';return}
+if(su){if(all[em]){E.textContent='Account exists. Please login.';return}
+all[em]={name:nm,email:em,pass:pw,domain:null,scores:null,prog:{}};sv('dp_users',all);S.u=all[em];sv('dp_session',em);S.qi=0;S.ans=[];go('quiz')}
+else{const u=all[em];if(!u||u.pass!==pw){E.textContent='Wrong email or password.';return}S.u=u;sv('dp_session',em);S.qi=0;S.ans=[];go(u.domain?'dash':'quiz')}}
+function logout(){sv('dp_session','');S.u=null;go('land')}
+function quiz(){const q=QS[S.qi];return `<main class="wrap" style="max-width:640px"><div class="box"><span class="tag">Question ${S.qi+1} of 15</span><div class="bar"><i style="width:${S.qi/15*100}%"></i></div><h2>${q[0]}</h2>${q.slice(1).map((o,i)=>`<button class="opt" onclick="pick(${i})">${o}</button>`).join('')}</div></main>`}
+function pick(i){S.ans.push(i);if(S.ans.length<15){S.qi++;render();return}
+const sc=[0,0,0,0];S.ans.forEach(a=>sc[a]++);S.u.scores=sc;S.u.domain=D[sc.indexOf(Math.max(...sc))];save();go('result')}
+function result(){const r=rc(S.u.domain),sc=S.u.scores;return `<main class="wrap" style="max-width:640px"><div class="box"><span class="tag">Your best fit</span><h1 style="font-size:52px">${r.e} ${r.n}</h1><p>${r.d}</p>${D.map((d,i)=>`<b>${rc(d).n} – ${Math.round(sc[i]/15*100)}%</b><div class="bar"><i style="width:${sc[i]/15*100}%;background:var(--b)"></i></div>`).join('')}<button class="btn g" onclick="go('dash')">See my roadmaps</button></div></main>`}
+function card(r,rec){const p=pct(r);return `<div class="box"><div style="font-size:40px">${r.e}</div><h3>${r.n} ${rec?'<span class="tag">Recommended</span>':''}</h3><p>${r.d}</p><div class="bar"><i style="width:${p}%"></i></div><small>${p}% done · ${r.t.length} topics</small><br><button class="btn ${rec?'p':'b'}" onclick="openCourse('${r.id}')">${p?'Continue':'Start learning'}</button></div>`}
+function dash(){const top=R.slice(0,4).sort((a,b)=>(b.id===S.u.domain)-(a.id===S.u.domain));
+return `<main class="wrap"><h2>Top 4 roadmaps</h2><div class="grid">${top.map(r=>card(r,r.id===S.u.domain)).join('')}</div><h2>All courses</h2><div class="grid">${R.map(r=>card(r,false)).join('')}</div><button class="btn w" onclick="S.qi=0;S.ans=[];go('quiz')">Retake the 15 questions</button></main>`}
+function openCourse(id){S.cid=id;S.ti=0;S.tab='lecture';S.fb='';go('course')}
+function setT(i){S.ti=i;S.tab='lecture';S.fb='';render()}
+function setTab(t){S.tab=t;S.fb='';render()}
+function mark(k){const r=rc(S.cid),key=pk(r,S.ti);S.u.prog[key]=S.u.prog[key]||{};S.u.prog[key][k]=1;save();render()}
+function ans(i){if(i===rc(S.cid).t[S.ti].a){S.fb='ok';mark('quiz')}else{S.fb='bad';render()}}
+function body(r,t){const i=S.ti,dn=done(r,i,S.tab),src=SRC[i%3],mb=l=>`<button class="btn ${dn?'g':'p'}" onclick="mark('${S.tab}')">${dn?'✓ Done':l}</button>`;
+if(S.tab==='lecture')return `<h3>Lecture: ${t.n}</h3><p>Source: <b>${src.n}</b></p><a class="btn b" href="${src.u}${i%3===0?r.s:''}" target="_blank" rel="noopener">Open lecture</a>${mb('Mark watched')}`;
+if(S.tab==='notes')return `<h3>Notes: ${t.n}</h3><p>${t.note}</p><p><a href="https://roadmap.sh/${r.s}" target="_blank" rel="noopener">Read the full guide</a></p>${mb('Mark read')}`;
+if(S.tab==='quiz')return `<h3>Quiz</h3><p><b>${t.q}</b></p>${t.o.map((o,k)=>`<button class="opt" onclick="ans(${k})">${o}</button>`).join('')}${S.fb==='bad'?'<div class="no">Not quite. Try again.</div>':''}${dn?'<div class="ok">✓ Correct. Quiz passed.</div>':''}`;
+if(S.tab==='lab')return `<h3>Lab</h3><p>${t.lab}</p>${mb('Mark lab complete')}`;
+return `<h3>Workshop</h3><p>${t.ws}</p><a class="btn b" href="https://www.freecodecamp.org/learn" target="_blank" rel="noopener">Open workshop</a>${mb('Mark workshop done')}`}
+function course(){const r=rc(S.cid),t=r.t[S.ti],p=pct(r);
+return `<main class="wrap"><button class="btn w" onclick="go('dash')">Back</button><h2>${r.e} ${r.n} roadmap</h2><div class="bar"><i style="width:${p}%"></i></div><b>${p}% complete</b><div class="split" style="margin-top:16px"><div>${r.t.map((x,i)=>`<button class="top ${i===S.ti?'on':''}" onclick="setT(${i})">${TABS.every(k=>done(r,i,k))?'✓ ':''}${x.n}</button>`).join('')}</div><div class="box">${TABS.map(k=>`<button class="tab ${k===S.tab?'on':''}" onclick="setTab('${k}')">${done(r,S.ti,k)?'✓ ':''}${k}</button>`).join('')}<div>${body(r,t)}</div></div></div></main>`}
+function render(){$('#app').innerHTML=nav()+({land:land,auth:auth,quiz:quiz,result:result,dash:dash,course:course}[S.view])()}
+(function(){const em=ls('dp_session','');if(em){const u=ls('dp_users',{})[em];if(u){S.u=u;S.view=u.domain?'dash':'quiz'}}render()})();
+</script>
+</body>
+</html>
