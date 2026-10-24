@@ -1,6 +1,6 @@
 # HORIZON: AI-Powered Unified Learning Platform
 
-> Synthesizing the structured pathways of **roadmap.sh**, the hands-on project mastery of **freeCodeCamp.org**, and the addictive mastery loops of **Boot.dev**.
+> A unified learning platform combining adaptive career roadmaps, interactive code labs, and gamified mastery loops.
 
 ---
 
@@ -21,7 +21,7 @@
    - Interactive stages and topic milestone explorer.
 
 4. **Deep Learning Workspace (5 Learning Modes per Topic)**:
-   - 📺 **Lectures**: Curated full video masterclasses from freeCodeCamp & Boot.dev with key takeaways checklist.
+   - 📺 **Lectures**: Curated full video masterclasses with key takeaways checklist.
    - 📝 **Notes**: In-depth theoretical notes with syntax snippets and architectural diagrams.
    - ❓ **Questions**: Interactive multiple-choice conceptual quizzes with instant educational explanations.
    - 💻 **Labs**: In-browser interactive code editor with live test case runner and assertion console.

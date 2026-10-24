@@ -42,12 +42,23 @@ export const TopicWorkspace: React.FC<TopicWorkspaceProps> = ({
   // Workshop checklist state
   const [checkedSteps, setCheckedSteps] = useState<Record<number, boolean>>({});
 
+  // Adaptive In-Learning Checkpoint State
+  const [checkpoint, setCheckpoint] = useState<any | null>(null);
+  const [checkpointSubmitted, setCheckpointSubmitted] = useState(false);
+  const [checkpointFeedback, setCheckpointFeedback] = useState<string | null>(null);
+
   useEffect(() => {
     const loadTopic = async () => {
       try {
         setLoading(true);
-        const res = await api.getTopicDetails(topicId);
+        const [res, chkRes] = await Promise.all([
+          api.getTopicDetails(topicId),
+          api.getAdaptiveCheckpoint(topicId)
+        ]);
         setTopicData(res.topic);
+        if (chkRes && chkRes.available) {
+          setCheckpoint(chkRes.checkpoint);
+        }
         if (res.user_progress && res.user_progress.completed_items) {
           setCompletedItems(res.user_progress.completed_items);
         }
@@ -62,6 +73,25 @@ export const TopicWorkspace: React.FC<TopicWorkspaceProps> = ({
     };
     loadTopic();
   }, [topicId]);
+
+  const handleAnswerCheckpoint = async (option: any) => {
+    if (!checkpoint) return;
+    try {
+      const res = await api.submitAdaptiveReflection(
+        checkpoint.id,
+        topicId,
+        option.id,
+        option.reinforce_domain
+      );
+      setCheckpointSubmitted(true);
+      setCheckpointFeedback(res.message);
+      confetti({ particleCount: 50, spread: 60, origin: { y: 0.5 } });
+      onRefreshUser();
+    } catch (e) {
+      setCheckpointSubmitted(true);
+      setCheckpointFeedback("Reflection saved! Calibrating your roadmap.");
+    }
+  };
 
   const markActionCompleted = async (actionType: string) => {
     if (completedItems.includes(actionType)) return;
@@ -134,7 +164,7 @@ export const TopicWorkspace: React.FC<TopicWorkspaceProps> = ({
             <span className="text-xs font-bold uppercase tracking-wider text-indigo-400 bg-indigo-500/10 px-2.5 py-0.5 rounded-full border border-indigo-500/20">
               {roadmapSlug.replace(/-/g, " ").toUpperCase()}
             </span>
-            <span className="text-xs text-slate-400">• freeCodeCamp & Boot.dev Powered</span>
+            <span className="text-xs text-slate-400">• Interactive Masterclass & Lab</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-extrabold text-white">
             {topicData.title}
@@ -154,6 +184,37 @@ export const TopicWorkspace: React.FC<TopicWorkspaceProps> = ({
           </div>
         </div>
       </div>
+
+      {/* ADAPTIVE IN-LEARNING PSYCHOLOGICAL CHECKPOINT */}
+      {checkpoint && (
+        <div className="mb-8 p-5 sm:p-6 rounded-3xl bg-gradient-to-r from-indigo-950/70 via-purple-950/40 to-slate-900 border border-indigo-500/40 shadow-xl relative overflow-hidden">
+          <div className="flex items-center gap-2 mb-2 text-xs font-bold uppercase tracking-wider text-cyan-400">
+            <Sparkles className="w-4 h-4 text-cyan-300 animate-pulse" />
+            <span>Adaptive Career Compass • In-Learning Reflection (+25 XP)</span>
+          </div>
+          <h3 className="text-base sm:text-lg font-bold text-white mb-3">
+            {checkpoint.prompt}
+          </h3>
+          {!checkpointSubmitted ? (
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+              {checkpoint.options.map((opt: any) => (
+                <button
+                  key={opt.id}
+                  onClick={() => handleAnswerCheckpoint(opt)}
+                  className="p-3.5 text-left rounded-2xl bg-slate-950/80 border border-slate-800 hover:border-indigo-400 hover:bg-slate-900 text-xs sm:text-sm text-slate-200 font-medium transition-all transform hover:-translate-y-0.5 shadow-sm"
+                >
+                  {opt.text}
+                </button>
+              ))}
+            </div>
+          ) : (
+            <div className="flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-emerald-300 bg-emerald-950/40 p-3.5 rounded-2xl border border-emerald-500/40">
+              <CheckCircle2 className="w-5 h-5 text-emerald-400 flex-shrink-0" />
+              <span>{checkpointFeedback || "Reflection recorded! Your career roadmap has been dynamically calibrated."}</span>
+            </div>
+          )}
+        </div>
+      )}
 
       {/* 5 LEARNING MODE TABS */}
       <div className="flex overflow-x-auto gap-2 p-1.5 rounded-2xl bg-slate-900 border border-slate-800 mb-8 scrollbar-none">
@@ -244,7 +305,7 @@ export const TopicWorkspace: React.FC<TopicWorkspaceProps> = ({
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4 pb-4 border-b border-slate-800">
               <div>
                 <span className="text-xs font-semibold text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/20">
-                  Provider: {lecture.provider}
+                  Curated Video Masterclass
                 </span>
                 <h3 className="text-xl font-bold text-white mt-1">
                   {lecture.title}

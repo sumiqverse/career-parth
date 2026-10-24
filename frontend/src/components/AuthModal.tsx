@@ -193,7 +193,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
 
         <div className="mt-6 pt-4 border-t border-slate-800/80 text-center">
           <p className="text-xs text-slate-500">
-            Includes progress tracking, XP leaderboards, and freeCodeCamp labs integration.
+            Includes progress tracking, XP leaderboards, and interactive labs integration.
           </p>
         </div>
       </div>

@@ -2,7 +2,7 @@
 TITLE Horizon Learning Platform Launcher
 echo ========================================================
 echo         HORIZON - AI-POWERED LEARNING EXPERIENCE
-echo    Synthesizing roadmap.sh, freeCodeCamp, and Boot.dev
+echo    Adaptive Paths, Interactive Labs, and Mastery Loops
 echo ========================================================
 echo.
 

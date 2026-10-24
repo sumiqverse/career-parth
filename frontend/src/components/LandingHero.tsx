@@ -34,7 +34,7 @@ export const LandingHero: React.FC<LandingHeroProps> = ({
             <Sparkles className="w-4 h-4 text-cyan-400 animate-pulse" />
             <span>The Unified AI Learning Platform</span>
             <span className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
-            <span className="text-slate-400 hidden sm:inline">Synthesized from 3 Top Developer Resources</span>
+            <span className="text-slate-400 hidden sm:inline">Architected for Zero Overwhelm & Pure Mastery</span>
           </div>
         </div>
 
@@ -47,12 +47,7 @@ export const LandingHero: React.FC<LandingHeroProps> = ({
             </span>
           </h1>
           <p className="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Stop drowning in 50-hour tutorial playlists. Horizon unifies the path clarity of{" "}
-            <span className="text-white font-semibold underline decoration-indigo-500/60 underline-offset-4">roadmap.sh</span>,{" "}
-            the hands-on project labs of{" "}
-            <span className="text-white font-semibold underline decoration-emerald-500/60 underline-offset-4">freeCodeCamp</span>,{" "}
-            and the addictive mastery loops of{" "}
-            <span className="text-white font-semibold underline decoration-amber-500/60 underline-offset-4">Boot.dev</span>.
+            Stop drowning in 50-hour tutorial playlists. Horizon unifies structured visual roadmaps, hands-on interactive code labs, and gamified mastery loops into one seamless personalized experience.
           </p>
         </div>
 
@@ -84,8 +79,8 @@ export const LandingHero: React.FC<LandingHeroProps> = ({
                 <Compass className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="font-bold text-white text-base">roadmap.sh Engine</h3>
-                <span className="text-xs text-indigo-300 font-medium">Visual Path Hierarchy</span>
+                <h3 className="font-bold text-white text-base">Visual Roadmap Engine</h3>
+                <span className="text-xs text-indigo-300 font-medium">Clear Milestone Hierarchy</span>
               </div>
             </div>
             <p className="text-sm text-slate-400">
@@ -99,8 +94,8 @@ export const LandingHero: React.FC<LandingHeroProps> = ({
                 <Code2 className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="font-bold text-white text-base">freeCodeCamp Quality</h3>
-                <span className="text-xs text-emerald-300 font-medium">Lectures & Practical Labs</span>
+                <h3 className="font-bold text-white text-base">Interactive Project Labs</h3>
+                <span className="text-xs text-emerald-300 font-medium">Masterclasses & Practical Labs</span>
               </div>
             </div>
             <p className="text-sm text-slate-400">
@@ -114,7 +109,7 @@ export const LandingHero: React.FC<LandingHeroProps> = ({
                 <Flame className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="font-bold text-white text-base">Boot.dev Mastery Loops</h3>
+                <h3 className="font-bold text-white text-base">Gamified Mastery Loops</h3>
                 <span className="text-xs text-amber-300 font-medium">XP, Streaks & Feedback</span>
               </div>
             </div>
@@ -150,7 +145,7 @@ export const LandingHero: React.FC<LandingHeroProps> = ({
               <span className="text-3xl font-black text-cyan-500/40 block mb-2">02</span>
               <h4 className="font-bold text-white text-sm mb-1.5">Top 4 Roadmaps</h4>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Receive the Top 4 curated roadmap.sh paths ranked specifically for your cognitive style and goals.
+                Receive your Top 4 curated personalized paths ranked specifically for your cognitive style and goals.
               </p>
             </div>
 

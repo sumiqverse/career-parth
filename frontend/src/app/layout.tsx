@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Horizon | AI-Powered Learning Experience",
-  description: "Synthesizing roadmaps from roadmap.sh, freeCodeCamp, and Boot.dev with 15-question diagnostic onboarding, interactive lectures, notes, quizzes, labs, and workshops.",
+  description: "Adaptive engineering pathways with 15-question psychological diagnostic onboarding, interactive lectures, notes, quizzes, labs, and capstone workshops.",
 };
 
 export default function RootLayout({

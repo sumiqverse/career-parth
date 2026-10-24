@@ -2,7 +2,7 @@
 
 ## Phase Status Summary
 - [x] **Phase 1**: System Blueprint, Architecture & Scaffolding
-- [x] **Phase 2**: Content Aggregation & Curation Engine (roadmap.sh + freeCodeCamp + Boot.dev)
+- [x] **Phase 2**: Content Aggregation & Curation Engine (Unified Curriculum)
 - [x] **Phase 3**: Database & Document Persistence Layer (MongoDB + Resilient JSON Engine)
 - [x] **Phase 4**: 15-Question Domain Assessment & Recommendation Engine
 - [x] **Phase 5**: FastAPI Backend Core & Auth API
@@ -22,9 +22,9 @@
 
 ### Phase 2: Content Aggregation & Curation Engine
 - [x] Design comprehensive schemas for Roadmaps, Stages, Topics, and Modules.
-- [x] Ingest & curate roadmap structures (inspired by roadmap.sh): Fullstack, Backend, AI/ML, DevOps, Frontend, CyberSecurity.
+- [x] Ingest & curate roadmap structures: Fullstack, Backend, AI/ML, DevOps, Frontend, CyberSecurity.
 - [x] Map high-quality topic content:
-  - **Lectures**: FreeCodeCamp full-length courses, Boot.dev modular walk-throughs.
+  - **Lectures**: Curated full-length masterclasses and modular video walk-throughs.
   - **Notes**: In-depth markdown notes, architectural explanations, code snippets.
   - **Questions**: Multiple-choice diagnostic and conceptual quizzes with explanation hints.
   - **Labs**: Interactive coding challenges with input/expected output test cases.
@@ -38,12 +38,13 @@
 - [x] Implement DB seed runner to populate all curated courses and roadmaps on app start.
 - [x] **Phase 3 Verification & Test**: Passed CRUD, upsert, query, and persistence tests in `test_backend.py`.
 
-### Phase 4: 15-Question Domain Assessment & Recommendation Engine
-- [x] Author 15 diagnostic questions targeting cognitive styles, visual vs logic orientation, math affinity, systems vs product interest, and career goals.
-- [x] Build scoring matrix and recommendation algorithm in Python to compute domain affinity scores:
-  - Frontend, Backend, Fullstack, AI/Machine Learning, DevOps/Cloud, CyberSecurity.
-- [x] Rank and select the user's **Top 4 personalized roadmaps**.
-- [x] **Phase 4 Verification & Test**: Verified backend and AI/ML test vectors in `test_backend.py`.
+### Phase 4: Psychological Diagnostic & Adaptive Recommendation Engine
+- [x] Author 15 deeply relatable, non-technical psychological questions designed for freshers & beginners.
+- [x] Eliminate jargon (no Docker, Kubernetes, linear algebra formulas) and focus on natural cognitive instincts, frustration tolerance, play style, and real blocker analysis.
+- [x] Add **"🤔 I don't know / Not sure yet" (IDK)** option to all 15 questions with zero-pressure adaptive routing.
+- [x] Build **"The Curious Explorer"** adaptive track for users with high IDK responses.
+- [x] Implement in-learning **Adaptive Checkpoints** (contextual 5-second reflection check-ins after topic completion to dynamically refine career plans).
+- [x] **Phase 4 Verification & Test**: Verified backend, AI/ML, and Curious Explorer IDK test vectors in `test_backend.py`.
 
 ### Phase 5: FastAPI Backend Core & Auth API
 - [x] Authentication API: User Registration, Login (JWT tokens), Current User profile.

@@ -12,5 +12,47 @@
     "total_xp_earned": 35,
     "updated_at": "2026-10-24T05:55:38.015027",
     "_id": "prog_0056dd2f53"
+  },
+  {
+    "id": "prog_fb35e3004b",
+    "user_id": "user_d9d0387617d3",
+    "roadmap_slug": "full-stack-developer",
+    "completed_topics": [],
+    "completed_items": {
+      "fs_topic_html_css": [
+        "quiz"
+      ]
+    },
+    "total_xp_earned": 35,
+    "updated_at": "2026-10-24T07:01:07.165969",
+    "_id": "prog_fb35e3004b"
+  },
+  {
+    "id": "prog_2502db75cd",
+    "user_id": "user_ad382fc67274",
+    "roadmap_slug": "full-stack-developer",
+    "completed_topics": [],
+    "completed_items": {
+      "fs_topic_html_css": [
+        "quiz"
+      ]
+    },
+    "total_xp_earned": 35,
+    "updated_at": "2026-10-24T07:01:29.502535",
+    "_id": "prog_2502db75cd"
+  },
+  {
+    "id": "prog_b23afe3ec1",
+    "user_id": "user_406509099e0f",
+    "roadmap_slug": "full-stack-developer",
+    "completed_topics": [],
+    "completed_items": {
+      "fs_topic_html_css": [
+        "quiz"
+      ]
+    },
+    "total_xp_earned": 35,
+    "updated_at": "2026-10-24T07:30:59.597886",
+    "_id": "prog_b23afe3ec1"
   }
 ]

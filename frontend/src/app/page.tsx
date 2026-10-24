@@ -158,10 +158,7 @@ export default function Home() {
             <span>The Unified Learning Experience</span>
           </div>
           <div>
-            Aggregating curated tracks from{" "}
-            <span className="text-slate-400 font-semibold">roadmap.sh</span>,{" "}
-            <span className="text-slate-400 font-semibold">freeCodeCamp.org</span>, and{" "}
-            <span className="text-slate-400 font-semibold">Boot.dev</span>.
+            Empowering self-directed learners with adaptive roadmaps, practical labs, and instant feedback.
           </div>
           <div>
             MongoDB & FastAPI Cloud Persistence

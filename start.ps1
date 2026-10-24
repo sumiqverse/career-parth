@@ -1,6 +1,6 @@
 Write-Host "========================================================" -ForegroundColor Cyan
 Write-Host "        HORIZON - AI-POWERED LEARNING EXPERIENCE        " -ForegroundColor Yellow
-Write-Host "    Synthesizing roadmap.sh, freeCodeCamp, and Boot.dev " -ForegroundColor Green
+Write-Host "    Adaptive Paths, Interactive Labs, and Mastery Loops " -ForegroundColor Green
 Write-Host "========================================================" -ForegroundColor Cyan
 Write-Host ""
 

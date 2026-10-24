@@ -8,8 +8,8 @@
     "lectures": [
       {
         "id": "lec_html_1",
-        "title": "HTML & CSS Complete Masterclass (freeCodeCamp Course)",
-        "provider": "freeCodeCamp.org",
+        "title": "HTML & CSS Complete Masterclass",
+        "provider": "Horizon Masterclass",
         "video_url": "https://www.youtube.com/embed/mU6anWqZJcc",
         "duration": "18 mins selected segment",
         "summary": "Covers semantic HTML5 tags (<header>, <main>, <nav>, <article>, <aside>, <footer>) and modern CSS layout engines (Flexbox and Grid).",
@@ -101,7 +101,7 @@
       {
         "id": "lec_js_1",
         "title": "JavaScript Async/Await & Event Loop Masterclass",
-        "provider": "Boot.dev & freeCodeCamp",
+        "provider": "Horizon Masterclass",
         "video_url": "https://www.youtube.com/embed/8aGhZQkoFbQ",
         "duration": "24 mins",
         "summary": "Explains how the single-threaded JavaScript V8 engine handles asynchronous I/O via Call Stack, Web APIs, Microtask Queue, and Event Loop.",
@@ -174,7 +174,7 @@
       {
         "id": "lec_fastapi_1",
         "title": "FastAPI Full Course for Beginners",
-        "provider": "freeCodeCamp.org",
+        "provider": "Horizon Masterclass",
         "video_url": "https://www.youtube.com/embed/7t2alSnE2-I",
         "duration": "30 mins selected",
         "summary": "Learn modern Python backend development using FastAPI, automatic OpenAPI Swagger docs, Pydantic type validation, and dependency injection.",

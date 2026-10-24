@@ -74,14 +74,24 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
       {/* Top Banner / Welcome HUD */}
       <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-slate-900/90 via-indigo-950/40 to-slate-900/90 border border-slate-800 shadow-2xl mb-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
         <div>
-          <div className="flex items-center gap-2 mb-2">
+          <div className="flex flex-wrap items-center gap-2 mb-2">
             <span className="text-xs font-bold uppercase tracking-wider text-indigo-400 bg-indigo-500/10 px-2.5 py-0.5 rounded-full border border-indigo-500/20">
               Personalized Dashboard
             </span>
-            {user?.primary_domain && (
+            {user?.archetype && (
+              <span className="text-xs font-semibold text-purple-300 bg-purple-500/10 px-2.5 py-0.5 rounded-full border border-purple-500/30 flex items-center gap-1">
+                🧠 Archetype: {user.archetype}
+              </span>
+            )}
+            {user?.primary_domain && !user?.archetype && (
               <span className="text-xs font-semibold text-emerald-300 bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/20 flex items-center gap-1">
                 <CheckCircle2 className="w-3.5 h-3.5" />
                 Track: {user.primary_domain.toUpperCase()}
+              </span>
+            )}
+            {user?.is_exploring_mode && (
+              <span className="text-xs font-semibold text-amber-300 bg-amber-500/10 px-2.5 py-0.5 rounded-full border border-amber-500/30 flex items-center gap-1">
+                ✨ Adaptive Track Active
               </span>
             )}
           </div>
@@ -89,7 +99,9 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
             Welcome, {user?.full_name || "Developer"} 👋
           </h1>
           <p className="text-sm text-slate-400 mt-1 max-w-xl">
-            Here are your **Top 4 Curated Roadmaps** and course modules. Pick any topic below to access lectures, notes, interactive quizzes, labs, and capstone workshops.
+            {user?.is_exploring_mode
+              ? "We have arranged an exploratory gateway path for you. As you complete lessons, quick 5-second reflections will dynamically adapt your roadmaps to what your brain loves."
+              : "Here are your Top 4 Curated Roadmaps matched to your psychological profile. Pick any topic below to access lectures, notes, interactive quizzes, labs, and capstone workshops."}
           </p>
         </div>
 
@@ -117,12 +129,12 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                 Top 4 Recommended Roadmaps
               </h2>
               <p className="text-xs sm:text-sm text-slate-400">
-                Ranked by your cognitive preferences and roadmap.sh structures
+                Ranked by your cognitive preferences and verified industry standards
               </p>
             </div>
           </div>
           <span className="text-xs font-medium text-slate-400 hidden sm:inline">
-            Directly mapped to freeCodeCamp & Boot.dev labs
+            Directly mapped to hands-on interactive practice labs
           </span>
         </div>
 
@@ -210,7 +222,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
               </div>
             </div>
             <div className="text-xs text-slate-400 bg-slate-950 px-3.5 py-1.5 rounded-xl border border-slate-800">
-              {selectedRoadmap.stages.length} Stages • {selectedRoadmap.source_attribution}
+              {selectedRoadmap.stages.length} Stages • Industry Standard Curriculum
             </div>
           </div>
 

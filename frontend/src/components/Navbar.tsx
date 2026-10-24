@@ -44,7 +44,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               </span>
             </div>
             <span className="text-[11px] text-slate-400 block -mt-0.5 font-medium">
-              roadmap.sh • freeCodeCamp • Boot.dev
+              Adaptive Paths • Hands-on Labs • Real Mastery
             </span>
           </div>
         </div>

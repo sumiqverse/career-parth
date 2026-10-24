@@ -18,8 +18,8 @@ async def run_tests():
 
     # 3. Verify Scoring Algorithm with different vectors
     test_answers_backend = {
-        "1": "q1_b", "2": "q2_b", "3": "q3_b", "4": "q4_c", "5": "q5_a",
-        "7": "q7_c", "8": "q8_b", "9": "q9_b", "10": "q10_b", "12": "q12_a"
+        "1": "q1_b", "2": "q2_c", "3": "q3_b", "5": "q5_b",
+        "7": "q7_d", "8": "q8_b", "10": "q10_b", "13": "q13_b"
     }
     result_be = compute_assessment_result(test_answers_backend)
     assert result_be["recommended_domain"] == "backend", f"Expected backend, got {result_be['recommended_domain']}"
@@ -27,14 +27,24 @@ async def run_tests():
     print(f"[PASS] Scoring test (Backend profile): Winner={result_be['recommended_domain']}, Top4 count={len(result_be['top_roadmaps'])}")
 
     test_answers_aiml = {
-        "1": "q1_c", "2": "q2_a", "4": "q4_b", "5": "q5_d", "7": "q7_b",
-        "8": "q8_c", "9": "q9_c", "10": "q10_d", "12": "q12_b", "13": "q13_a", "15": "q15_c"
+        "1": "q1_d", "3": "q3_c", "5": "q5_c", "6": "q6_c",
+        "7": "q7_c", "8": "q8_c", "13": "q13_c", "15": "q15_c"
     }
     result_ai = compute_assessment_result(test_answers_aiml)
     assert result_ai["recommended_domain"] == "ai_ml", f"Expected ai_ml, got {result_ai['recommended_domain']}"
     print(f"[PASS] Scoring test (AI/ML profile): Winner={result_ai['recommended_domain']}, Top4 count={len(result_ai['top_roadmaps'])}")
 
-    # 4. In-process HTTP testing with AsyncClient
+    # 4. Verify IDK / Curious Explorer Mode
+    test_answers_idk = {
+        "1": "q1_idk", "2": "q2_idk", "3": "q3_idk", "4": "q4_idk",
+        "5": "q5_idk", "6": "q6_idk", "7": "q7_idk"
+    }
+    result_idk = compute_assessment_result(test_answers_idk)
+    assert result_idk["is_exploring_mode"] is True, "Expected is_exploring_mode to be True for multiple IDK answers"
+    assert result_idk["archetype"] == "The Curious Explorer"
+    print(f"[PASS] Scoring test (IDK / Curious Explorer profile): Archetype={result_idk['archetype']}, IDK count={result_idk['idk_count']}")
+
+    # 5. In-process HTTP testing with AsyncClient
     async with httpx.AsyncClient(transport=httpx.ASGITransport(app=app), base_url="http://test") as client:
         # Health check
         res = await client.get("/api/health")
@@ -138,6 +148,24 @@ async def run_tests():
         lab_res = res.json()
         assert lab_res["success"] is True
         print("[PASS] POST /api/labs/run-code passed: Test cases validated successfully.")
+
+        # Adaptive Checkpoint & In-Learning Reflection
+        res = await client.get("/api/assessment/adaptive-checkpoint/fs_topic_html_css")
+        assert res.status_code == 200
+        chk_res = res.json()
+        assert chk_res["available"] is True
+        print("[PASS] GET /api/assessment/adaptive-checkpoint/fs_topic_html_css passed.")
+
+        res = await client.post("/api/assessment/adaptive-reflection", json={
+            "checkpoint_id": "chk_html_visual",
+            "topic_id": "fs_topic_html_css",
+            "selected_option_id": "chk_1_loved",
+            "reinforce_domain": "frontend"
+        }, headers=headers)
+        assert res.status_code == 200
+        ref_res = res.json()
+        assert ref_res["status"] == "success"
+        print("[PASS] POST /api/assessment/adaptive-reflection passed.")
 
     print("=== ALL HORIZON BACKEND VERIFICATION CHECKS PASSED SUCCESSFULLY ===")
 

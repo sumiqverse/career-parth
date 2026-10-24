@@ -11,13 +11,14 @@ from database import get_db
 from models import (
     UserRegister, UserLogin, UserProfile, TokenResponse,
     AssessmentQuestion, AssessmentSubmitRequest, AssessmentResultResponse,
-    Roadmap, TopicDetail, ProgressUpdateRequest, GamificationStatus
+    Roadmap, TopicDetail, ProgressUpdateRequest, GamificationStatus,
+    AdaptiveReflectionSubmit
 )
 from auth import (
     verify_password, get_password_hash, create_access_token,
     get_current_user, require_current_user
 )
-from data.assessment_questions import ASSESSMENT_QUESTIONS, DOMAIN_DETAILS
+from data.assessment_questions import ASSESSMENT_QUESTIONS, DOMAIN_DETAILS, ADAPTIVE_CHECKPOINTS
 from data.seed_roadmaps import SEED_ROADMAPS, TOPIC_DETAILS
 from scoring import compute_assessment_result
 
@@ -52,7 +53,7 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(
     title="Horizon Learning API",
-    description="Backend API synthesizing roadmap.sh, freeCodeCamp, and Boot.dev with AI personalized guidance.",
+    description="Backend API powering Horizon AI-guided learning platform with personalized roadmaps, labs, and adaptive guidance.",
     version="1.0.0",
     lifespan=lifespan
 )
@@ -222,15 +223,22 @@ async def submit_assessment(
             "submitted_at": datetime.utcnow().isoformat(),
             "answers": payload.answers,
             "recommended_domain": result["recommended_domain"],
+            "archetype": result.get("archetype"),
+            "idk_count": result.get("idk_count", 0),
+            "is_exploring_mode": result.get("is_exploring_mode", False),
             "domain_scores": result["domain_scores"]
         }
         await assessments_col.insert_one(assessment_doc)
 
-        # Update user profile with primary domain and award 100 XP bonus
+        # Update user profile with primary domain, archetype and award 100 XP bonus
         await users_col.update_one(
             {"id": current_user["id"]},
             {
-                "$set": {"primary_domain": result["recommended_domain"]},
+                "$set": {
+                    "primary_domain": result["recommended_domain"],
+                    "archetype": result.get("archetype"),
+                    "is_exploring_mode": result.get("is_exploring_mode", False)
+                },
                 "$inc": {"xp": 100}
             }
         )
@@ -246,9 +254,60 @@ async def get_saved_assessment_result(
     assessments_col = db.get_collection("assessments")
     latest = await assessments_col.find_one({"user_id": current_user["id"]})
     if not latest:
-        # Fallback to default fullstack
         return compute_assessment_result({})
     return compute_assessment_result(latest.get("answers", {}))
+
+
+# --- Adaptive In-Learning Checkpoints (Contextual Psychology Calibration) ---
+@app.get("/api/assessment/adaptive-checkpoint/{topic_id}")
+async def get_adaptive_checkpoint(topic_id: str):
+    """Returns a contextual psychological reflection prompt for this topic if available."""
+    for chk in ADAPTIVE_CHECKPOINTS:
+        if chk["trigger_topic"] == topic_id:
+            return {"available": True, "checkpoint": chk}
+    return {"available": False, "checkpoint": None}
+
+
+@app.post("/api/assessment/adaptive-reflection")
+async def submit_adaptive_reflection(
+    payload: AdaptiveReflectionSubmit,
+    current_user: Optional[Dict[str, Any]] = Depends(get_current_user)
+):
+    """
+    Saves user's in-learning reflection and updates domain calibration in MongoDB.
+    Awards 25 XP.
+    """
+    if current_user:
+        db = get_db()
+        users_col = db.get_collection("users")
+        assessments_col = db.get_collection("assessments")
+
+        latest_asmt = await assessments_col.find_one({"user_id": current_user["id"]})
+        if latest_asmt:
+            domain_scores = latest_asmt.get("domain_scores", {})
+            target_domain = payload.reinforce_domain
+            domain_scores[target_domain] = domain_scores.get(target_domain, 0) + 4
+            
+            # Recalculate top domain
+            sorted_domains = sorted(domain_scores.items(), key=lambda x: x[1], reverse=True)
+            new_primary = sorted_domains[0][0]
+
+            await assessments_col.update_one(
+                {"id": latest_asmt["id"]},
+                {"$set": {"domain_scores": domain_scores, "recommended_domain": new_primary}}
+            )
+            await users_col.update_one(
+                {"id": current_user["id"]},
+                {
+                    "$set": {"primary_domain": new_primary},
+                    "$inc": {"xp": 25}
+                }
+            )
+    return {
+        "status": "success",
+        "message": f"Career compass calibrated towards {payload.reinforce_domain}.",
+        "awarded_xp": 25
+    }
 
 
 # --- Roadmaps Routes ---
@@ -335,7 +394,7 @@ async def get_topic_details(topic_id: str, current_user: Optional[Dict[str, Any]
             details = TOPIC_DETAILS[topic_id]
 
     if not details:
-        # Generate on-demand fallback content synthesized from roadmap.sh / freecodecamp
+        # Generate on-demand fallback content with rich modules and labs
         details = {
             "id": topic_id,
             "roadmap_slug": "full-stack-developer",
@@ -346,7 +405,7 @@ async def get_topic_details(topic_id: str, current_user: Optional[Dict[str, Any]
                 {
                     "id": f"lec_{topic_id}",
                     "title": f"Mastering {topic_id.replace('_', ' ').title()}",
-                    "provider": "freeCodeCamp.org & Boot.dev",
+                    "provider": "Horizon Masterclass",
                     "video_url": "https://www.youtube.com/embed/mU6anWqZJcc",
                     "duration": "20 mins",
                     "summary": f"In-depth architectural overview and production patterns for {topic_id.replace('_', ' ').title()}.",

@@ -7,6 +7,8 @@ export interface UserProfile {
   avatar?: string;
   created_at: string;
   primary_domain?: string | null;
+  archetype?: string | null;
+  is_exploring_mode?: boolean;
   xp: number;
   streak: number;
   level: number;
@@ -49,6 +51,7 @@ export interface AssessmentQuestion {
   options: Array<{
     id: string;
     text: string;
+    is_idk?: boolean;
     domain_scores: Record<string, number>;
   }>;
 }
@@ -296,6 +299,34 @@ export const api = {
       body: JSON.stringify({ code, test_cases: testCases })
     });
     if (!res.ok) throw new Error("Failed to execute tests");
+    return await res.json();
+  },
+
+  // --- Adaptive In-Learning Checkpoints ---
+  getAdaptiveCheckpoint: async (topicId: string) => {
+    try {
+      const res = await fetch(`${API_BASE}/api/assessment/adaptive-checkpoint/${topicId}`, {
+        headers: getHeaders()
+      });
+      if (res.ok) return await res.json();
+    } catch (e) {
+      console.warn("Could not fetch adaptive checkpoint:", e);
+    }
+    return { available: false, checkpoint: null };
+  },
+
+  submitAdaptiveReflection: async (checkpointId: string, topicId: string, selectedOptionId: string, reinforceDomain: string) => {
+    const res = await fetch(`${API_BASE}/api/assessment/adaptive-reflection`, {
+      method: "POST",
+      headers: getHeaders(),
+      body: JSON.stringify({
+        checkpoint_id: checkpointId,
+        topic_id: topicId,
+        selected_option_id: selectedOptionId,
+        reinforce_domain: reinforceDomain
+      })
+    });
+    if (!res.ok) throw new Error("Failed to submit adaptive reflection");
     return await res.json();
   }
 };

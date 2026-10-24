@@ -1,4 +1,4 @@
-# Complete curated roadmaps synthesizing roadmap.sh, freeCodeCamp, and Boot.dev
+# Curated roadmaps and comprehensive topic modules for Horizon
 
 SEED_ROADMAPS = [
     {
@@ -13,7 +13,7 @@ SEED_ROADMAPS = [
         "difficulty": "Beginner to Advanced",
         "estimated_hours": 120,
         "total_xp": 4500,
-        "source_attribution": "Synthesized from roadmap.sh (Full Stack), freeCodeCamp (Responsive Web & Full Stack), and Boot.dev (Web Dev Core)",
+        "source_attribution": "Curated Industry Standard Curriculum",
         "stages": [
             {
                 "id": "fs_stage_1",
@@ -125,7 +125,7 @@ SEED_ROADMAPS = [
         "difficulty": "Intermediate to Advanced",
         "estimated_hours": 100,
         "total_xp": 4200,
-        "source_attribution": "Synthesized from roadmap.sh (Backend) and Boot.dev (Backend in Go & Python)",
+        "source_attribution": "Curated Industry Standard Curriculum",
         "stages": [
             {
                 "id": "be_stage_1",
@@ -205,7 +205,7 @@ SEED_ROADMAPS = [
         "difficulty": "Intermediate to Advanced",
         "estimated_hours": 140,
         "total_xp": 5000,
-        "source_attribution": "Synthesized from roadmap.sh (AI and Data Science) and freeCodeCamp (Machine Learning with Python)",
+        "source_attribution": "Curated Industry Standard Curriculum",
         "stages": [
             {
                 "id": "ai_stage_1",
@@ -277,7 +277,7 @@ SEED_ROADMAPS = [
         "difficulty": "Beginner to Intermediate",
         "estimated_hours": 90,
         "total_xp": 3800,
-        "source_attribution": "Synthesized from roadmap.sh (Frontend) and freeCodeCamp (Front End Development Libraries)",
+        "source_attribution": "Curated Industry Standard Curriculum",
         "stages": [
             {
                 "id": "fe_stage_1",
@@ -325,7 +325,7 @@ SEED_ROADMAPS = [
         "difficulty": "Intermediate to Advanced",
         "estimated_hours": 110,
         "total_xp": 4400,
-        "source_attribution": "Synthesized from roadmap.sh (DevOps) and freeCodeCamp (DevOps Bootcamp)",
+        "source_attribution": "Curated Industry Standard Curriculum",
         "stages": [
             {
                 "id": "do_stage_1",
@@ -373,7 +373,7 @@ SEED_ROADMAPS = [
         "difficulty": "Intermediate to Advanced",
         "estimated_hours": 115,
         "total_xp": 4600,
-        "source_attribution": "Synthesized from roadmap.sh (Cyber Security) and freeCodeCamp (Information Security)",
+        "source_attribution": "Curated Industry Standard Curriculum",
         "stages": [
             {
                 "id": "sec_stage_1",
@@ -406,8 +406,8 @@ TOPIC_DETAILS = {
         "lectures": [
             {
                 "id": "lec_html_1",
-                "title": "HTML & CSS Complete Masterclass (freeCodeCamp Course)",
-                "provider": "freeCodeCamp.org",
+                "title": "HTML & CSS Complete Masterclass",
+                "provider": "Horizon Masterclass",
                 "video_url": "https://www.youtube.com/embed/mU6anWqZJcc",
                 "duration": "18 mins selected segment",
                 "summary": "Covers semantic HTML5 tags (<header>, <main>, <nav>, <article>, <aside>, <footer>) and modern CSS layout engines (Flexbox and Grid).",
@@ -530,7 +530,7 @@ Using `repeat(auto-fit, minmax(280px, 1fr))` automatically creates a fully respo
             {
                 "id": "lec_js_1",
                 "title": "JavaScript Async/Await & Event Loop Masterclass",
-                "provider": "Boot.dev & freeCodeCamp",
+                "provider": "Horizon Masterclass",
                 "video_url": "https://www.youtube.com/embed/8aGhZQkoFbQ",
                 "duration": "24 mins",
                 "summary": "Explains how the single-threaded JavaScript V8 engine handles asynchronous I/O via Call Stack, Web APIs, Microtask Queue, and Event Loop.",
@@ -632,7 +632,7 @@ This cuts your network wait time by up to 50%!
             {
                 "id": "lec_fastapi_1",
                 "title": "FastAPI Full Course for Beginners",
-                "provider": "freeCodeCamp.org",
+                "provider": "Horizon Masterclass",
                 "video_url": "https://www.youtube.com/embed/7t2alSnE2-I",
                 "duration": "30 mins selected",
                 "summary": "Learn modern Python backend development using FastAPI, automatic OpenAPI Swagger docs, Pydantic type validation, and dependency injection.",

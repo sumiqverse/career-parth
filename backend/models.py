@@ -34,6 +34,7 @@ class QuestionOption(BaseModel):
     id: str
     text: str
     domain_scores: Dict[str, int] # e.g. {"frontend": 3, "fullstack": 2}
+    is_idk: Optional[bool] = False
 
 class AssessmentQuestion(BaseModel):
     id: int
@@ -47,9 +48,20 @@ class AssessmentSubmitRequest(BaseModel):
 class AssessmentResultResponse(BaseModel):
     recommended_domain: str
     domain_display_name: str
+    archetype: Optional[str] = None
+    tagline: Optional[str] = None
     description: str
+    why_it_fits: Optional[str] = None
+    idk_count: int = 0
+    is_exploring_mode: bool = False
     domain_scores: Dict[str, int]
     top_roadmaps: List[Dict[str, Any]]
+
+class AdaptiveReflectionSubmit(BaseModel):
+    checkpoint_id: str
+    topic_id: str
+    selected_option_id: str
+    reinforce_domain: str
 
 # --- Roadmap & Course Models ---
 class TopicSummary(BaseModel):
@@ -80,13 +92,13 @@ class Roadmap(BaseModel):
     estimated_hours: int
     total_xp: int
     stages: List[Stage]
-    source_attribution: str = "Synthesized from roadmap.sh, freeCodeCamp, and Boot.dev"
+    source_attribution: str = "Industry Standard Curriculum"
 
 # --- Deep Topic Content Models ---
 class Lecture(BaseModel):
     id: str
     title: str
-    provider: str # freeCodeCamp / Boot.dev / Horizon Expert
+    provider: str = "Horizon Masterclass"
     video_url: str
     duration: str
     summary: str

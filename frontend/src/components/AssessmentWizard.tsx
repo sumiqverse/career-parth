@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { AssessmentQuestion, api, RoadmapSummary } from "@/lib/api";
 import { 
   Sparkles, ArrowRight, ArrowLeft, CheckCircle2, 
-  BrainCircuit, Layers, Trophy, Compass, ShieldCheck, Server 
+  BrainCircuit, Layers, Trophy, Compass, ShieldCheck, Server, HelpCircle, HeartHandshake 
 } from "lucide-react";
 import confetti from "canvas-confetti";
 
@@ -12,8 +12,12 @@ interface AssessmentWizardProps {
   onAssessmentComplete: (result: {
     recommended_domain: string;
     domain_display_name: string;
+    archetype?: string;
     tagline: string;
     description: string;
+    why_it_fits?: string;
+    idk_count?: number;
+    is_exploring_mode?: boolean;
     top_roadmaps: RoadmapSummary[];
   }) => void;
   onCancel: () => void;
@@ -38,7 +42,6 @@ export const AssessmentWizard: React.FC<AssessmentWizardProps> = ({
         if (data && data.length > 0) {
           setQuestions(data);
         } else {
-          // Fallback questions if backend is temporarily starting
           setQuestions(getFallbackQuestions());
         }
       } catch (e) {
@@ -68,7 +71,6 @@ export const AssessmentWizard: React.FC<AssessmentWizardProps> = ({
     try {
       const res = await api.submitAssessment(answers);
       setResult(res);
-      // Trigger celebratory confetti on assessment completion
       confetti({
         particleCount: 80,
         spread: 70,
@@ -78,10 +80,14 @@ export const AssessmentWizard: React.FC<AssessmentWizardProps> = ({
       // Offline fallback calculation
       const fallbackResult = {
         recommended_domain: "fullstack",
-        domain_display_name: "Full Stack Web Development",
-        tagline: "The Complete Product Builder",
-        description: "You thrive when building complete products from end to end. From dynamic frontend components to robust APIs, databases, and deployment pipelines.",
-        top_roadmaps: []
+        domain_display_name: "Full Stack Product Builder",
+        archetype: "The All-Rounder Creator",
+        tagline: "Turn Any Idea into a Complete Live Digital Product",
+        description: "You are naturally drawn to seeing the whole picture. Rather than getting stuck in isolated theory, your brain thrives on connecting the dots — designing the screen, handling the logic, and watching real people use what you created.",
+        why_it_fits: "Eliminates the 'I started Python and got lost' trap by giving you immediate visual wins in HTML/CSS/JS, followed step-by-step by backend and databases.",
+        top_roadmaps: [],
+        idk_count: 0,
+        is_exploring_mode: false
       };
       setResult(fallbackResult);
     } finally {
@@ -95,8 +101,8 @@ export const AssessmentWizard: React.FC<AssessmentWizardProps> = ({
         <div className="w-12 h-12 rounded-2xl bg-indigo-600/20 border border-indigo-500/30 flex items-center justify-center mx-auto mb-4 animate-spin">
           <Sparkles className="w-6 h-6 text-indigo-400" />
         </div>
-        <h3 className="text-xl font-bold text-white mb-2">Preparing 15 Diagnostic Questions...</h3>
-        <p className="text-sm text-slate-400">Loading personalized evaluation criteria</p>
+        <h3 className="text-xl font-bold text-white mb-2">Preparing Psychological Diagnostic...</h3>
+        <p className="text-sm text-slate-400">Calibrating non-technical evaluation for freshers & beginners</p>
       </div>
     );
   }
@@ -111,13 +117,13 @@ export const AssessmentWizard: React.FC<AssessmentWizardProps> = ({
           </div>
         </div>
         <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-3">
-          Synthesizing Your Engineering DNA...
+          Mapping Your Learning DNA & Mindset...
         </h2>
         <p className="text-slate-400 text-sm max-w-md mx-auto mb-6">
-          Analyzing your responses across algorithmic thinking, visual layout preference, systems affinity, and career goals.
+          Analyzing your cognitive instincts, frustration tolerance, and dopamine triggers to ensure you never abandon another roadmap.
         </p>
         <div className="w-full max-w-xs mx-auto bg-slate-800 rounded-full h-2 overflow-hidden">
-          <div className="bg-gradient-to-r from-indigo-500 to-cyan-400 h-full animate-[progress_1.5s_ease-in-out_infinite]" style={{ width: "80%" }} />
+          <div className="bg-gradient-to-r from-indigo-500 to-cyan-400 h-full animate-[progress_1.5s_ease-in-out_infinite]" style={{ width: "85%" }} />
         </div>
       </div>
     );
@@ -125,18 +131,20 @@ export const AssessmentWizard: React.FC<AssessmentWizardProps> = ({
 
   // --- Results View ---
   if (result) {
+    const isExploring = result.is_exploring_mode || (result.idk_count && result.idk_count >= 5);
+
     return (
       <div className="max-w-3xl mx-auto py-12 px-4 animate-fade-in">
         <div className="text-center mb-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-semibold mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-semibold mb-3">
             <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-            Diagnosis Complete • 100 XP Awarded
+            Psychological Calibration Complete • +100 XP
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Your Optimal Engineering Path
+            Your Personalized Engineering Identity
           </h2>
           <p className="text-slate-400 text-sm mt-1">
-            Based on your 15 responses, here is where your technical potential will accelerate fastest:
+            Custom-matched to how your brain naturally solves problems and stays motivated.
           </p>
         </div>
 
@@ -146,12 +154,14 @@ export const AssessmentWizard: React.FC<AssessmentWizardProps> = ({
           
           <div className="flex items-center gap-3 mb-4">
             <div className="p-3 rounded-2xl bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
-              <Compass className="w-7 h-7" />
+              {isExploring ? <HeartHandshake className="w-7 h-7 text-amber-400" /> : <Compass className="w-7 h-7" />}
             </div>
             <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-indigo-400">Primary Recommendation</span>
+              <span className="text-xs font-bold uppercase tracking-wider text-indigo-400">
+                {isExploring ? "Adaptive Discovery Track" : "Your Engineering Archetype"}
+              </span>
               <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
-                {result.domain_display_name}
+                {result.archetype || result.domain_display_name}
               </h3>
             </div>
           </div>
@@ -159,15 +169,44 @@ export const AssessmentWizard: React.FC<AssessmentWizardProps> = ({
           <p className="text-base text-indigo-200/90 font-medium italic mb-4">
             "{result.tagline}"
           </p>
-          <p className="text-sm text-slate-300 leading-relaxed mb-6">
-            {result.description}
-          </p>
+
+          <div className="p-4 rounded-2xl bg-slate-950/60 border border-slate-800/80 mb-5">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">
+              Why this fits your mind:
+            </h4>
+            <p className="text-sm text-slate-300 leading-relaxed">
+              {result.description}
+            </p>
+          </div>
+
+          {result.why_it_fits && (
+            <div className="p-4 rounded-2xl bg-indigo-950/30 border border-indigo-500/20 mb-6">
+              <span className="text-xs font-bold text-indigo-300 block mb-1">
+                🛡️ How this breaks the "started 4 languages and quit" cycle:
+              </span>
+              <p className="text-xs text-indigo-200/80 leading-relaxed">
+                {result.why_it_fits}
+              </p>
+            </div>
+          )}
+
+          {isExploring && (
+            <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 mb-6">
+              <div className="flex items-center gap-2 text-xs font-bold text-amber-300 mb-1">
+                <Sparkles className="w-4 h-4 text-amber-400" />
+                <span>Zero Pressure: Adaptive Learning Active</span>
+              </div>
+              <p className="text-xs text-amber-200/90 leading-relaxed">
+                You chose "I don't know" for multiple questions — which is completely honest and normal! We will start you on gentle, fun foundational topics, and our AI will ask you quick 5-second check-ins after hands-on labs to dynamically reveal your natural talent.
+              </p>
+            </div>
+          )}
 
           <button
             onClick={() => onAssessmentComplete(result)}
             className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 to-cyan-500 hover:from-indigo-500 hover:to-cyan-400 text-white font-bold text-sm shadow-xl shadow-indigo-600/30 flex items-center justify-center gap-2 transition-all transform hover:-translate-y-0.5"
           >
-            <span>Proceed to Top 4 Roadmaps</span>
+            <span>Proceed to Your Top 4 Roadmaps</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>
@@ -180,7 +219,6 @@ export const AssessmentWizard: React.FC<AssessmentWizardProps> = ({
   const progressPercent = Math.round(((currentIndex + 1) / questions.length) * 100);
   const selectedOptionId = currentQuestion ? answers[currentQuestion.id.toString()] : null;
   const isLastQuestion = currentIndex === questions.length - 1;
-  const allAnswered = Object.keys(answers).length >= questions.length;
 
   return (
     <div className="max-w-3xl mx-auto py-10 px-4">
@@ -209,7 +247,7 @@ export const AssessmentWizard: React.FC<AssessmentWizardProps> = ({
       {/* Question Header Card */}
       <div className="p-6 sm:p-8 rounded-3xl bg-slate-900/80 border border-slate-800 shadow-xl mb-6">
         <div className="inline-block px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-xs font-semibold mb-3">
-          Category: {currentQuestion.category}
+          🧠 {currentQuestion.category}
         </div>
         <h2 className="text-xl sm:text-2xl font-bold text-white leading-snug">
           {currentQuestion.question}
@@ -220,34 +258,48 @@ export const AssessmentWizard: React.FC<AssessmentWizardProps> = ({
       <div className="space-y-3 mb-8">
         {currentQuestion.options.map((option, idx) => {
           const isSelected = selectedOptionId === option.id;
+          const isIdkOption = option.is_idk || option.id.endsWith("_idk") || option.text.includes("🤔");
+
+          let cardStyle = "bg-slate-900/50 border-slate-800 hover:border-slate-700 hover:bg-slate-900/80";
+          if (isSelected) {
+            cardStyle = isIdkOption
+              ? "bg-amber-950/40 border-amber-500/80 shadow-lg shadow-amber-950/50 text-white"
+              : "bg-indigo-950/60 border-indigo-500/70 shadow-lg shadow-indigo-950/50 text-white";
+          } else if (isIdkOption) {
+            cardStyle = "bg-slate-900/30 border-dashed border-slate-700/80 hover:border-amber-500/50 hover:bg-slate-900/60";
+          }
+
           return (
             <div
               key={option.id}
               onClick={() => handleSelectOption(option.id)}
-              className={`p-4 sm:p-5 rounded-2xl border cursor-pointer transition-all flex items-center justify-between ${
-                isSelected
-                  ? "bg-indigo-950/60 border-indigo-500/70 shadow-lg shadow-indigo-950/50"
-                  : "bg-slate-900/50 border-slate-800 hover:border-slate-700 hover:bg-slate-900/80"
-              }`}
+              className={`p-4 sm:p-5 rounded-2xl border cursor-pointer transition-all flex items-center justify-between ${cardStyle}`}
             >
-              <div className="flex items-center gap-3.5">
-                <div className={`w-8 h-8 rounded-xl flex items-center justify-center text-xs font-bold transition-colors ${
+              <div className="flex items-center gap-3.5 pr-2">
+                <div className={`w-8 h-8 rounded-xl flex items-center justify-center text-xs font-bold transition-colors flex-shrink-0 ${
                   isSelected
-                    ? "bg-indigo-600 text-white"
-                    : "bg-slate-800 text-slate-400"
+                    ? isIdkOption ? "bg-amber-500 text-slate-950" : "bg-indigo-600 text-white"
+                    : isIdkOption ? "bg-slate-800 text-amber-300" : "bg-slate-800 text-slate-400"
                 }`}>
-                  {String.fromCharCode(65 + idx)}
+                  {isIdkOption ? "?" : String.fromCharCode(65 + idx)}
                 </div>
-                <span className={`text-sm sm:text-base font-medium ${
-                  isSelected ? "text-white font-semibold" : "text-slate-300"
-                }`}>
-                  {option.text}
-                </span>
+                <div>
+                  <span className={`text-sm sm:text-base font-medium ${
+                    isSelected ? "text-white font-semibold" : isIdkOption ? "text-slate-300 italic" : "text-slate-300"
+                  }`}>
+                    {option.text}
+                  </span>
+                  {isIdkOption && (
+                    <span className="block text-[11px] text-amber-400/80 font-normal mt-0.5">
+                      (Zero pressure: Our AI will ask gentle check-ins as you learn)
+                    </span>
+                  )}
+                </div>
               </div>
 
-              <div className={`w-5 h-5 rounded-full border flex items-center justify-center transition-all ${
+              <div className={`w-5 h-5 rounded-full border flex items-center justify-center transition-all flex-shrink-0 ${
                 isSelected
-                  ? "border-indigo-400 bg-indigo-500 text-white"
+                  ? isIdkOption ? "border-amber-400 bg-amber-500 text-slate-950" : "border-indigo-400 bg-indigo-500 text-white"
                   : "border-slate-700 bg-slate-950"
               }`}>
                 {isSelected && <CheckCircle2 className="w-4 h-4 fill-white text-indigo-600" />}
@@ -293,29 +345,29 @@ export const AssessmentWizard: React.FC<AssessmentWizardProps> = ({
   );
 };
 
-// Fallback questions if backend is temporarily offline
+// Fallback psychological questions if backend is starting
 function getFallbackQuestions(): AssessmentQuestion[] {
   return [
     {
       id: 1,
-      category: "Interests",
-      question: "When working on a digital project, which part excites you the most?",
+      category: "Natural Instinct",
+      question: "Think about your daily life. When do you get that sudden rush of satisfaction or excitement?",
       options: [
-        { id: "q1_a", text: "Designing sleek, responsive user interfaces with smooth animations", domain_scores: { frontend: 4 } },
-        { id: "q1_b", text: "Architecting database schemas, business logic, and fast APIs", domain_scores: { backend: 4 } },
-        { id: "q1_c", text: "Training smart models that can recognize patterns or generate insights", domain_scores: { ai_ml: 4 } },
-        { id: "q1_d", text: "Automating cloud deployments, servers, and zero-downtime infrastructure", domain_scores: { devops: 4 } }
+        { id: "q1_a", text: "When I draw, design, or rearrange something and it visually looks clean and satisfying.", domain_scores: { frontend: 4 } },
+        { id: "q1_b", text: "When I solve a tricky riddle, troubleshoot a broken gadget, or organize things into neat order.", domain_scores: { backend: 4 } },
+        { id: "q1_c", text: "When I find a smarter shortcut, automate a boring chore, or tweak computer settings.", domain_scores: { devops: 4 } },
+        { id: "q1_idk", text: "🤔 I honestly have no idea / Not sure yet (I haven't felt that excitement in tech yet).", is_idk: true, domain_scores: { fullstack: 1 } }
       ]
     },
     {
       id: 2,
-      category: "Scope",
-      question: "Would you rather wear all engineering hats or specialize deeply in one layer?",
+      category: "Past Experience",
+      question: "Be honest: Have you tried learning coding before (Python, C++, HTML, etc.)? What actually happened?",
       options: [
-        { id: "q2_a", text: "I want to be a full-stack maker: frontend, backend, database, and launch", domain_scores: { fullstack: 5 } },
-        { id: "q2_b", text: "Deep dive into backend databases, system design, and API concurrency", domain_scores: { backend: 4 } },
-        { id: "q2_c", text: "Master UI engineering, interaction design, and client-side performance", domain_scores: { frontend: 4 } },
-        { id: "q2_d", text: "Specialize in modern generative AI, transformers, and LLM applications", domain_scores: { ai_ml: 5 } }
+        { id: "q2_a", text: "I watched tutorials, but after a few days I got bored or felt lost because I didn't see where it was going.", domain_scores: { fullstack: 3 } },
+        { id: "q2_b", text: "I tried writing code, but when errors appeared, I got discouraged because I couldn't see visual progress.", domain_scores: { frontend: 4 } },
+        { id: "q2_c", text: "I enjoyed the logic puzzles, but the syntax memorization and heavy theory felt disconnected.", domain_scores: { backend: 4 } },
+        { id: "q2_idk", text: "🤔 I started 3 or 4 things at once and quit because I thought 'maybe coding is not my type'.", is_idk: true, domain_scores: { fullstack: 2 } }
       ]
     }
   ];

@@ -11,7 +11,7 @@
     "difficulty": "Beginner to Advanced",
     "estimated_hours": 120,
     "total_xp": 4500,
-    "source_attribution": "Synthesized from roadmap.sh (Full Stack), freeCodeCamp (Responsive Web & Full Stack), and Boot.dev (Web Dev Core)",
+    "source_attribution": "Curated Industry Standard Curriculum",
     "stages": [
       {
         "id": "fs_stage_1",
@@ -124,7 +124,7 @@
     "difficulty": "Intermediate to Advanced",
     "estimated_hours": 100,
     "total_xp": 4200,
-    "source_attribution": "Synthesized from roadmap.sh (Backend) and Boot.dev (Backend in Go & Python)",
+    "source_attribution": "Curated Industry Standard Curriculum",
     "stages": [
       {
         "id": "be_stage_1",
@@ -205,7 +205,7 @@
     "difficulty": "Intermediate to Advanced",
     "estimated_hours": 140,
     "total_xp": 5000,
-    "source_attribution": "Synthesized from roadmap.sh (AI and Data Science) and freeCodeCamp (Machine Learning with Python)",
+    "source_attribution": "Curated Industry Standard Curriculum",
     "stages": [
       {
         "id": "ai_stage_1",
@@ -278,7 +278,7 @@
     "difficulty": "Beginner to Intermediate",
     "estimated_hours": 90,
     "total_xp": 3800,
-    "source_attribution": "Synthesized from roadmap.sh (Frontend) and freeCodeCamp (Front End Development Libraries)",
+    "source_attribution": "Curated Industry Standard Curriculum",
     "stages": [
       {
         "id": "fe_stage_1",
@@ -327,7 +327,7 @@
     "difficulty": "Intermediate to Advanced",
     "estimated_hours": 110,
     "total_xp": 4400,
-    "source_attribution": "Synthesized from roadmap.sh (DevOps) and freeCodeCamp (DevOps Bootcamp)",
+    "source_attribution": "Curated Industry Standard Curriculum",
     "stages": [
       {
         "id": "do_stage_1",
@@ -376,7 +376,7 @@
     "difficulty": "Intermediate to Advanced",
     "estimated_hours": 115,
     "total_xp": 4600,
-    "source_attribution": "Synthesized from roadmap.sh (Cyber Security) and freeCodeCamp (Information Security)",
+    "source_attribution": "Curated Industry Standard Curriculum",
     "stages": [
       {
         "id": "sec_stage_1",
