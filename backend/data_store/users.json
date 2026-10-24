@@ -1,0 +1,20 @@
+[
+  {
+    "id": "user_871b1327a8ba",
+    "email": "test_301919@horizon.dev",
+    "password_hash": "$2b$12$zpygLc/KXBuTmS7ihCJM1u4bho/L7NDqcw.r0eXJsHBAQDz1xN3Ci",
+    "full_name": "Antigravity Tester",
+    "avatar": "https://api.dicebear.com/7.x/bottts/svg?seed=user_871b1327a8ba",
+    "created_at": "2026-10-24T05:55:37.419872",
+    "primary_domain": "ai_ml",
+    "xp": 185,
+    "streak": 1,
+    "level": 1,
+    "badges": [
+      "Novice Explorer",
+      "Account Created"
+    ],
+    "last_active": "2026-10-24",
+    "_id": "user_871b1327a8ba"
+  }
+]

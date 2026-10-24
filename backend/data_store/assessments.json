@@ -1,0 +1,30 @@
+[
+  {
+    "id": "asmt_088671136c",
+    "user_id": "user_871b1327a8ba",
+    "submitted_at": "2026-10-24T05:55:38.006573",
+    "answers": {
+      "1": "q1_c",
+      "2": "q2_a",
+      "4": "q4_b",
+      "5": "q5_d",
+      "7": "q7_b",
+      "8": "q8_c",
+      "9": "q9_c",
+      "10": "q10_d",
+      "12": "q12_b",
+      "13": "q13_a",
+      "15": "q15_c"
+    },
+    "recommended_domain": "ai_ml",
+    "domain_scores": {
+      "fullstack": 0,
+      "backend": 4,
+      "ai_ml": 47,
+      "frontend": 0,
+      "devops": 0,
+      "cybersecurity": 0
+    },
+    "_id": "asmt_088671136c"
+  }
+]

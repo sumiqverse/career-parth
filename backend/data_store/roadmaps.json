@@ -1,0 +1,400 @@
+[
+  {
+    "id": "rm_fullstack",
+    "slug": "full-stack-developer",
+    "title": "Full Stack Web Development",
+    "tagline": "From Zero to Full Stack Production Maestro",
+    "description": "The complete journey from modern JavaScript and React to scalable FastAPI / Node.js backends, MongoDB / PostgreSQL databases, and cloud deployment.",
+    "domain": "fullstack",
+    "icon": "Layers",
+    "gradient": "from-indigo-600 via-purple-600 to-pink-600",
+    "difficulty": "Beginner to Advanced",
+    "estimated_hours": 120,
+    "total_xp": 4500,
+    "source_attribution": "Synthesized from roadmap.sh (Full Stack), freeCodeCamp (Responsive Web & Full Stack), and Boot.dev (Web Dev Core)",
+    "stages": [
+      {
+        "id": "fs_stage_1",
+        "order": 1,
+        "title": "Stage 1: Web Fundamentals & Modern JavaScript",
+        "description": "Master the core trio of the web: semantic HTML, modern responsive CSS, and modern ES6+ JavaScript.",
+        "topics": [
+          {
+            "id": "fs_topic_html_css",
+            "title": "Semantic HTML & Modern Flexbox/Grid",
+            "description": "Understand document structure, accessibility, and modern responsive layout engines.",
+            "duration_mins": 45,
+            "xp": 100,
+            "is_completed": false
+          },
+          {
+            "id": "fs_topic_js_es6",
+            "title": "Modern JavaScript (ES6+): Closures, Async/Await & APIs",
+            "description": "Deep-dive into event loops, promises, async/await, fetch API, and destructuring.",
+            "duration_mins": 60,
+            "xp": 150,
+            "is_completed": false
+          }
+        ]
+      },
+      {
+        "id": "fs_stage_2",
+        "order": 2,
+        "title": "Stage 2: Frontend Engineering with React & Next.js",
+        "description": "Build reactive component hierarchies, manage server/client state, and render server-side.",
+        "topics": [
+          {
+            "id": "fs_topic_react_core",
+            "title": "React Architecture: Hooks, State & Component Lifecycle",
+            "description": "Component composition, useState, useEffect, custom hooks, and state immutability.",
+            "duration_mins": 60,
+            "xp": 150,
+            "is_completed": false
+          },
+          {
+            "id": "fs_topic_nextjs_app_router",
+            "title": "Next.js App Router: Server Components & Data Fetching",
+            "description": "Server vs Client Components, dynamic routing, metadata SEO, and streaming UI.",
+            "duration_mins": 75,
+            "xp": 200,
+            "is_completed": false
+          }
+        ]
+      },
+      {
+        "id": "fs_stage_3",
+        "order": 3,
+        "title": "Stage 3: Scalable Backend & REST API Engineering",
+        "description": "Design secure RESTful APIs, authenticate users, and manage server business logic.",
+        "topics": [
+          {
+            "id": "fs_topic_backend_apis",
+            "title": "FastAPI & REST Architecture: Routing, Pydantic & Validation",
+            "description": "Build high-throughput async endpoints, request/response models, and status codes.",
+            "duration_mins": 60,
+            "xp": 175,
+            "is_completed": false
+          },
+          {
+            "id": "fs_topic_auth_jwt",
+            "title": "Authentication & Security: JWT, Password Hashing & RBAC",
+            "description": "Implement token-based authentication, bcrypt hashing, and protected route guards.",
+            "duration_mins": 60,
+            "xp": 175,
+            "is_completed": false
+          }
+        ]
+      },
+      {
+        "id": "fs_stage_4",
+        "order": 4,
+        "title": "Stage 4: Databases, Persistence & Cloud Deployment",
+        "description": "Store data at scale with MongoDB and SQL, write migrations, and deploy live.",
+        "topics": [
+          {
+            "id": "fs_topic_mongodb_scale",
+            "title": "MongoDB & Document Databases: Schemas, Aggregations & Indexes",
+            "description": "Master flexible NoSQL collections, BSON, compounding indexes, and pipeline queries.",
+            "duration_mins": 60,
+            "xp": 150,
+            "is_completed": false
+          },
+          {
+            "id": "fs_topic_deployment_docker",
+            "title": "Containerization & CI/CD: Docker, GitHub Actions & Vercel",
+            "description": "Package full-stack apps into multi-stage Docker containers and deploy seamlessly.",
+            "duration_mins": 60,
+            "xp": 200,
+            "is_completed": false
+          }
+        ]
+      }
+    ],
+    "_id": "rm_fullstack"
+  },
+  {
+    "id": "rm_backend",
+    "slug": "backend-developer",
+    "title": "Backend Engineering & System Architecture",
+    "tagline": "Master Distributed APIs, Databases, Caching & Scalability",
+    "description": "A comprehensive backend mastery path covering API design, relational & NoSQL databases, caching with Redis, message brokers, and high-concurrency systems.",
+    "domain": "backend",
+    "icon": "Server",
+    "gradient": "from-emerald-600 via-teal-600 to-cyan-600",
+    "difficulty": "Intermediate to Advanced",
+    "estimated_hours": 100,
+    "total_xp": 4200,
+    "source_attribution": "Synthesized from roadmap.sh (Backend) and Boot.dev (Backend in Go & Python)",
+    "stages": [
+      {
+        "id": "be_stage_1",
+        "order": 1,
+        "title": "Stage 1: HTTP Protocols, Network Layers & API Foundations",
+        "description": "Deep understanding of TCP/IP, HTTP/1.1 vs HTTP/2/3, headers, status codes, and idempotency.",
+        "topics": [
+          {
+            "id": "be_topic_http_protocols",
+            "title": "HTTP In-Depth: Headers, Caching, Methods & Sockets",
+            "description": "Master HTTP specifications, request lifecycle, TLS handshakes, and CORS headers.",
+            "duration_mins": 50,
+            "xp": 125,
+            "is_completed": false
+          },
+          {
+            "id": "be_topic_api_design",
+            "title": "RESTful API Standards & OpenAPI / Swagger Specification",
+            "description": "Design intuitive REST resources, versioning schemes, pagination, and error envelopes.",
+            "duration_mins": 55,
+            "xp": 150,
+            "is_completed": false
+          }
+        ]
+      },
+      {
+        "id": "be_stage_2",
+        "order": 2,
+        "title": "Stage 2: Database Mastery & Query Optimization",
+        "description": "Relational schemas, ACID transactions, normalization, and NoSQL trade-offs.",
+        "topics": [
+          {
+            "id": "be_topic_sql_deep",
+            "title": "PostgreSQL & Relational Modeling: Joins, Indexes & Transactions",
+            "description": "Write complex SQL queries, understand EXPLAIN ANALYZE, and prevent slow table scans.",
+            "duration_mins": 70,
+            "xp": 180,
+            "is_completed": false
+          },
+          {
+            "id": "be_topic_caching_redis",
+            "title": "Redis & In-Memory Caching Strategies",
+            "description": "Implement Cache-Aside, Write-Through, TTL strategies, and rate limiting algorithms.",
+            "duration_mins": 55,
+            "xp": 160,
+            "is_completed": false
+          }
+        ]
+      },
+      {
+        "id": "be_stage_3",
+        "order": 3,
+        "title": "Stage 3: Asynchronous Queues & Microservices",
+        "description": "Decoupling systems with message queues, background workers, and service meshes.",
+        "topics": [
+          {
+            "id": "be_topic_queues_celery",
+            "title": "Background Tasks & Message Brokers (RabbitMQ & Kafka)",
+            "description": "Decouple heavy tasks using producer-consumer queues and idempotent workers.",
+            "duration_mins": 65,
+            "xp": 190,
+            "is_completed": false
+          }
+        ]
+      }
+    ],
+    "_id": "rm_backend"
+  },
+  {
+    "id": "rm_ai_ml",
+    "slug": "ai-ml-engineer",
+    "title": "AI & Machine Learning Engineering",
+    "tagline": "Build Intelligent Systems from Foundations to Modern LLMs",
+    "description": "Master Python data science, core machine learning algorithms, deep learning with PyTorch, and modern generative AI with LangChain, RAG, and vector databases.",
+    "domain": "ai_ml",
+    "icon": "BrainCircuit",
+    "gradient": "from-cyan-500 via-blue-600 to-indigo-700",
+    "difficulty": "Intermediate to Advanced",
+    "estimated_hours": 140,
+    "total_xp": 5000,
+    "source_attribution": "Synthesized from roadmap.sh (AI and Data Science) and freeCodeCamp (Machine Learning with Python)",
+    "stages": [
+      {
+        "id": "ai_stage_1",
+        "order": 1,
+        "title": "Stage 1: Mathematics & Python for Machine Learning",
+        "description": "NumPy array vectorization, Pandas data manipulation, and linear algebra fundamentals.",
+        "topics": [
+          {
+            "id": "ai_topic_numpy_pandas",
+            "title": "NumPy & Pandas: Matrix Operations & Feature Engineering",
+            "description": "Master broadcasting, vectorized computation, handling missing values, and data cleaning.",
+            "duration_mins": 60,
+            "xp": 150,
+            "is_completed": false
+          },
+          {
+            "id": "ai_topic_classical_ml",
+            "title": "Classical ML: Regression, Decision Trees & Random Forests",
+            "description": "Train, evaluate, and tune supervised learning models with scikit-learn.",
+            "duration_mins": 70,
+            "xp": 180,
+            "is_completed": false
+          }
+        ]
+      },
+      {
+        "id": "ai_stage_2",
+        "order": 2,
+        "title": "Stage 2: Deep Learning & Neural Architectures",
+        "description": "Backpropagation, PyTorch tensors, Convolutional Networks, and Transformers.",
+        "topics": [
+          {
+            "id": "ai_topic_pytorch_foundations",
+            "title": "PyTorch Fundamentals: Autograd, Tensors & Training Loops",
+            "description": "Build neural networks from scratch with forward passes, loss functions, and optimizers.",
+            "duration_mins": 80,
+            "xp": 220,
+            "is_completed": false
+          }
+        ]
+      },
+      {
+        "id": "ai_stage_3",
+        "order": 3,
+        "title": "Stage 3: Generative AI, RAG & LLM Agents",
+        "description": "Embeddings, vector databases, retrieval-augmented generation, and autonomous agent loops.",
+        "topics": [
+          {
+            "id": "ai_topic_rag_embeddings",
+            "title": "Retrieval-Augmented Generation (RAG) & Vector Databases",
+            "description": "Chunk documents, generate vector embeddings, query semantic stores, and synthesize context.",
+            "duration_mins": 75,
+            "xp": 250,
+            "is_completed": false
+          }
+        ]
+      }
+    ],
+    "_id": "rm_ai_ml"
+  },
+  {
+    "id": "rm_frontend",
+    "slug": "frontend-developer",
+    "title": "Frontend & UI/UX Engineering",
+    "tagline": "Craft World-Class, Fluid, High-Performance Web Applications",
+    "description": "Specialized path focusing on modern React, state management, animations, accessibility (a11y), Tailwind CSS, and Core Web Vitals optimization.",
+    "domain": "frontend",
+    "icon": "Palette",
+    "gradient": "from-amber-500 via-orange-600 to-rose-600",
+    "difficulty": "Beginner to Intermediate",
+    "estimated_hours": 90,
+    "total_xp": 3800,
+    "source_attribution": "Synthesized from roadmap.sh (Frontend) and freeCodeCamp (Front End Development Libraries)",
+    "stages": [
+      {
+        "id": "fe_stage_1",
+        "order": 1,
+        "title": "Stage 1: Advanced CSS, Tailwind & Design Systems",
+        "description": "Tokens, CSS Grid, animations, dark mode palettes, and responsive typography.",
+        "topics": [
+          {
+            "id": "fe_topic_tailwind_design_systems",
+            "title": "Tailwind CSS & Design Tokens: Building Reusable Component Libraries",
+            "description": "Design systems, atomic classes, dark mode theming, and accessible form controls.",
+            "duration_mins": 50,
+            "xp": 130,
+            "is_completed": false
+          }
+        ]
+      },
+      {
+        "id": "fe_stage_2",
+        "order": 2,
+        "title": "Stage 2: State Management & Client Performance",
+        "description": "Zustand, React Query/TanStack, and optimizing Core Web Vitals.",
+        "topics": [
+          {
+            "id": "fe_topic_tanstack_query",
+            "title": "TanStack Query & Client State: Server Cache & Optimistic Updates",
+            "description": "Master data fetching, automatic caching, deduplication, and optimistic mutations.",
+            "duration_mins": 65,
+            "xp": 170,
+            "is_completed": false
+          }
+        ]
+      }
+    ],
+    "_id": "rm_frontend"
+  },
+  {
+    "id": "rm_devops",
+    "slug": "devops-engineer",
+    "title": "DevOps & Cloud Architecture",
+    "tagline": "Automate, Orchestrate and Scale Resilient Cloud Systems",
+    "description": "Master Linux systems administration, Docker containerization, Kubernetes orchestration, CI/CD with GitHub Actions, Terraform Infrastructure as Code, and cloud monitoring.",
+    "domain": "devops",
+    "icon": "CloudLightning",
+    "gradient": "from-blue-600 via-indigo-600 to-violet-700",
+    "difficulty": "Intermediate to Advanced",
+    "estimated_hours": 110,
+    "total_xp": 4400,
+    "source_attribution": "Synthesized from roadmap.sh (DevOps) and freeCodeCamp (DevOps Bootcamp)",
+    "stages": [
+      {
+        "id": "do_stage_1",
+        "order": 1,
+        "title": "Stage 1: Linux Administration & Container Foundations",
+        "description": "Bash automation, networking, process management, and Docker images.",
+        "topics": [
+          {
+            "id": "do_topic_docker_mastery",
+            "title": "Docker Deep Dive: Multi-Stage Builds, Volumes & Networks",
+            "description": "Write lean Dockerfiles, isolate network namespaces, and run multi-service Docker Compose.",
+            "duration_mins": 60,
+            "xp": 160,
+            "is_completed": false
+          }
+        ]
+      },
+      {
+        "id": "do_stage_2",
+        "order": 2,
+        "title": "Stage 2: Kubernetes & Continuous Delivery",
+        "description": "Pods, Deployments, Services, Helm charts, and automated zero-downtime rollouts.",
+        "topics": [
+          {
+            "id": "do_topic_kubernetes_core",
+            "title": "Kubernetes Architecture: Pods, Services, Ingress & Helm",
+            "description": "Orchestrate distributed containers, configure ingress controllers, and scale replicas.",
+            "duration_mins": 75,
+            "xp": 210,
+            "is_completed": false
+          }
+        ]
+      }
+    ],
+    "_id": "rm_devops"
+  },
+  {
+    "id": "rm_cybersecurity",
+    "slug": "cyber-security",
+    "title": "Cyber Security & Defensive Engineering",
+    "tagline": "Defend Networks, Prevent Exploits & Conduct Penetration Testing",
+    "description": "Learn network packet analysis, OWASP Top 10 web vulnerabilities, cryptography fundamentals, security auditing, and cloud security compliance.",
+    "domain": "cybersecurity",
+    "icon": "ShieldCheck",
+    "gradient": "from-red-600 via-rose-600 to-amber-600",
+    "difficulty": "Intermediate to Advanced",
+    "estimated_hours": 115,
+    "total_xp": 4600,
+    "source_attribution": "Synthesized from roadmap.sh (Cyber Security) and freeCodeCamp (Information Security)",
+    "stages": [
+      {
+        "id": "sec_stage_1",
+        "order": 1,
+        "title": "Stage 1: Web Application Security & OWASP Top 10",
+        "description": "Understand how attacks happen: Injection, Broken Auth, XSS, and CSRF.",
+        "topics": [
+          {
+            "id": "sec_topic_owasp_top10",
+            "title": "OWASP Top 10 Deep Dive: Exploitation & Hardening",
+            "description": "Hands-on vulnerability analysis: SQL injection, SSRF, Cross-Site Scripting, and defenses.",
+            "duration_mins": 65,
+            "xp": 175,
+            "is_completed": false
+          }
+        ]
+      }
+    ],
+    "_id": "rm_cybersecurity"
+  }
+]

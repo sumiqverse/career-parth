@@ -1,0 +1,246 @@
+[
+  {
+    "id": "fs_topic_html_css",
+    "roadmap_slug": "full-stack-developer",
+    "stage_id": "fs_stage_1",
+    "title": "Semantic HTML & Modern Flexbox/Grid",
+    "description": "Understand document structure, accessibility, and modern responsive layout engines.",
+    "lectures": [
+      {
+        "id": "lec_html_1",
+        "title": "HTML & CSS Complete Masterclass (freeCodeCamp Course)",
+        "provider": "freeCodeCamp.org",
+        "video_url": "https://www.youtube.com/embed/mU6anWqZJcc",
+        "duration": "18 mins selected segment",
+        "summary": "Covers semantic HTML5 tags (<header>, <main>, <nav>, <article>, <aside>, <footer>) and modern CSS layout engines (Flexbox and Grid).",
+        "key_takeaways": [
+          "Semantic tags improve SEO, screen reader accessibility, and code clarity.",
+          "Flexbox is ideal for 1-dimensional layouts (rows or columns).",
+          "CSS Grid excels at 2-dimensional grid layouts with fr units and template areas.",
+          "Always design mobile-first with CSS media queries (min-width)."
+        ]
+      }
+    ],
+    "notes": "# Semantic HTML & Modern CSS Layouts\n\nSemantic HTML gives meaning to your web structure rather than wrapping everything in generic `<div>` tags.\n\n### 1. Essential Semantic Elements\n- `<header>`: Introduces a section or page, typically holds branding and navigation.\n- `<nav>`: Dedicated container for primary navigation links.\n- `<main>`: Contains the unique, central content of the document.\n- `<article>`: Self-contained composition that makes sense on its own (e.g. blog post, card).\n- `<section>`: Thematic grouping of content, typically with a heading.\n- `<footer>`: Closing metadata, copyright, links, and contact info.\n\n### 2. Flexbox Quick Cheat Sheet\n```css\n.container {\n  display: flex;\n  justify-content: space-between; /* align items on main axis */\n  align-items: center;            /* align items on cross axis */\n  gap: 1.5rem;                    /* modern spacing without margin hacks */\n  flex-wrap: wrap;                /* responsive flow */\n}\n```\n\n### 3. CSS Grid in Action\n```css\n.card-grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));\n  gap: 2rem;\n}\n```\nUsing `repeat(auto-fit, minmax(280px, 1fr))` automatically creates a fully responsive grid without a single media query!\n",
+    "questions": [
+      {
+        "id": "q_html_1",
+        "question": "Which CSS property combination creates an automatically wrapping responsive grid with no media queries?",
+        "options": [
+          "grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));",
+          "display: flex; flex-direction: column; overflow: auto;",
+          "grid-columns: 3; float: left; width: 33%;",
+          "display: block; margin: 0 auto; max-width: 1200px;"
+        ],
+        "correct_option": 0,
+        "explanation": "repeat(auto-fit, minmax(minSize, 1fr)) dynamically computes how many columns fit inside the viewport and stretches them evenly.",
+        "xp": 25
+      },
+      {
+        "id": "q_html_2",
+        "question": "Why is using <main> preferred over <div id='main'>?",
+        "options": [
+          "It automatically applies CSS styling in all browsers",
+          "Screen readers and assistive technologies use it as a landmark to jump directly to primary content",
+          "It improves browser JavaScript execution speed",
+          "It is required by the HTTP/2 specification"
+        ],
+        "correct_option": 1,
+        "explanation": "Assistive technologies rely on HTML5 landmark elements like <main> and <nav> to allow keyboard users to skip repetitive navigation.",
+        "xp": 25
+      }
+    ],
+    "lab": {
+      "id": "lab_html_1",
+      "title": "Lab: Build a Responsive Card Container",
+      "instructions": "Write a CSS rule for `.feature-grid` that uses CSS Grid with a 24px (1.5rem) gap and repeats columns using `repeat(auto-fit, minmax(250px, 1fr))`.",
+      "language": "css",
+      "starter_code": "/* Complete the .feature-grid rule below */\n.feature-grid {\n  display: grid;\n  /* Add gap and grid-template-columns here */\n\n}",
+      "test_cases": [
+        {
+          "input": "display: grid;",
+          "expected": "display: grid",
+          "description": "Grid display property is set"
+        },
+        {
+          "input": "minmax",
+          "expected": "minmax",
+          "description": "minmax function used for responsive columns"
+        }
+      ],
+      "hint": "Use: grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;",
+      "xp": 50
+    },
+    "workshop": {
+      "id": "ws_html_1",
+      "title": "Workshop: Responsive SaaS Landing Page Hero",
+      "tagline": "Build a modern glassmorphic hero section using semantic HTML & Flexbox/Grid",
+      "overview": "Synthesize what you've learned to build a live landing page hero section with badges, headline, dual CTAs, and a floating stat card.",
+      "steps": [
+        "Step 1: Set up the semantic <header> with logo and nav links using Flexbox justify-between.",
+        "Step 2: Create the <main> container with a 2-column responsive grid layout.",
+        "Step 3: Add typography with clean tracking and leading, styling gradient text with background-clip: text.",
+        "Step 4: Implement interactive hover states with transform: translateY(-2px) and glowing box-shadows."
+      ],
+      "acceptance_criteria": [
+        "Uses semantic <header>, <nav>, and <main> tags",
+        "Grid collapses gracefully on screen widths below 768px",
+        "Buttons have accessible focus and hover states"
+      ],
+      "xp": 100
+    },
+    "_id": "fs_topic_html_css"
+  },
+  {
+    "id": "fs_topic_js_es6",
+    "roadmap_slug": "full-stack-developer",
+    "stage_id": "fs_stage_1",
+    "title": "Modern JavaScript (ES6+): Closures, Async/Await & APIs",
+    "description": "Deep-dive into event loops, promises, async/await, fetch API, and destructuring.",
+    "lectures": [
+      {
+        "id": "lec_js_1",
+        "title": "JavaScript Async/Await & Event Loop Masterclass",
+        "provider": "Boot.dev & freeCodeCamp",
+        "video_url": "https://www.youtube.com/embed/8aGhZQkoFbQ",
+        "duration": "24 mins",
+        "summary": "Explains how the single-threaded JavaScript V8 engine handles asynchronous I/O via Call Stack, Web APIs, Microtask Queue, and Event Loop.",
+        "key_takeaways": [
+          "JavaScript is single-threaded; asynchronous operations are delegated to runtime Web APIs.",
+          "Promises queue microtasks, which take precedence over macrotasks like setTimeout.",
+          "async/await is syntactic sugar over Promises that makes asynchronous code read synchronously.",
+          "Always wrap await calls in try/catch blocks for bulletproof error handling."
+        ]
+      }
+    ],
+    "notes": "# Modern JavaScript: Async/Await & The Event Loop\n\nUnderstanding asynchronous JavaScript is the single most important skill for full-stack engineering.\n\n### 1. Promises and Async/Await Pattern\n```javascript\nasync function fetchUserRoadmap(userId) {\n  try {\n    const response = await fetch(`/api/users/${userId}/roadmap`);\n    if (!response.ok) {\n      throw new Error(`HTTP Error: ${response.status}`);\n    }\n    const data = await response.json();\n    return data;\n  } catch (error) {\n    console.error(\"Failed to load roadmap:\", error.message);\n    throw error;\n  }\n}\n```\n\n### 2. Parallel Asynchronous Operations with Promise.all\nWhen requests do not depend on each other, fire them concurrently:\n```javascript\nconst [roadmapRes, userProgressRes] = await Promise.all([\n  fetch('/api/roadmaps/full-stack-developer'),\n  fetch('/api/user/progress')\n]);\n```\nThis cuts your network wait time by up to 50%!\n",
+    "questions": [
+      {
+        "id": "q_js_1",
+        "question": "What happens if one promise rejects in Promise.all([p1, p2, p3])?",
+        "options": [
+          "The remaining promises continue and return a partial array",
+          "The entire Promise.all immediately rejects with the reason of the first rejected promise",
+          "The browser retries the failed promise three times",
+          "It returns undefined for the failed promise"
+        ],
+        "correct_option": 1,
+        "explanation": "Promise.all has fail-fast behavior: if any passed promise rejects, Promise.all immediately rejects with that error. (Use Promise.allSettled if you need results of all promises regardless of rejections).",
+        "xp": 25
+      }
+    ],
+    "lab": {
+      "id": "lab_js_1",
+      "title": "Lab: Asynchronous Data Aggregator Function",
+      "instructions": "Implement an async function `loadUserTrack(apiUrl)` that fetches JSON from `apiUrl`, extracts the `track` property, and returns it.",
+      "language": "javascript",
+      "starter_code": "async function loadUserTrack(apiUrl) {\n  // Fetch data from apiUrl and return data.track\n  \n}",
+      "test_cases": [
+        {
+          "input": "apiUrl",
+          "expected": "track",
+          "description": "Extracts track property from parsed JSON"
+        }
+      ],
+      "hint": "const res = await fetch(apiUrl); const data = await res.json(); return data.track;",
+      "xp": 50
+    },
+    "workshop": {
+      "id": "ws_js_1",
+      "title": "Workshop: Real-time Currency / Crypto Rate Tracker",
+      "tagline": "Build an async rate fetcher with exponential backoff and error recovery",
+      "overview": "Implement a resilient async data pipeline that polls public exchange APIs, caches results in localStorage, and handles network offline events gracefully.",
+      "steps": [
+        "Step 1: Set up async fetch wrapper with timeout support via AbortController.",
+        "Step 2: Add retry logic with exponential backoff.",
+        "Step 3: Update UI state reactively with the fetched rates."
+      ],
+      "acceptance_criteria": [
+        "Uses async/await with try/catch",
+        "Uses AbortController for request cancellation",
+        "Displays user-friendly errors on network failure"
+      ],
+      "xp": 100
+    },
+    "_id": "fs_topic_js_es6"
+  },
+  {
+    "id": "fs_topic_backend_apis",
+    "roadmap_slug": "full-stack-developer",
+    "stage_id": "fs_stage_3",
+    "title": "FastAPI & REST Architecture: Routing, Pydantic & Validation",
+    "description": "Build high-throughput async endpoints, request/response models, and status codes.",
+    "lectures": [
+      {
+        "id": "lec_fastapi_1",
+        "title": "FastAPI Full Course for Beginners",
+        "provider": "freeCodeCamp.org",
+        "video_url": "https://www.youtube.com/embed/7t2alSnE2-I",
+        "duration": "30 mins selected",
+        "summary": "Learn modern Python backend development using FastAPI, automatic OpenAPI Swagger docs, Pydantic type validation, and dependency injection.",
+        "key_takeaways": [
+          "FastAPI is built on Starlette and Pydantic, making it one of the fastest Python frameworks.",
+          "Type annotations provide automatic data validation and interactive documentation at /docs.",
+          "Use async def for endpoints performing I/O bound tasks like database queries.",
+          "Status codes communicate intent: 200 (OK), 201 (Created), 400 (Bad Request), 401 (Unauthorized), 404 (Not Found)."
+        ]
+      }
+    ],
+    "notes": "# Building Scalable APIs with FastAPI\n\nFastAPI combines pythonic type hints with blazing speed and automatic validation.\n\n### 1. Minimal FastAPI Route with Pydantic\n```python\nfrom fastapi import FastAPI, HTTPException, status\nfrom pydantic import BaseModel, Field\n\napp = FastAPI(title=\"Horizon Learning API\")\n\nclass RoadmapCreate(BaseModel):\n    title: str = Field(..., min_length=3, max_length=100)\n    domain: str\n    estimated_hours: int = Field(gt=0)\n\n@app.post(\"/api/roadmaps\", status_code=status.HTTP_201_CREATED)\nasync def create_roadmap(payload: RoadmapCreate):\n    # Payload is guaranteed to be validated against schema\n    new_roadmap = payload.model_dump()\n    return {\"status\": \"success\", \"data\": new_roadmap}\n```\n",
+    "questions": [
+      {
+        "id": "q_fastapi_1",
+        "question": "What happens when a client sends invalid JSON types to a FastAPI endpoint using Pydantic?",
+        "options": [
+          "FastAPI automatically returns a 422 Unprocessable Entity with detailed field error explanations",
+          "The server throws an unhandled 500 Internal Server Error",
+          "FastAPI silently coerces all invalid fields to None",
+          "The request hangs indefinitely"
+        ],
+        "correct_option": 0,
+        "explanation": "Pydantic catches type mismatches before your route function runs and returns a structured 422 response detailing exactly which fields failed validation.",
+        "xp": 25
+      }
+    ],
+    "lab": {
+      "id": "lab_fastapi_1",
+      "title": "Lab: Create a Validated User Registration Schema",
+      "instructions": "Define a Pydantic model `UserRegister` with `email: str`, `password: str`, and `full_name: str`.",
+      "language": "python",
+      "starter_code": "from pydantic import BaseModel\n\n# Create UserRegister model here\nclass UserRegister(BaseModel):\n    pass\n",
+      "test_cases": [
+        {
+          "input": "email",
+          "expected": "email",
+          "description": "email field exists"
+        },
+        {
+          "input": "password",
+          "expected": "password",
+          "description": "password field exists"
+        }
+      ],
+      "hint": "class UserRegister(BaseModel):\n    email: str\n    password: str\n    full_name: str",
+      "xp": 50
+    },
+    "workshop": {
+      "id": "ws_fastapi_1",
+      "title": "Workshop: Build a Complete RESTful Roadmap Microservice",
+      "tagline": "CRUD endpoints with MongoDB persistence and automatic OpenAPI docs",
+      "overview": "Implement GET, POST, PUT, and DELETE endpoints with query filtering, pagination, and error handling.",
+      "steps": [
+        "Step 1: Set up FastAPI router with tags.",
+        "Step 2: Connect async MongoDB collection.",
+        "Step 3: Implement pagination using limit and skip query params.",
+        "Step 4: Verify generated OpenAPI docs at /docs."
+      ],
+      "acceptance_criteria": [
+        "Includes all 4 HTTP methods",
+        "Validates payloads with Pydantic",
+        "Proper status codes returned"
+      ],
+      "xp": 100
+    },
+    "_id": "fs_topic_backend_apis"
+  }
+]
